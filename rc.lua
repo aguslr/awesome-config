@@ -187,6 +187,7 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({
+    width = 150,
     items = {
         { "Awesome", myawesomemenu, beautiful.awesome_icon },
         { "Debian", debian.menu.Debian_menu.Debian, beautiful.debian_icon },
