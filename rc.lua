@@ -167,10 +167,10 @@ mediamenu = {
 }
 
 utilitiesmenu = {
-    { "mc",         fm,                 beautiful.system_icons .. "mc.xpm" },
-    { "terminal",   terminal },
-    { "Thunar",     "thunar" },
-    { "Virtualbox", "virt-manager" }
+    { "mc",                 fm,                 beautiful.system_icons .. "mc.xpm" },
+    { "terminal",           terminal },
+    { "Thunar",             "thunar" },
+    { "virtual manager",    "virt-manager" }
 }
 
 systemmenu = {
