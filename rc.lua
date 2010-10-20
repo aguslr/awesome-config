@@ -104,11 +104,11 @@ shifty.config.tags = {
 
 -- shifty: tags matching and client rules
 shifty.config.apps = {
-    { match = { "Chromium", "ELinks", "Firefox", "Filezilla", "Iceweasel", "luakit", "uzbl" }, tag = "2:www", },
+    { match = { "Chromium", "ELinks", "Firefox", "Filezilla", "Iceweasel", "IEXPLORE.EXE", "luakit", "uzbl" }, tag = "2:www", },
     { match = { "edwin", "Gvim" }, tag = "3:dev", },
     { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", },
     { match = { "Dia", "Gimp", "Inkscape", "PencilMainWindow" }, tag = "5:graph", },
-    { match = { "avidemux2_gtk", "clementine", "exaile.py", "handbrake-gtk", "quodlibet", "Rhythmbox", "Totem" }, tag = "6:media", },
+    { match = { "avidemux2_gtk", "clementine", "exaile.py", "handbrake-gtk", "pitivi", "quodlibet", "Rhythmbox", "Totem" }, tag = "6:media", },
     -- Floating clients
     { match = { "alsamixer", "htop", "MPlayer", "mc", "mutt", "ncmpcpp", "sensors", "Thunar", "wyrd" }, float = true },
     -- Specific client properties
