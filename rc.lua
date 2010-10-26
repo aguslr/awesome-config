@@ -105,7 +105,7 @@ shifty.config.tags = {
 -- shifty: tags matching and client rules
 shifty.config.apps = {
     { match = { "Chromium", "ELinks", "Firefox", "Filezilla", "Iceweasel", "IEXPLORE.EXE", "luakit", "uzbl" }, tag = "2:www", },
-    { match = { "edwin", "Gvim" }, tag = "3:dev", },
+    { match = { "Eclipse", "edwin", "Gvim", "Python Shell" }, tag = "3:dev", },
     { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", },
     { match = { "Dia", "Gimp", "Inkscape", "PencilMainWindow" }, tag = "5:graph", },
     { match = { "avidemux2_gtk", "clementine", "exaile.py", "handbrake-gtk", "pitivi", "quodlibet", "Rhythmbox", "Totem" }, tag = "6:media", },
@@ -162,7 +162,6 @@ graphicsmenu = {
 
 mediamenu = {
     { "ncmpcpp",    mpd },
-    { "Rhythmbox",  "rhythmbox",    beautiful.system_icons .. "rhythmbox-small.xpm" },
     { "Video",      "totem",        beautiful.system_icons .. "totem.xpm" }
 }
 
