@@ -110,7 +110,7 @@ shifty.config.apps = {
     { match = { "Dia", "Gimp", "Inkscape", "PencilMainWindow" }, tag = "5:graph", },
     { match = { "avidemux2_gtk", "clementine", "exaile.py", "handbrake-gtk", "pitivi", "quodlibet", "Rhythmbox", "Totem" }, tag = "6:media", },
     -- Floating clients
-    { match = { "alsamixer", "htop", "MPlayer", "mc", "mutt", "ncmpcpp", "sensors", "Thunar", "wyrd" }, float = true },
+    { match = { "alsamixer", "htop", "MPlayer", "mc", "mutt", "Nautilus", "ncmpcpp", "sensors", "Thunar", "wyrd" }, float = true },
     -- Specific client properties
     { match = { "gimp%-image%-window" }, geometry = {175,15,930,770}, border_width = 0 },
     { match = { "^gimp%-toolbox$" }, geometry = {0,15,175,770}, slave = true, border_width = 0 },
@@ -166,9 +166,9 @@ mediamenu = {
 }
 
 utilitiesmenu = {
+    { "file manager",       "nautilus --no-desktop" },
     { "mc",                 fm,                 beautiful.system_icons .. "mc.xpm" },
     { "terminal",           terminal },
-    { "Thunar",             "thunar" },
     { "virtual manager",    "virt-manager" }
 }
 
