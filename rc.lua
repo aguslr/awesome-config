@@ -104,7 +104,7 @@ shifty.config.tags = {
 
 -- shifty: tags matching and client rules
 shifty.config.apps = {
-    { match = { "Chromium", "ELinks", "Firefox", "Filezilla", "Iceweasel", "IEXPLORE.EXE", "luakit", "uzbl" }, tag = "2:www", },
+    { match = { "Chromium", "ELinks", "Firefox", "Filezilla", "Iceweasel", "IEXPLORE.EXE", "luakit", "Midori", "uzbl" }, tag = "2:www", },
     { match = { "Eclipse", "edwin", "Gvim", "Python Shell" }, tag = "3:dev", },
     { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", },
     { match = { "Dia", "Gimp", "Inkscape", "PencilMainWindow" }, tag = "5:graph", },
