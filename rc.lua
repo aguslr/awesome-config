@@ -49,7 +49,7 @@ colbwhi = "<span color='#ffffff'>"
 
 -- These are used later as the default programs
 terminal    = "urxvtc"
-browser     = "firefox"
+browser     = "midori"
 editor      = os.getenv("EDITOR") or "vim"
 editor_cmd  = terminal .. " -e " .. editor
 
@@ -59,7 +59,6 @@ chat    = terminal .. " -geometry 130x40 -e weechat-curses"     -- Chat client
 fm      = terminal .. " -geometry 130x40 -e mc"                 -- File Manager
 mail    = terminal .. " -geometry 130x40 -e mutt"               -- Mail client
 mpd     = terminal .. " -geometry 130x40 -e ncmpcpp"            -- MPD client
-rss     = terminal .. " -geometry 130x40 -e newsbeuter"         -- RSS reader
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -138,9 +137,9 @@ shifty.init()
 -- MENU
 networkmenu = {
     { "Chromium",   "chromium-browser", beautiful.system_icons .. "chromium-browser.png" },
-    { "Iceweasel",  browser,            beautiful.system_icons .. "iceweasel.png" },
+    { "Iceweasel",  "firefox",          beautiful.system_icons .. "iceweasel.png" },
+    { "Midori",     browser,            "/usr/share/icons/hicolor/16x16/apps/midori.png" },
     { "Mutt",       mail,               beautiful.system_icons .. "mutt.xpm" },
-    { "Newsbeuter", rss },
     { "Weechat",    chat,               beautiful.system_icons .. "weechat.xpm" }
 }
 
