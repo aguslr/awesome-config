@@ -502,7 +502,7 @@ kbdcfg.widget.text = colblk .. "kbd " .. coldef .. colbblk .. kbdcfg.layout[kbdc
 kbdcfg.switch = function ()
     kbdcfg.current = kbdcfg.current % #(kbdcfg.layout) + 1
     local t = kbdcfg.layout[kbdcfg.current]
-    kbdcfg.widget.text = colblk .. "kbd " .. coldef .. colbyel .. t[1] .. coldef .. " "
+    kbdcfg.widget.text = colyel .. "kbd " .. coldef .. colbyel .. t[1] .. coldef .. " "
     os.execute( kbdcfg.cmd .. " " .. t[1] .. " " .. t[2] )
 end
 kbdcfg.widget:buttons(awful.util.table.join(
