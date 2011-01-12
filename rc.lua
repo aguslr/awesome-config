@@ -492,6 +492,23 @@ vicious.register(wifiwidget, vicious.widgets.wifi,
         end
     end, 30, "wlan0" )
 
+-- Keyboard Layout widget
+kbdcfg = {}
+kbdcfg.cmd = "setxkbmap"
+kbdcfg.layout = { { "es", "" }, { "uk", "" }, { "us", "" } }
+kbdcfg.current = 1  -- us is our default layout
+kbdcfg.widget = widget({ type = "textbox", align = "right" })
+kbdcfg.widget.text = colblk .. "kbd " .. coldef .. colbblk .. kbdcfg.layout[kbdcfg.current][1] .. coldef .. " "
+kbdcfg.switch = function ()
+    kbdcfg.current = kbdcfg.current % #(kbdcfg.layout) + 1
+    local t = kbdcfg.layout[kbdcfg.current]
+    kbdcfg.widget.text = colblk .. "kbd " .. coldef .. colbyel .. t[1] .. coldef .. " "
+    os.execute( kbdcfg.cmd .. " " .. t[1] .. " " .. t[2] )
+end
+kbdcfg.widget:buttons(awful.util.table.join(
+    awful.button({ }, 1, function () kbdcfg.switch() end)
+))
+
 -- Battery widget
 batwidget = widget({ type = "textbox" })
 vicious.register(batwidget, vicious.widgets.bat,
@@ -643,6 +660,8 @@ for s = 1, screen.count() do
         volwidget,
         -- Battery widget
         batwidget,
+        -- Keyboard Layout widget
+        kbdcfg.widget,
         -- Net widgets
         wifiwidget, netwwidget,
         ethwidget, netewidget,
