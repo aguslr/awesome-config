@@ -495,7 +495,7 @@ vicious.register(wifiwidget, vicious.widgets.wifi,
 -- Keyboard Layout widget
 kbdcfg = {}
 kbdcfg.cmd = "setxkbmap"
-kbdcfg.layout = { { "es", "" }, { "uk", "" }, { "us", "" } }
+kbdcfg.layout = { { "es", "" }, { "gb", "" }, { "us", "" } }
 kbdcfg.current = 1  -- us is our default layout
 kbdcfg.widget = widget({ type = "textbox", align = "right" })
 kbdcfg.widget.text = colblk .. "kbd " .. coldef .. colbblk .. kbdcfg.layout[kbdcfg.current][1] .. coldef .. " "
