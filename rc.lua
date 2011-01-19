@@ -887,7 +887,7 @@ function run_once(prg)
 end
 
 -- Run composite manager
---run_once("xcompmgr")
+run_once("xcompmgr")
 -- Run clipboard manager
 --run_once("parcellite")
 
