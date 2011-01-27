@@ -49,7 +49,7 @@ colbwhi = "<span color='#ffffff'>"
 
 -- These are used later as the default programs
 terminal    = "urxvtc"
-browser     = "midori"
+browser     = "firefox"
 editor      = os.getenv("EDITOR") or "vim"
 editor_cmd  = terminal .. " -e " .. editor
 
@@ -103,7 +103,7 @@ shifty.config.tags = {
 
 -- shifty: tags matching and client rules
 shifty.config.apps = {
-    { match = { "Chromium", "ELinks", "Firefox", "Filezilla", "Iceweasel", "IEXPLORE.EXE", "luakit", "Midori", "uzbl" }, tag = "2:www", },
+    { match = { "Chromium", "ELinks", "Epiphany", "Firefox", "Filezilla", "Iceweasel", "IEXPLORE.EXE", "luakit", "Midori", "uzbl" }, tag = "2:www", },
     { match = { "Eclipse", "edwin", "Gvim", "Python Shell" }, tag = "3:dev", },
     { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", },
     { match = { "Dia", "Gimp", "Inkscape", "PencilMainWindow" }, tag = "5:graph", },
@@ -137,8 +137,7 @@ shifty.init()
 -- MENU
 networkmenu = {
     { "Chromium",   "chromium-browser", beautiful.system_icons .. "chromium-browser.png" },
-    { "Iceweasel",  "firefox",          beautiful.system_icons .. "iceweasel.png" },
-    { "Midori",     browser,            "/usr/share/icons/hicolor/16x16/apps/midori.png" },
+    { "Iceweasel",  browser,            beautiful.system_icons .. "iceweasel.png" },
     { "Mutt",       mail,               beautiful.system_icons .. "mutt.xpm" },
     { "Weechat",    chat,               beautiful.system_icons .. "weechat.xpm" }
 }
