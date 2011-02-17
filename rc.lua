@@ -50,7 +50,7 @@ colbwhi = "<span color='#ffffff'>"
 -- These are used later as the default programs
 terminal    = "urxvtc"
 browser     = "firefox"
-editor      = os.getenv("EDITOR") or "vim"
+editor      = "vim"
 editor_cmd  = terminal .. " -e " .. editor
 
 -- Other programs
@@ -103,7 +103,7 @@ shifty.config.tags = {
 
 -- shifty: tags matching and client rules
 shifty.config.apps = {
-    { match = { "Chromium", "ELinks", "Epiphany", "Firefox", "Filezilla", "Iceweasel", "IEXPLORE.EXE", "luakit", "Midori", "uzbl" }, tag = "2:www", },
+    { match = { "Chromium", "ELinks", "Epiphany", "Firefox", "Filezilla", "Iceweasel", "lynx.cur", "IEXPLORE.EXE", "luakit", "Midori", "uzbl" }, tag = "2:www", },
     { match = { "Eclipse", "edwin", "Gvim", "Python Shell" }, tag = "3:dev", },
     { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", },
     { match = { "Dia", "Gimp", "Inkscape", "PencilMainWindow" }, tag = "5:graph", },
@@ -136,8 +136,9 @@ shifty.init()
 
 -- MENU
 networkmenu = {
-    { "Chromium",   "chromium-browser", beautiful.system_icons .. "chromium-browser.png" },
+    { "Chromium",   "chroot_wrapper.sh sid chromium-browser" },
     { "Iceweasel",  browser,            beautiful.system_icons .. "iceweasel.png" },
+    { "Lynx-cur",   terminal .. " -e lynx.cur" },
     { "Mutt",       mail,               beautiful.system_icons .. "mutt.xpm" },
     { "Weechat",    chat,               beautiful.system_icons .. "weechat.xpm" }
 }
@@ -145,27 +146,27 @@ networkmenu = {
 officemenu = {
     { "Abiword",    "abiword",  beautiful.system_icons .. "abiword.xpm" },
     { "GNumeric",   "gnumeric", "/usr/share/icons/hicolor/16x16/apps/gnumeric.png" },
-    { "Wyrd", cal }
+    { "Wyrd",       cal }
 }
 
 editorsmenu = {
-    { "GVIM",   "gvim",                 beautiful.system_icons .. "vim-16.xpm" },
-    { "vim",    terminal .. " -e vim" }
+    { "GVIM",   "gvim", beautiful.system_icons .. "vim-16.xpm" },
+    { "vim",    editor_cmd }
 }
 
 graphicsmenu = {
-    { "Inkscape",   "inkscape", beautiful.system_icons .. "inkscape.xpm" },
-    { "The GIMP",   "gimp",     beautiful.system_icons .. "gimp.xpm" }
+    { "Inkscape",   "chroot_wrapper.sh sid inkscape", beautiful.system_icons .. "inkscape.xpm" },
+    { "The GIMP",   "chroot_wrapper.sh sid gimp",     beautiful.system_icons .. "gimp.xpm" }
 }
 
 mediamenu = {
     { "ncmpcpp",    mpd },
-    { "Video",      "totem",        beautiful.system_icons .. "totem.xpm" }
+    { "Video",      "totem", beautiful.system_icons .. "totem.xpm" }
 }
 
 utilitiesmenu = {
     { "file manager",       "pcmanfm" },
-    { "mc",                 fm,                 beautiful.system_icons .. "mc.xpm" },
+    { "mc",                 fm, beautiful.system_icons .. "mc.xpm" },
     { "terminal",           terminal },
     { "virtual manager",    "virt-manager" }
 }
@@ -494,7 +495,7 @@ vicious.register(wifiwidget, vicious.widgets.wifi,
 -- Keyboard Layout widget
 kbdcfg = {}
 kbdcfg.cmd = "setxkbmap"
-kbdcfg.layout = { { "es", "" }, { "gb", "" }, { "us", "" } }
+kbdcfg.layout = { { "es", "" }, { "gb", "" } }
 kbdcfg.current = 1  -- us is our default layout
 kbdcfg.widget = widget({ type = "textbox", align = "right" })
 kbdcfg.widget.text = colblk .. "kbd " .. coldef .. colbblk .. kbdcfg.layout[kbdcfg.current][1] .. coldef .. " "
