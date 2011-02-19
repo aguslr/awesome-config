@@ -136,7 +136,7 @@ shifty.init()
 
 -- MENU
 networkmenu = {
-    { "Chromium",   "chroot_wrapper.sh sid chromium-browser" },
+    { "Chromium",   "chromium-browser", beautiful.system_icons .. "chromium-browser.png" },
     { "Iceweasel",  browser,            beautiful.system_icons .. "iceweasel.png" },
     { "Lynx-cur",   terminal .. " -e lynx.cur" },
     { "Mutt",       mail,               beautiful.system_icons .. "mutt.xpm" },
@@ -155,8 +155,8 @@ editorsmenu = {
 }
 
 graphicsmenu = {
-    { "Inkscape",   "chroot_wrapper.sh sid inkscape", beautiful.system_icons .. "inkscape.xpm" },
-    { "The GIMP",   "chroot_wrapper.sh sid gimp",     beautiful.system_icons .. "gimp.xpm" }
+    { "Inkscape",   "inkscape", beautiful.system_icons .. "inkscape.xpm" },
+    { "The GIMP",   "gimp",     beautiful.system_icons .. "gimp.xpm" }
 }
 
 mediamenu = {
@@ -495,7 +495,7 @@ vicious.register(wifiwidget, vicious.widgets.wifi,
 -- Keyboard Layout widget
 kbdcfg = {}
 kbdcfg.cmd = "setxkbmap"
-kbdcfg.layout = { { "es", "" }, { "gb", "" } }
+kbdcfg.layout = { { "gb", "" }, { "es", "" } }
 kbdcfg.current = 1  -- us is our default layout
 kbdcfg.widget = widget({ type = "textbox", align = "right" })
 kbdcfg.widget.text = colblk .. "kbd " .. coldef .. colbblk .. kbdcfg.layout[kbdcfg.current][1] .. coldef .. " "
