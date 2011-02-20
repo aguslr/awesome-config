@@ -496,7 +496,7 @@ vicious.register(wifiwidget, vicious.widgets.wifi,
 kbdcfg = {}
 kbdcfg.cmd = "setxkbmap"
 kbdcfg.layout = { { "gb", "" }, { "es", "" } }
-kbdcfg.current = 1  -- us is our default layout
+kbdcfg.current = 1  -- is our default layout
 kbdcfg.widget = widget({ type = "textbox", align = "right" })
 kbdcfg.widget.text = colblk .. "kbd " .. coldef .. colbblk .. kbdcfg.layout[kbdcfg.current][1] .. coldef .. " "
 kbdcfg.switch = function ()
