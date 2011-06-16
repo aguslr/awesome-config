@@ -165,7 +165,7 @@ mediamenu = {
 }
 
 utilitiesmenu = {
-    { "file manager",       "pcmanfm" },
+    { "file manager",       "thunar" },
     { "mc",                 fm, beautiful.system_icons .. "mc.xpm" },
     { "terminal",           terminal },
     { "virtual manager",    "virt-manager" }
@@ -181,7 +181,9 @@ myawesomemenu = {
    { "manual",      terminal .. " -e man awesome" },
    { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
    { "restart",     awesome.restart },
-   { "quit",        awesome.quit }
+   { "quit",        awesome.quit },
+   { "reboot",      "dbus-send --system --print-reply --dest=\"org.freedesktop.Hal\" /org/freedesktop/Hal/devices/computer org.freedesktop.Hal.Device.SystemPowerManagement.Reboot" },
+   { "shutdown",    "dbus-send --system --print-reply --dest=\"org.freedesktop.Hal\" /org/freedesktop/Hal/devices/computer org.freedesktop.Hal.Device.SystemPowerManagement.Shutdown" }
 }
 
 mymainmenu = awful.menu({
