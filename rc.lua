@@ -16,7 +16,9 @@ require("shifty")
 -- Widget libraries
 require("vicious")
 -- Calendar widget (http://awesome.naquadah.org/wiki/Calendar_widget)
-require('calendar2')
+require("calendar2")
+-- Revelation (http://awesome.naquadah.org/wiki/Revelation)
+require("revelation")
 -- Netinfo widget (from vicious wlan widget)
 require("vicious.widgets.netinfo")
 
@@ -136,7 +138,7 @@ shifty.init()
 
 -- MENU
 networkmenu = {
-    { "Chromium",   "chromium-browser", beautiful.system_icons .. "chromium-browser.png" },
+    { "Chromium",   "chromium-browser", beautiful.system_icons .. "chromium.png" },
     { "Iceweasel",  browser,            beautiful.system_icons .. "iceweasel.png" },
     { "Lynx-cur",   terminal .. " -e lynx.cur" },
     { "Mutt",       mail,               beautiful.system_icons .. "mutt.xpm" },
@@ -717,7 +719,8 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Launchers
-    awful.key({ altkey,           }, "F1",              function () mymainmenu:show({keygrabber=true}) end),
+    awful.key({ altkey,           }, "F1",  function () mymainmenu:show({keygrabber=true}) end),
+    awful.key({ modkey,           }, "e",   revelation.revelation),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j",   function () awful.client.swap.byidx(  1)    end),
