@@ -140,7 +140,7 @@ shifty.init()
 networkmenu = {
     { "Chromium",   "chromium-browser", beautiful.system_icons .. "chromium.png" },
     { "Iceweasel",  browser,            beautiful.system_icons .. "iceweasel.png" },
-    { "Lynx-cur",   terminal .. " -e lynx.cur" },
+    { "Lynx",       terminal .. " -e lynx" },
     { "Mutt",       mail,               beautiful.system_icons .. "mutt.xpm" },
     { "Weechat",    chat,               beautiful.system_icons .. "weechat.xpm" }
 }
@@ -363,7 +363,7 @@ vicious.register(coretemp0widget, vicious.widgets.thermal,
         else
             return "" .. colblk .. "core0 " .. coldef .. colbblk .. args[1] .. "°C" .. coldef .. " "
         end
-    end, 20, { "coretemp.0", "core"} )
+    end, 20, { "coretemp.0", "core0"} )
 coretemp0widget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e watch sensors" ) end ) ) )
 
 -- coretemp1
@@ -379,7 +379,7 @@ vicious.register(coretemp1widget, vicious.widgets.thermal,
         else
             return "" .. colblk .. "core1 " .. coldef .. colbblk .. args[1] .. "°C" .. coldef .. " "
         end
-    end, 20, { "coretemp.1", "core"} )
+    end, 20, { "coretemp.0", "core1"} )
 coretemp1widget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e watch sensors" ) end ) ) )
 
 -- Thermal widgets
