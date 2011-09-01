@@ -547,7 +547,7 @@ vicious.register(volwidget, vicious.widgets.volume,
     end, 2, "Master" )
 volwidget:buttons(
     awful.util.table.join(
-        awful.button({ }, 1, function () awful.util.spawn( "amixer -q sset Master toggle" ) end),
+        awful.button({ }, 2, function () awful.util.spawn( "amixer -q sset Master toggle" ) end),
         awful.button({ }, 3, function () awful.util.spawn( terminal .. " -e alsamixer" ) end),
         awful.button({ }, 4, function () awful.util.spawn( "amixer -q sset Master 2dB+" ) end),
         awful.button({ }, 5, function () awful.util.spawn( "amixer -q sset Master 2dB-" ) end)
