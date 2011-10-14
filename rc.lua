@@ -884,16 +884,46 @@ client.add_signal("unfocus",
 -- {{{ Startup programs
 
 -- Function to run programs once
-function run_once(prg)
+function run_once(prg,arg_string,pname,screen)
     if not prg then
         do return nil end
     end
-    awful.util.spawn_with_shell("pgrep -u $USER -x " .. prg .. " || (" .. prg .. ")")
+
+    if not pname then
+       pname = prg
+    end
+
+    if not arg_string then 
+        awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. ")",screen)
+    else
+        awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. " " .. arg_string .. ")",screen)
+    end
 end
 
+-- Set background color
+awful.util.spawn_with_shell("hsetroot -solid '#1a1a1a'")
+-- Load color profile
+awful.util.spawn_with_shell("xcalib ~/.local/share/color/icc/default.icm")
+-- Set X Server properties
+awful.util.spawn_with_shell("xrdb .Xdefaults")
+-- Load custom Xmodmap
+--awful.util.spawn_with_shell("xmodmap .Xmodmap")
+-- Use CapsLock as Ctrl
+awful.util.spawn_with_shell("setxkbmap -option ctrl:nocaps")
+-- Enable trackpad edgescrolling
+awful.util.spawn_with_shell("synclient HorizEdgeScroll=1 VertEdgeScroll=1")
+-- Disable trackpad while typing
+--awful.util.spawn_with_shell("syndaemon -i 0.5 -K -R")
+-- Change resolution for external monitor
+awful.util.spawn_with_shell("xrandr --output VGA1 --auto")
+-- Start ScreenSaver daemon
+run_once("xscreensaver","-no-splash")
+-- Start XbindKeys
+--run_once("xbindkeys","-n -f ~/.xbindkeysrc")
+-- Start Terminal daemon
+run_once("urxvtd","--quiet --opendisplay --fork")
 -- Run composite manager
 run_once("xcompmgr")
--- Run clipboard manager
---run_once("parcellite")
+
 
 -- }}}
