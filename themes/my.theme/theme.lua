@@ -49,7 +49,7 @@ theme.menu_height       = "14"
 theme.menu_width        = "100"
 
 -- WALLPAPER
-theme.wallpaper_cmd = { "awsetbg -c " .. os.getenv("HOME") .. "/img/wallpaper.jpg" }
+theme.wallpaper_cmd = { "awsetbg -c " .. os.getenv("HOME") .. "/pic/wallpaper.jpg" }
 
 -- ICON
 theme.awesome_icon  = "/usr/share/awesome/icons/awesome16.png"
