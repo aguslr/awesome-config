@@ -742,6 +742,7 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Standard program
+    awful.key({ altkey, "Control" }, "l",       function () awful.util.spawn( "xscreensaver-command -lock" ) end),
     awful.key({ modkey,           }, "Return",  function () awful.util.spawn( terminal ) end),
     awful.key({ modkey, "Shift"   }, "r",       awesome.restart),
     awful.key({ modkey, "Shift"   }, "q",       awesome.quit),
@@ -905,7 +906,7 @@ function run_once(prg,arg_string,pname,screen)
 end
 
 -- Set background color
-awful.util.spawn_with_shell("hsetroot -solid '#1a1a1a'")
+--awful.util.spawn_with_shell("hsetroot -solid '#1a1a1a'")
 -- Load color profile
 awful.util.spawn_with_shell("xcalib ~/.local/share/color/icc/default.icm")
 -- Set X Server properties
