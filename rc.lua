@@ -138,8 +138,9 @@ shifty.init()
 
 -- MENU
 networkmenu = {
-    { "Chromium",   "chromium", beautiful.system_icons .. "chromium.png" },
+    { "Chromium",   "chromium",         beautiful.system_icons .. "chromium.png" },
     { "Iceweasel",  browser,            beautiful.system_icons .. "iceweasel.png" },
+    { "Luakit",     "luakit",           beautiful.system_icons .. "luakit.png" },
     { "Lynx",       terminal .. " -e lynx" },
     { "Mutt",       mail,               beautiful.system_icons .. "mutt.xpm" },
     { "Weechat",    chat,               beautiful.system_icons .. "weechat.xpm" }
