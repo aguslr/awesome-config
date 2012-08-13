@@ -725,7 +725,7 @@ globalkeys = awful.util.table.join(
 
     -- Launchers
     awful.key({ altkey,           }, "F1",  function () mymainmenu:show({keygrabber=true}) end),
-    awful.key({ modkey,           }, "e",   revelation.revelation),
+    awful.key({ modkey,           }, "e",   revelation),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j",   function () awful.client.swap.byidx(  1)    end),
