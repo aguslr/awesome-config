@@ -103,9 +103,9 @@ shifty.config.tags = {
     ["9"] = { position = 9, layout = layouts[12] }
 }
 
--- shifty: tags matching and client rules
+-- shifty: tags matching and client rules (use xprop to check window properties)
 shifty.config.apps = {
-    { match = { "Chromium", "ELinks", "Epiphany", "Firefox", "Filezilla", "Iceweasel", "lynx.cur", "IEXPLORE.EXE", "luakit", "Midori", "uzbl" }, tag = "2:www", },
+    { match = { "Chromium", "ELinks", "Epiphany", "Firefox", "Filezilla", "Iceweasel", "luakit", "lynx.cur", "IEXPLORE.EXE", "Midori", "Speed Dial", "uzbl" }, tag = "2:www", },
     { match = { "Eclipse", "edwin", "Gvim", "Python Shell" }, tag = "3:dev", },
     { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", },
     { match = { "Dia", "Gimp", "Inkscape", "PencilMainWindow" }, tag = "5:graph", },
