@@ -928,6 +928,8 @@ run_once("xscreensaver","-no-splash")
 --run_once("xbindkeys","-n -f ~/.xbindkeysrc")
 -- Start Terminal daemon
 run_once("urxvtd","--quiet --opendisplay --fork")
+-- Start Clipboard Manager
+run_once("clipit")
 -- Run composite manager
 run_once("xcompmgr")
 
