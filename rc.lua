@@ -836,9 +836,15 @@ awful.rules.rules = {
                      maximized_vertical   = false,
                      maximized_horizontal = false,
                      buttons = clientbuttons } },
+    -- Set this programs to float
+    { rule = { class = "gimp" },
+      properties = { floating = true } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
-    { rule = { class = "gimp" },
+    -- Set Flash to float
+    { rule = { instance = "plugin-container" },
+      properties = { floating = true } },
+    { rule = { class = "Exe"},
       properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
