@@ -98,7 +98,7 @@ shifty.config.tags = {
     ["4:chat"] = { position = 4, layout = layouts[4] },
     ["5:graph"] = { position = 5, layout = layouts[1] },
     ["6:media"] = { position = 6, layout = layouts[10] },
-    ["7"] = { position = 7, layout = layouts[4] },
+    ["7:office"] = { position = 7, layout = layouts[4] },
     ["8"] = { position = 8, layout = layouts[8] },
     ["9"] = { position = 9, layout = layouts[12] }
 }
@@ -110,6 +110,7 @@ shifty.config.apps = {
     { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", },
     { match = { "Dia", "Gimp", "Inkscape", "PencilMainWindow" }, tag = "5:graph", },
     { match = { "avidemux2_gtk", "clementine", "exaile.py", "handbrake-gtk", "pitivi", "quodlibet", "Rhythmbox", "Totem", "vlc" }, tag = "6:media", },
+    { match = { "abiword", "gnumeric", "libreoffice.*" }, tag = "7:office", },
     -- Floating clients
     { match = { "alsamixer", "htop", "MPlayer", "mc", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "sensors", "Thunar", "wyrd" }, float = true },
     -- Specific client properties
