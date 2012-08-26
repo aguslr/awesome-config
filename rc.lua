@@ -109,7 +109,7 @@ shifty.config.apps = {
     { match = { "Eclipse", "edwin", "Gvim", "Python Shell" }, tag = "3:dev", },
     { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", },
     { match = { "Dia", "Gimp", "Inkscape", "PencilMainWindow" }, tag = "5:graph", },
-    { match = { "avidemux2_gtk", "clementine", "exaile.py", "handbrake-gtk", "pitivi", "quodlibet", "Rhythmbox", "Totem", "vlc" }, tag = "6:media", },
+    { match = { "avidemux.*", "clementine", "exaile.py", "handbrake.*", "pitivi", "quodlibet", "Rhythmbox", "Totem", "vlc" }, tag = "6:media", },
     { match = { "abiword", "gnumeric", "libreoffice.*" }, tag = "7:office", },
     -- Floating clients
     { match = { "alsamixer", "htop", "MPlayer", "mc", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "sensors", "Thunar", "wyrd" }, float = true },
