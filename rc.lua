@@ -108,9 +108,9 @@ shifty.config.apps = {
     { match = { "Chromium", "ELinks", "Epiphany", "Firefox", "Filezilla", "Iceweasel", "luakit", "lynx.cur", "IEXPLORE.EXE", "Midori", "Speed Dial", "uzbl" }, tag = "2:www", },
     { match = { "Eclipse", "Gvim", "Python Shell" }, tag = "3:dev", },
     { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", },
-    { match = { "Gimp", "Inkscape", "PencilMainWindow" }, tag = "5:graph", },
-    { match = { "avidemux.*", "clementine", "handbrake.*", "pitivi", "Rhythmbox", "Totem", "vlc" }, tag = "6:media", },
-    { match = { "abiword", "gnumeric", "libreoffice.*" }, tag = "7:office", },
+    { match = { "avidemux.*", "Blender", "cinelerra.*", "Darktable", "Gimp", "handbrake.*", "Inkscape", "openshot", "PencilMainWindow", "pitivi", "RawTherapee.*", "UFRaw" }, tag = "5:graph", },
+    { match = { "clementine", "Rhythmbox", "Totem", "vlc" }, tag = "6:media", },
+    { match = { "abiword", "gnumeric", "LibreOffice.*" }, tag = "7:office", },
     -- Floating clients
     { match = { "alsamixer", "htop", "MPlayer", "mc", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "sensors", "Thunar", "wyrd" }, float = true },
     -- Specific client properties
