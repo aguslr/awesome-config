@@ -56,7 +56,6 @@ editor      = "vim"
 editor_cmd  = terminal .. " -e " .. editor
 
 -- Other programs
-cal     = terminal .. " -geometry 130x40 -e wyrd"               -- Calendar
 chat    = terminal .. " -geometry 130x40 -e weechat-curses"     -- Chat client
 fm      = terminal .. " -geometry 130x40 -e mc"                 -- File Manager
 mail    = terminal .. " -geometry 130x40 -e mutt"               -- Mail client
@@ -150,7 +149,6 @@ networkmenu = {
 officemenu = {
     { "Abiword",    "abiword",  beautiful.system_icons .. "abiword.xpm" },
     { "GNumeric",   "gnumeric", "/usr/share/icons/hicolor/16x16/apps/gnumeric.png" },
-    { "Wyrd",       cal }
 }
 
 editorsmenu = {
@@ -229,10 +227,10 @@ calendar2.addCalendarToWidget(datewidget, "" .. colyel .. "%s" .. coldef .. "")
 timewidget = widget({ type = "textbox" })
 vicious.register(timewidget, vicious.widgets.date, "" .. colbyel .. "%H:%M:%S" .. coldef .. " ", 1)
 function cal_gett()
-    local fp = io.popen("remind " .. os.getenv("HOME") .. "/.reminders")
+  local fp = io.popen("cat " .. os.getenv("HOME") .. "/.schedule.txt")
 	local rem = fp:read("*a")
 	fp:close()
-	    rem = string.gsub(rem, "\027%[0m", coldef)
+	  rem = string.gsub(rem, "\027%[0m", coldef)
 		rem = string.gsub(rem, "\027%[0;30m", colblk)  --black
 		rem = string.gsub(rem, "\027%[0;31m", colred)  --red
 		rem = string.gsub(rem, "\027%[0;32m", colgre)  --green
@@ -253,7 +251,6 @@ function cal_gett()
 end
 timewidget:add_signal('mouse::enter', function () cal_remt = { naughty.notify({ text = cal_gett(), timeout = 0, hover_timeout = 0.5 }) } end)
 timewidget:add_signal('mouse::leave', function () naughty.destroy(cal_remt[1]) end)
-timewidget:buttons(awful.util.table.join(awful.button({}, 3, function () awful.util.spawn( cal ) end ) ) )
 
 -- Weather widget
 weatherwidget = widget({ type = "textbox" })
