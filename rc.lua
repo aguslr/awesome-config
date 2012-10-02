@@ -915,7 +915,7 @@ end
 -- Set background color
 --awful.util.spawn_with_shell("hsetroot -solid '#1a1a1a'")
 -- Load color profile
-awful.util.spawn_with_shell("xcalib ~/.local/share/color/icc/default.icm")
+awful.util.spawn_with_shell("xcalib -d :0 /usr/share/color/icc/sRGB.icm")
 -- Set X Server properties
 awful.util.spawn_with_shell("xrdb .Xdefaults")
 -- Load custom Xmodmap
