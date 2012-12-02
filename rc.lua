@@ -535,13 +535,13 @@ volwidget = widget({ type = "textbox" })
 vicious.register(volwidget, vicious.widgets.volume,
     function (widget, args)
         if args[1] == 0 or args[2] == "♩" then
-            return "" .. colred .. "vol " .. coldef .. colbred .. "mute" .. coldef .. " "
-        elseif args[1] >= 40 and args[1] < 80 then
+            return "" .. colblk .. "vol " .. coldef .. colbblk .. "mute" .. coldef .. " "
+        elseif args[1] >= 50 and args[1] < 80 then
             return "" .. colyel .. "vol " .. coldef .. colbyel .. args[1] .. "%" .. coldef .. " "
         elseif args[1] > 80 then
-            return "" .. colgre .. "vol " .. coldef .. colbgre .. args[1] .. "%" .. coldef .. " "
+            return "" .. colred .. "vol " .. coldef .. colbred .. args[1] .. "%" .. coldef .. " "
         else
-            return "" .. colblk .. "vol " .. coldef .. colbblk .. args[1] .. "%" .. coldef .. " "
+            return "" .. colgre .. "vol " .. coldef .. colbgre .. args[1] .. "%" .. coldef .. " "
         end
     end, 2, "Master" )
 volwidget:buttons(
