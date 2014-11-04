@@ -21,10 +21,12 @@ local function worker(format, warg)
     if not warg then return end
 
     local zone = { -- Known temperature data sources
-        ["sys"]  = {"/sys/class/thermal/",     file = "temp",       div = 1000},
-        ["core0"] = {"/sys/devices/platform/",  file = "temp2_input",div = 1000},
-        ["core1"] = {"/sys/devices/platform/",  file = "temp3_input",div = 1000},
-        ["proc"] = {"/proc/acpi/thermal_zone/",file = "temperature"}
+        ["sys"]  = {"/sys/class/thermal/",      file = "temp",       div = 1000},
+        ["core0"] = {"/sys/devices/platform/",  file = "temp1_input",div = 1000},
+        ["core1"] = {"/sys/devices/platform/",  file = "temp2_input",div = 1000},
+        ["core2"] = {"/sys/devices/platform/",  file = "temp3_input",div = 1000},
+        ["core3"] = {"/sys/devices/platform/",  file = "temp4_input",div = 1000},
+        ["proc"] = {"/proc/acpi/thermal_zone/", file = "temperature"}
     } --  Default to /sys/class/thermal
     warg = type(warg) == "table" and warg or { warg, "sys" }
 
