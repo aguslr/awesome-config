@@ -4,25 +4,20 @@ theme = {}
 
 theme.font          = "terminus 9"
 
---theme.bg_normal     = "#1a1918"
---theme.bg_focus      = "#1a1918"
---theme.bg_urgent     = "#b23535"
---theme.bg_minimize   = "#1a1918"
-theme.bg_normal     = "#000000"
-theme.bg_focus      = "#000000"
-theme.bg_urgent     = "#000000"
-theme.bg_minimize   = "#000000"
+theme.bg_normal     = "#111313"
+theme.bg_focus      = "#111313"
+theme.bg_urgent     = "#111313"
+theme.bg_minimize   = "#111313"
 
-theme.fg_normal     = "#807b76"
-theme.fg_focus      = "#9acd32"
-theme.fg_urgent     = "#b2b2b2"
-theme.fg_minimize   = "#333231"
+theme.fg_normal     = "#424446"
+theme.fg_focus      = "#719e6b"
+theme.fg_urgent     = "#b8baba"
+theme.fg_minimize   = "#424446"
 
 theme.border_width  = "1"
-theme.border_normal = "#050505"
-theme.border_focus  = "#333231"
---theme.border_marked = "#a4a4a4"
-theme.border_marked = "#9acd32"
+theme.border_normal = "#111313"
+theme.border_focus  = "#719e6b"
+theme.border_marked = "#986b9e"
 
 -- TAGLIST
 --theme.taglist_bg_focus      = "#333333"
