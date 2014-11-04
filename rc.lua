@@ -830,8 +830,6 @@ run_once("xscreensaver","-no-splash")
 --run_once("xbindkeys","-n -f ~/.xbindkeysrc")
 -- Start Terminal daemon
 run_once("urxvtd","--quiet --opendisplay --fork")
--- Start Update Notifier
-run_once("update-notifier")
 -- Run composite manager
 run_once("xcompmgr")
 
