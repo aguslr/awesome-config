@@ -21,6 +21,9 @@ require("calendar2")
 require("revelation")
 -- Netinfo widget (from vicious wlan widget)
 require("vicious.widgets.netinfo")
+-- Load vain
+require("vain")
+vain.widgets.terminal = "urxvt"
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -72,34 +75,26 @@ altkey = "Mod1"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
-    awful.layout.suit.floating,         -- 1
-    awful.layout.suit.tile,             -- 2
-    awful.layout.suit.tile.left,        -- 3
-    awful.layout.suit.tile.bottom,      -- 4
-    awful.layout.suit.tile.top,         -- 5
-    awful.layout.suit.fair,             -- 6
-    awful.layout.suit.fair.horizontal,  -- 7
-    awful.layout.suit.spiral,           -- 8
-    awful.layout.suit.spiral.dwindle,   -- 9
-    awful.layout.suit.max,              -- 10
-    awful.layout.suit.max.fullscreen,   -- 11
-    awful.layout.suit.magnifier         -- 12
+    vain.layout.termfair,               -- 1
+    vain.layout.browse,                 -- 2
+    vain.layout.cascade,                -- 3
+    vain.layout.cascadebrowse,          -- 4
+    vain.layout.centerwork              -- 5
 }
--- }}}
 
 -- {{{ Tags
 
 ---- shifty: predefined tags
 shifty.config.tags = {
     ["1:main"] = { init = true, position = 1, layout = layouts[1] },
-    ["2:www"] = { position = 2, layout = layouts[10] },
-    ["3:dev"] = { position = 3, layout = layouts[2] },
-    ["4:chat"] = { position = 4, layout = layouts[4] },
+    ["2:www"] = { position = 2, layout = layouts[2] },
+    ["3:dev"] = { position = 3, layout = layouts[3] },
+    ["4:chat"] = { position = 4, layout = layouts[5] },
     ["5:graph"] = { position = 5, layout = layouts[1] },
-    ["6:media"] = { position = 6, layout = layouts[10] },
+    ["6:media"] = { position = 6, layout = layouts[5] },
     ["7:office"] = { position = 7, layout = layouts[3] },
-    ["8"] = { position = 8, layout = layouts[8] },
-    ["9"] = { position = 9, layout = layouts[12] }
+    ["8"] = { position = 8, layout = layouts[1] },
+    ["9"] = { position = 9, layout = layouts[4] }
 }
 
 -- shifty: tags matching and client rules (use xprop to check window properties)
