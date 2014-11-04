@@ -226,7 +226,7 @@ calendar2.addCalendarToWidget(datewidget, "" .. colyel .. "%s" .. coldef .. "")
 timewidget = widget({ type = "textbox" })
 vicious.register(timewidget, vicious.widgets.date, "" .. colbyel .. "%H:%M:%S" .. coldef .. " ", 1)
 function cal_gett()
-  local fp = io.popen("cat " .. os.getenv("HOME") .. "/.schedule.txt")
+  local fp = io.popen("cat " .. os.getenv("HOME") .. "/todo.txt")
 	local rem = fp:read("*a")
 	fp:close()
 	  rem = string.gsub(rem, "\027%[0m", coldef)
@@ -260,7 +260,7 @@ vicious.register(weatherwidget, vicious.widgets.weather,
 		else
 			weatherwidget:add_signal('mouse::enter', function () weather_n = { naughty.notify({ title = "" .. colblu .. "------------- Weather -------------" .. coldef .. "", text = "" .. colbblu .. "Wind    : " .. args["{windkmh}"] .. " km/h " .. args["{wind}"] .. "\nHumidity: " .. args["{humid}"] .. " %\nPressure: " .. args["{press}"] .. " hPa" .. coldef .. "", border_color = "#1a1a1a", timeout = 0, hover_timeout = 0.5 }) } end)
 			weatherwidget:add_signal('mouse::leave', function () naughty.destroy(weather_n[1]) end)
-			return "" .. colblu .. "weather " .. coldef .. colbblu .. string.lower(args["{sky}"]) .. ", " .. args["{tempc}"] .. "°C" .. coldef .. " "
+			return "" .. colbblu .. string.lower(args["{sky}"]) .. ", " .. args["{tempc}"] .. "°C" .. coldef .. " "
 		end
 	end, 1200, "LECO")
 
@@ -635,7 +635,7 @@ for s = 1, screen.count() do
         -- Date widget
         datewidget,
         -- Weather widget
-        --weatherwidget,
+        weatherwidget,
         -- Gmail widget
         gmailwidget,
         separatorwidget,
