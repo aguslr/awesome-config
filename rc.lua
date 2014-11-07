@@ -243,7 +243,7 @@ function cal_gett()
 		rem = string.gsub(rem, "\027%[1;37m", colbwhi) --br-white
 		return rem
 end
-timewidget:add_signal('mouse::enter', function () cal_remt = { naughty.notify({ text = cal_gett(), timeout = 0, hover_timeout = 0.5 }) } end)
+timewidget:add_signal('mouse::enter', function () cal_remt = { naughty.notify({ text = cal_gett(), border_color = "#000000", timeout = 0, hover_timeout = 0.5 }) } end)
 timewidget:add_signal('mouse::leave', function () naughty.destroy(cal_remt[1]) end)
 timewidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( editor_cmd .. " " .. os.getenv("HOME") .. "/todo.txt" ) end ) ) )
 
@@ -254,7 +254,7 @@ vicious.register(weatherwidget, vicious.widgets.weather,
 		if args["{tempc}"] == "N/A" then
 			return ""
 		else
-			weatherwidget:add_signal('mouse::enter', function () weather_n = { naughty.notify({ title = "" .. colblu .. "------------- Weather -------------" .. coldef .. "", text = "" .. colbblu .. "Wind    : " .. args["{windkmh}"] .. " km/h " .. args["{wind}"] .. "\nHumidity: " .. args["{humid}"] .. " %\nPressure: " .. args["{press}"] .. " hPa" .. coldef .. "", border_color = "#1a1a1a", timeout = 0, hover_timeout = 0.5 }) } end)
+			weatherwidget:add_signal('mouse::enter', function () weather_n = { naughty.notify({ title = "" .. colblu .. "------------- Weather -------------" .. coldef .. "", text = "" .. colbblu .. "Wind    : " .. args["{windkmh}"] .. " km/h " .. args["{wind}"] .. "\nHumidity: " .. args["{humid}"] .. " %\nPressure: " .. args["{press}"] .. " hPa" .. coldef .. "", border_color = "#000000", timeout = 0, hover_timeout = 0.5 }) } end)
 			weatherwidget:add_signal('mouse::leave', function () naughty.destroy(weather_n[1]) end)
 			return "" .. colbblu .. "☀ " .. coldef .. colblu .. string.lower(args["{sky}"]) .. ", " .. args["{tempc}"] .. "°C" .. coldef .. " "
 		end
