@@ -79,7 +79,10 @@ layouts =
     vain.layout.browse,                 -- 2
     vain.layout.cascade,                -- 3
     vain.layout.cascadebrowse,          -- 4
-    vain.layout.centerwork              -- 5
+    vain.layout.centerwork,             -- 5
+    awful.layout.suit.floating,         -- 6
+    awful.layout.suit.max.fullscreen,   -- 7
+    awful.layout.suit.magnifier         -- 8
 }
 
 -- {{{ Tags
@@ -93,8 +96,8 @@ shifty.config.tags = {
     ["5:graph"] = { position = 5, layout = layouts[1] },
     ["6:media"] = { position = 6, layout = layouts[5] },
     ["7:office"] = { position = 7, layout = layouts[3] },
-    ["8"] = { position = 8, layout = layouts[1] },
-    ["9"] = { position = 9, layout = layouts[4] }
+    ["8"] = { position = 8, layout = layouts[6] },
+    ["9"] = { position = 9, layout = layouts[7] }
 }
 
 -- shifty: tags matching and client rules (use xprop to check window properties)
