@@ -111,7 +111,7 @@ shifty.config.apps = {
     { match = { "clementine", "Rhythmbox", "Totem", "vlc" }, tag = "6:media", },
     { match = { "abiword", "gnumeric", "LibreOffice.*" }, tag = "7:office", },
     -- Floating clients
-    { match = { "alsamixer", "htop", "MPlayer", "mc", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "sensors", "Thunar", "wyrd" }, float = true },
+    { match = { "alsamixer", "bash", "htop", "MPlayer", "mc", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "sensors", "Thunar", "wyrd" }, float = true },
     -- Specific client properties
     { match = { "gimp%-image%-window" }, geometry = {175,15,930,770}, border_width = 0 },
     { match = { "^gimp%-toolbox$" }, geometry = {0,15,175,770}, slave = true, border_width = 0 },
@@ -383,6 +383,7 @@ vicious.register(netewidget, vicious.widgets.net,
             return "" .. colbblk .. "⇋ " .. coldef .. colgre .. args["{eth0 down_kb}"] .. "k " .. coldef .. colblu .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
         end
     end)
+netewidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
 
 ethwidget = widget({ type = "textbox" })
 vicious.register(ethwidget, vicious.widgets.netinfo,
@@ -407,6 +408,7 @@ vicious.register(netwwidget, vicious.widgets.net,
             return "" .. colbblk .. "⇋ " .. coldef .. colgre .. args["{wlan0 down_kb}"] .. "k " .. coldef .. colblu .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
         end
     end)
+netwwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
 
 wifiwidget = widget({ type = "textbox" })
 vicious.register(wifiwidget, vicious.widgets.wifi,
