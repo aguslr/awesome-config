@@ -333,7 +333,6 @@ cputwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.u
 -- Ram widget
 memwidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.mem)
---vicious.register(memwidget, vicious.widgets.mem, "" .. colblk .. "ram " .. coldef .. colbblk .. "$1% ($2 MiB) " .. coldef .. "", 13)
 vicious.register(memwidget, vicious.widgets.mem,
     function (widget, args)
         if args[1] >= 80 then
@@ -374,7 +373,6 @@ temp0widget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.
 -- eth0
 netewidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.net)
---vicious.register(netewidget, vicious.widgets.net, "" .. colblk .. "eth0 " .. coldef .. colbblu .. "${eth0 down_kb}k " .. coldef .. colbred .. "${eth0 up_kb}k " .. coldef .. "")
 vicious.register(netewidget, vicious.widgets.net,
     function (widget, args)
         if args["{eth0 down_kb}"] == "0.0" and args["{eth0 up_kb}"] == "0.0" then
@@ -399,7 +397,6 @@ vicious.register(ethwidget, vicious.widgets.netinfo,
 
 -- wlan0
 netwwidget = widget({ type = "textbox" })
---vicious.register(netwwidget, vicious.widgets.net, "" .. colblk .. "wlan0 " .. coldef .. colbblu .. "${wlan0 down_kb}k " .. coldef .. colbred .. "${wlan0 up_kb}k " .. coldef .. "")
 vicious.register(netwwidget, vicious.widgets.net,
     function (widget, args)
         if args["{wlan0 down_kb}"] == "0.0" and args["{wlan0 up_kb}"] == "0.0" then
