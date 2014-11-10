@@ -111,7 +111,7 @@ shifty.config.apps = {
     { match = { "clementine", "Rhythmbox", "Totem", "vlc" }, tag = "6:media", },
     { match = { "abiword", "gnumeric", "LibreOffice.*" }, tag = "7:office", },
     -- Floating clients
-    { match = { "alsamixer", "bash", "htop", "MPlayer", "mc", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "sensors", "Thunar", "wyrd" }, float = true },
+    { match = { "alsamixer", "bash", "htop", "MPlayer", "mc", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "sensors", "Thunar", "watch", "wyrd" }, float = true },
     -- Specific client properties
     { match = { "gimp%-image%-window" }, geometry = {175,15,930,770}, border_width = 0 },
     { match = { "^gimp%-toolbox$" }, geometry = {0,15,175,770}, slave = true, border_width = 0 },
