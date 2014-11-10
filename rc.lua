@@ -371,7 +371,7 @@ vicious.register(temp0widget, vicious.widgets.thermal,
 temp0widget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e watch sensors" ) end ) ) )
 
 -- Net widgets
--- eth
+-- eth0
 netewidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.net)
 --vicious.register(netewidget, vicious.widgets.net, "" .. colblk .. "eth0 " .. coldef .. colbgre .. "${eth0 down_kb}k " .. coldef .. colbred .. "${eth0 up_kb}k " .. coldef .. "")
@@ -396,7 +396,7 @@ vicious.register(ethwidget, vicious.widgets.netinfo,
         end
     end, refresh_delay, "eth0")
 
--- wlan
+-- wlan0
 netwwidget = widget({ type = "textbox" })
 --vicious.register(netwwidget, vicious.widgets.net, "" .. colblk .. "wlan0 " .. coldef .. colbgre .. "${wlan0 down_kb}k " .. coldef .. colbred .. "${wlan0 up_kb}k " .. coldef .. "")
 vicious.register(netwwidget, vicious.widgets.net,
