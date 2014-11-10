@@ -17,8 +17,6 @@ require("shifty")
 require("vicious")
 -- Calendar widget (http://awesome.naquadah.org/wiki/Calendar_widget)
 require("calendar2")
--- Revelation (http://awesome.naquadah.org/wiki/Revelation)
-require("revelation")
 -- Netinfo widget (from vicious wlan widget)
 require("vicious.widgets.netinfo")
 -- Load vain
@@ -622,7 +620,6 @@ globalkeys = awful.util.table.join(
 
     -- Launchers
     awful.key({ altkey,           }, "F1",  function () mymainmenu:show({keygrabber=true}) end),
-    awful.key({ modkey,           }, "e",   revelation),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j",   function () awful.client.swap.byidx(  1)    end),
