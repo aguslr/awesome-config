@@ -815,24 +815,12 @@ end
 
 -- Set background color
 --awful.util.spawn_with_shell("hsetroot -solid '#1a1a1a'")
--- Load color profile
-awful.util.spawn_with_shell("xcalib -d :0 /usr/share/color/icc/sRGB.icm")
 -- Set X Server properties
 awful.util.spawn_with_shell("xrdb .Xdefaults")
--- Load custom Xmodmap
---awful.util.spawn_with_shell("xmodmap .Xmodmap")
--- Use CapsLock as Ctrl
-awful.util.spawn_with_shell("setxkbmap -option ctrl:nocaps")
--- Enable trackpad edgescrolling
-awful.util.spawn_with_shell("synclient HorizEdgeScroll=1 VertEdgeScroll=1")
--- Disable trackpad while typing
---awful.util.spawn_with_shell("syndaemon -i 0.5 -K -R")
 -- Change resolution for external monitor
 awful.util.spawn_with_shell("xrandr --output VGA1 --auto")
 -- Start ScreenSaver daemon
 run_once("xscreensaver","-no-splash")
--- Start XbindKeys
---run_once("xbindkeys","-n -f ~/.xbindkeysrc")
 -- Start Terminal daemon
 run_once("urxvtd","--quiet --opendisplay --fork")
 -- Run composite manager
