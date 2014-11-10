@@ -525,12 +525,11 @@ for s = 1, screen.count() do
 
     -- Create a tasklist widget
     mytasklist[s] = awful.widget.tasklist(function(c)
-                                              return awful.widget.tasklist.label.currenttags(c, s,
--- WARNING: Requires modified /usr/share/awesome/lib/awful/widget/tasklist.lua !!!
--- This basically hides the application icons on the tasklist. If you don't want this or
--- prefer not to change your tasklist.lua remove the following line!
-                                              { hide_icon = true })
-                                          end, mytasklist.buttons)
+                           --remove tasklist-icon without modifying the original tasklist.lua
+                           --http://awesome.naquadah.org/wiki/Remove_icons
+                           local tmptask = { awful.widget.tasklist.label.currenttags(c, s) }
+                           return tmptask[1], tmptask[2], tmptask[3], nil
+                           end, mytasklist.buttons)
 
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", height = "14", bg = "#000000", screen = s })
