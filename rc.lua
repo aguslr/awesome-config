@@ -837,7 +837,7 @@ run_once("xscreensaver","-no-splash")
 -- Start Terminal daemon
 run_once("urxvtd","--quiet --opendisplay --fork")
 -- Run composite manager
-run_once("xcompmgr")
+--run_once("xcompmgr")
 
 
 -- }}}
