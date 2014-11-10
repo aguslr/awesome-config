@@ -10,13 +10,13 @@ theme.bg_urgent     = "#111313"
 theme.bg_minimize   = "#111313"
 
 theme.fg_normal     = "#424446"
-theme.fg_focus      = "#719e6b"
+theme.fg_focus      = "#6c8b9e"
 theme.fg_urgent     = "#b8baba"
 theme.fg_minimize   = "#424446"
 
 theme.border_width  = "1"
-theme.border_normal = "#111313"
-theme.border_focus  = "#719e6b"
+theme.border_normal = "#424446"
+theme.border_focus  = "#6c8b9e"
 theme.border_marked = "#986b9e"
 
 -- TAGLIST

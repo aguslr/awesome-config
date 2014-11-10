@@ -270,7 +270,7 @@ vicious.register(weatherwidget, vicious.widgets.weather,
 --vicious.register(mboxwidget, vicious.widgets.mboxc,
 --    function (widget, args)
 --        if args[3] > 0 then
---            return "" .. colyel .. "mbox " .. coldef .. colbgre .. args[3] .. "/" .. args[1] .. coldef .. " "
+--            return "" .. colyel .. "mbox " .. coldef .. colbblu .. args[3] .. "/" .. args[1] .. coldef .. " "
 --        else
 --            return "" .. colblk .. "mbox " .. coldef .. colbblk .. args[3] .. "/" .. args[1] .. coldef .. " "
 --        end
@@ -282,7 +282,7 @@ gmailwidget = widget({ type = "textbox" })
 vicious.register(gmailwidget, vicious.widgets.gmail,
     function (widget, args)
         if args["{count}"] > 0 then
-            return "" .. colbyel .. "✉ " .. coldef .. colgre .. args["{count}"] .. coldef .. " "
+            return "" .. colbyel .. "✉ " .. coldef .. colblu .. args["{count}"] .. coldef .. " "
         else
             return "" .. colbblk .. "✉ " .. coldef .. colblk .. args["{count}"] .. coldef .. " "
         end
@@ -300,7 +300,7 @@ vicious.register(mpdwidget, vicious.widgets.mpd,
         if args["{state}"] == "Stop" then
             return ""
         elseif args["{state}"] == "Play" then
-            return "" .. colbblk .. "♬ " .. coldef .. colgre .. args["{Artist}"] .. " - " .. args["{Title}"] .. " [" .. args["{Album}"] .. "]" .. coldef .. " "
+            return "" .. colbblk .. "♬ " .. coldef .. colblu .. args["{Artist}"] .. " - " .. args["{Title}"] .. " [" .. args["{Album}"] .. "]" .. coldef .. " "
         elseif args["{state}"] == "Pause" then
             return "" .. colbblk .. "♬ " .. coldef .. colyel .. "paused" .. coldef .. " "
         end
@@ -374,13 +374,13 @@ temp0widget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.
 -- eth0
 netewidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.net)
---vicious.register(netewidget, vicious.widgets.net, "" .. colblk .. "eth0 " .. coldef .. colbgre .. "${eth0 down_kb}k " .. coldef .. colbred .. "${eth0 up_kb}k " .. coldef .. "")
+--vicious.register(netewidget, vicious.widgets.net, "" .. colblk .. "eth0 " .. coldef .. colbblu .. "${eth0 down_kb}k " .. coldef .. colbred .. "${eth0 up_kb}k " .. coldef .. "")
 vicious.register(netewidget, vicious.widgets.net,
     function (widget, args)
         if args["{eth0 down_kb}"] == "0.0" and args["{eth0 up_kb}"] == "0.0" then
             return "" .. colbblk .. "⇋ " .. coldef .. colblk .. args["{eth0 down_kb}"] .. "k " .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
         else
-            return "" .. colbblk .. "⇋ " .. coldef .. colgre .. args["{eth0 down_kb}"] .. "k " .. coldef .. colblu .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
+            return "" .. colbblk .. "⇋ " .. coldef .. colcya .. args["{eth0 down_kb}"] .. "k " .. coldef .. colmag .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
         end
     end)
 netewidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
@@ -399,13 +399,13 @@ vicious.register(ethwidget, vicious.widgets.netinfo,
 
 -- wlan0
 netwwidget = widget({ type = "textbox" })
---vicious.register(netwwidget, vicious.widgets.net, "" .. colblk .. "wlan0 " .. coldef .. colbgre .. "${wlan0 down_kb}k " .. coldef .. colbred .. "${wlan0 up_kb}k " .. coldef .. "")
+--vicious.register(netwwidget, vicious.widgets.net, "" .. colblk .. "wlan0 " .. coldef .. colbblu .. "${wlan0 down_kb}k " .. coldef .. colbred .. "${wlan0 up_kb}k " .. coldef .. "")
 vicious.register(netwwidget, vicious.widgets.net,
     function (widget, args)
         if args["{wlan0 down_kb}"] == "0.0" and args["{wlan0 up_kb}"] == "0.0" then
             return "" .. colbblk .. "⇋ " .. coldef .. colblk .. args["{wlan0 down_kb}"] .. "k " .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
         else
-            return "" .. colbblk .. "⇋ " .. coldef .. colgre .. args["{wlan0 down_kb}"] .. "k " .. coldef .. colblu .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
+            return "" .. colbblk .. "⇋ " .. coldef .. colcya .. args["{wlan0 down_kb}"] .. "k " .. coldef .. colmag .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
         end
     end)
 netwwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
@@ -448,7 +448,7 @@ vicious.register(volwidget, vicious.widgets.volume,
         elseif args[1] > 80 then
             return "" .. colbred .. "♪ " .. coldef .. colred .. args[1] .. "%" .. coldef .. " "
         else
-            return "" .. colbgre .. "♪ " .. coldef .. colgre .. args[1] .. "%" .. coldef .. " "
+            return "" .. colbblk .. "♪ " .. coldef .. colblk .. args[1] .. "%" .. coldef .. " "
         end
     end, 2, "Master" )
 volwidget:buttons(
