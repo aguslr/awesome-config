@@ -392,7 +392,7 @@ vicious.register(ethwidget, vicious.widgets.netinfo,
             return ""
         else
             netewidget.visible = true
-            return "" .. colblk .. "ip " .. coldef .. colbblk .. args["{ip}"] .. coldef .. " "
+            return "" .. colbblk .. "ip " .. coldef .. colblk .. args["{ip}"] .. coldef .. " "
         end
     end, refresh_delay, "eth0")
 
@@ -416,8 +416,7 @@ vicious.register(wifiwidget, vicious.widgets.wifi,
             return ""
         else
             netwwidget.visible = true
-            return ""
-            --return "" .. colblk .. "ssid " .. coldef .. colbblk .. string.format("%s [%i%%]", args["{ssid}"], args["{link}"]/70*100) .. coldef .. " "
+            return "" .. colbblk .. "ssid " .. coldef .. colblk .. string.format("%s [%i%%]", args["{ssid}"], args["{link}"]/70*100) .. coldef .. " "
         end
     end, 30, "wlan0" )
 
