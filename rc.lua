@@ -307,8 +307,8 @@ vicious.register(mpdwidget, vicious.widgets.mpd,
     end)
 mpdwidget:buttons(
     awful.util.table.join(
-        awful.button({}, 1, function () awful.util.spawn( "mpc toggle", false ) end),
-        awful.button({}, 3, function () awful.util.spawn( mpd )   end),
+        awful.button({}, 1, function () awful.util.spawn( mpd )   end),
+        awful.button({}, 2, function () awful.util.spawn( "mpc toggle", false ) end),
         awful.button({}, 4, function () awful.util.spawn( "mpc prev", false ) end),
         awful.button({}, 5, function () awful.util.spawn( "mpc next", false ) end)
     )
@@ -452,9 +452,8 @@ vicious.register(volwidget, vicious.widgets.volume,
     end, 2, "Master" )
 volwidget:buttons(
     awful.util.table.join(
-        awful.button({ }, 1, function () awful.util.spawn( "amixer -q sset Master toggle" ) end),
-        awful.button({ }, 2, function () awful.util.spawn( terminal .. " -e alsamixer" ) end),
-        awful.button({ }, 3, function () awful.util.spawn( "pavucontrol" ) end),
+        awful.button({ }, 1, function () awful.util.spawn( terminal .. " -e alsamixer" ) end),
+        awful.button({ }, 2, function () awful.util.spawn( "amixer -q sset Master toggle" ) end),
         awful.button({ }, 4, function () awful.util.spawn( "amixer -q sset Master 5%+" ) end),
         awful.button({ }, 5, function () awful.util.spawn( "amixer -q sset Master 5%-" ) end)
     )
