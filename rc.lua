@@ -547,8 +547,7 @@ for s = 1, screen.count() do
         datewidget,
         -- Weather widget
         weatherwidget,
-        -- Systray
-        s == 1 and mysystray or nil,
+        -- Tasks
         mytasklist[s],
         spacerwidget,
         layout = awful.widget.layout.horizontal.rightleft
@@ -566,6 +565,8 @@ for s = 1, screen.count() do
             mpdwidget,
             layout = awful.widget.layout.horizontal.leftright
         },
+        -- Systray
+        s == 1 and mysystray or nil,
         -- Volume widget
         volwidget,
         -- Battery widget
