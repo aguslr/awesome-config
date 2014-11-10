@@ -826,6 +826,10 @@ run_once("xscreensaver","-no-splash")
 run_once("urxvtd","--quiet --opendisplay --fork")
 -- Run composite manager
 --run_once("xcompmgr")
+-- Start Empathy
+run_once("empathy", "-h")
+-- Start ownCloud client
+run_once("owncloud")
 
 
 -- }}}
