@@ -367,6 +367,38 @@ vicious.register(temp0widget, vicious.widgets.thermal,
     end, 20, "thermal_zone0" )
 temp0widget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e watch sensors" ) end ) ) )
 
+-- Filesystem widgets
+-- root
+fsrwidget = widget({ type = "textbox" })
+vicious.register(fsrwidget, vicious.widgets.fs,
+    function (widget, args)
+        if args["{/ used_p}"] >= 90 and args["{/ used_p}"] <= 100 then
+            return "" .. colbred .. "/ " .. coldef .. colred .. args["{/ used_p}"] .. "%" .. coldef .. " "
+        else
+            return "" .. colbblk .. "/ " .. coldef .. colwhi .. args["{/ used_p}"] .. "%" .. coldef .. " "
+        end
+    end, 620)
+-- /mnt/home
+fshwidget = widget({ type = "textbox" })
+vicious.register(fshwidget, vicious.widgets.fs,
+    function (widget, args)
+        if args["{/mnt/home used_p}"] >= 90 and args["{/mnt/home used_p}"] < 100 then
+            return "" .. colbred .. "~ " .. coldef .. colred .. args["{/mnt/home used_p}"] .. "%" .. coldef .. " "
+        else
+            return "" .. colbblk .. "~ " .. coldef .. colwhi .. args["{/mnt/home used_p}"] .. "%" .. coldef .. " "
+        end
+    end, 620)
+-- /mntdata/
+fsdwidget = widget({ type = "textbox" })
+vicious.register(fsdwidget, vicious.widgets.fs,
+    function (widget, args)
+        if args["{/mnt/data used_p}"] >= 90 and args["{/mnt/data used_p}"] < 100 then
+            return "" .. colbred .. "# " .. coldef .. colred .. args["{/mnt/data used_p}"] .. "%" .. coldef .. " "
+        else
+            return "" .. colbblk .. "# " .. coldef .. colwhi .. args["{/mnt/data used_p}"] .. "%" .. coldef .. " "
+        end
+    end, 620)
+
 -- Net widgets
 -- eth0
 netewidget = widget({ type = "textbox" })
@@ -573,6 +605,8 @@ for s = 1, screen.count() do
         -- Net widgets
         wifiwidget, netwwidget,
         ethwidget, netewidget,
+        -- Filesystem widgets
+        fsdwidget, fshwidget, fsrwidget,
         -- Thermal widgets
         temp0widget,
         -- CPU temp widgets
