@@ -248,7 +248,7 @@ function cal_gett()
 end
 timewidget:add_signal('mouse::enter', function () cal_remt = { naughty.notify({ text = cal_gett(), border_color = "#000000", timeout = 0, hover_timeout = 0.5 }) } end)
 timewidget:add_signal('mouse::leave', function () naughty.destroy(cal_remt[1]) end)
-timewidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( editor_cmd .. " " .. os.getenv("HOME") .. "/todo.txt" ) end ) ) )
+timewidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( editor_cmd .. " -o " .. os.getenv("HOME") .. "/todo.txt " .. os.getenv("HOME") .. "/done.txt" ) end ) ) )
 
 -- Weather widget
 weatherwidget = widget({ type = "textbox" })
