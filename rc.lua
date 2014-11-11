@@ -282,7 +282,7 @@ vicious.register(gmailwidget, vicious.widgets.gmail,
         if args["{count}"] > 0 then
             return "" .. colbyel .. "✉ " .. coldef .. colblu .. args["{count}"] .. coldef .. " "
         else
-            return "" .. colbblk .. "✉ " .. coldef .. colblk .. args["{count}"] .. coldef .. " "
+            return "" .. colbblk .. "✉ " .. coldef .. colwhi .. args["{count}"] .. coldef .. " "
         end
     end, 10)
 gmailwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( mail ) end ) ) )
@@ -323,7 +323,7 @@ vicious.register(cputwidget, vicious.widgets.cpu,
         if args[1] >= 50 then
             return "" .. colbred .. "⌚ " .. coldef .. colred .. args[1] .. "%" .. coldef .. " "
         else
-            return "" .. colbblk .. "⌚ " .. coldef .. colblk .. args[1] .. "%" .. coldef .. " "
+            return "" .. colbblk .. "⌚ " .. coldef .. colwhi .. args[1] .. "%" .. coldef .. " "
         end
     end, 20)
 cputwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e htop --sort-key PERCENT_CPU" ) end ) ) )
@@ -336,7 +336,7 @@ vicious.register(memwidget, vicious.widgets.mem,
         if args[1] >= 80 then
             return "" .. colbred .. "≣ " .. coldef .. colred .. args[1] .. "%" .. coldef .. " "
         else
-            return "" .. colbblk .. "≣ " .. coldef .. colblk .. args[1] .. "%" .. coldef .. " "
+            return "" .. colbblk .. "≣ " .. coldef .. colwhi .. args[1] .. "%" .. coldef .. " "
         end
     end, 20)
 memwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e htop --sort-key PERCENT_MEM" ) end ) ) )
@@ -349,7 +349,7 @@ vicious.register(coretemp0widget, vicious.widgets.thermal,
         if args[1] >= 85 then
             return "" .. colbred .. "≈ " .. coldef .. colred .. args[1] .. "°C" .. coldef .. " "
         else
-            return "" .. colbblk .. "≈ " .. coldef .. colblk .. args[1] .. "°C" .. coldef .. " "
+            return "" .. colbblk .. "≈ " .. coldef .. colwhi .. args[1] .. "°C" .. coldef .. " "
         end
     end, 20, { "coretemp.0/hwmon/hwmon1", "core0"} )
 coretemp0widget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e watch sensors" ) end ) ) )
@@ -362,7 +362,7 @@ vicious.register(temp0widget, vicious.widgets.thermal,
         if args[1] >= 85 then
             return "" .. colred .. args[1] .. "°C" .. coldef .. " "
         else
-            return "" .. colblk .. args[1] .. "°C" .. coldef .. " "
+            return "" .. colwhi .. args[1] .. "°C" .. coldef .. " "
         end
     end, 20, "thermal_zone0" )
 temp0widget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e watch sensors" ) end ) ) )
@@ -374,7 +374,7 @@ vicious.cache(vicious.widgets.net)
 vicious.register(netewidget, vicious.widgets.net,
     function (widget, args)
         if args["{eth0 down_kb}"] == "0.0" and args["{eth0 up_kb}"] == "0.0" then
-            return "" .. colbblk .. "⇋ " .. coldef .. colblk .. args["{eth0 down_kb}"] .. "k " .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
+            return "" .. colbblk .. "⇋ " .. coldef .. colwhi .. args["{eth0 down_kb}"] .. "k " .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
         else
             return "" .. colbblk .. "⇋ " .. coldef .. colcya .. args["{eth0 down_kb}"] .. "k " .. coldef .. colmag .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
         end
@@ -389,7 +389,7 @@ vicious.register(ethwidget, vicious.widgets.netinfo,
             return ""
         else
             netewidget.visible = true
-            return "" .. colbblk .. "ip " .. coldef .. colblk .. args["{ip}"] .. coldef .. " "
+            return "" .. colbblk .. "ip " .. coldef .. colwhi .. args["{ip}"] .. coldef .. " "
         end
     end, refresh_delay, "eth0")
 
@@ -398,7 +398,7 @@ netwwidget = widget({ type = "textbox" })
 vicious.register(netwwidget, vicious.widgets.net,
     function (widget, args)
         if args["{wlan0 down_kb}"] == "0.0" and args["{wlan0 up_kb}"] == "0.0" then
-            return "" .. colbblk .. "⇋ " .. coldef .. colblk .. args["{wlan0 down_kb}"] .. "k " .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
+            return "" .. colbblk .. "⇋ " .. coldef .. colwhi .. args["{wlan0 down_kb}"] .. "k " .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
         else
             return "" .. colbblk .. "⇋ " .. coldef .. colcya .. args["{wlan0 down_kb}"] .. "k " .. coldef .. colmag .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
         end
@@ -413,7 +413,7 @@ vicious.register(wifiwidget, vicious.widgets.wifi,
             return ""
         else
             netwwidget.visible = true
-            return "" .. colbblk .. "ssid " .. coldef .. colblk .. string.format("%s [%i%%]", args["{ssid}"], args["{link}"]/70*100) .. coldef .. " "
+            return "" .. colbblk .. "ssid " .. coldef .. colwhi .. string.format("%s [%i%%]", args["{ssid}"], args["{link}"]/70*100) .. coldef .. " "
         end
     end, 30, "wlan0" )
 
@@ -423,7 +423,7 @@ kbdcfg.cmd = "setxkbmap"
 kbdcfg.layout = { { "gb", "" }, { "es", "" } }
 kbdcfg.current = 1  -- is our default layout
 kbdcfg.widget = widget({ type = "textbox", align = "right" })
-kbdcfg.widget.text = colbblk .. "⚑ " .. coldef .. colblk .. kbdcfg.layout[kbdcfg.current][1] .. coldef .. " "
+kbdcfg.widget.text = colbblk .. "⚑ " .. coldef .. colwhi .. kbdcfg.layout[kbdcfg.current][1] .. coldef .. " "
 kbdcfg.switch = function ()
     kbdcfg.current = kbdcfg.current % #(kbdcfg.layout) + 1
     local t = kbdcfg.layout[kbdcfg.current]
@@ -443,7 +443,7 @@ vicious.register(volwidget, vicious.widgets.volume,
         elseif args[1] > 60 then
             return "" .. colbred .. "♪ " .. coldef .. colred .. args[1] .. "%" .. coldef .. " "
         else
-            return "" .. colbblk .. "♪ " .. coldef .. colblk .. args[1] .. "%" .. coldef .. " "
+            return "" .. colbblk .. "♪ " .. coldef .. colwhi .. args[1] .. "%" .. coldef .. " "
         end
     end, 2, "Master" )
 volwidget:buttons(
