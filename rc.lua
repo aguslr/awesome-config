@@ -295,11 +295,11 @@ mpdwidget = widget({ type = 'textbox' })
 vicious.register(mpdwidget, vicious.widgets.mpd,
     function (widget, args)
         if args["{state}"] == "Stop" then
-            return ""
+            return "" .. colbblk .. "◾ " .. coldef
         elseif args["{state}"] == "Play" then
-            return "" .. colbblk .. "♬ " .. coldef .. colblu .. args["{Artist}"] .. " - " .. args["{Title}"] .. " [" .. args["{Album}"] .. "]" .. coldef .. " "
+            return "" .. colbblk .. "▶ " .. coldef .. colblu .. args["{Artist}"] .. " - " .. args["{Title}"] .. " [" .. args["{Album}"] .. "]" .. coldef .. " "
         elseif args["{state}"] == "Pause" then
-            return "" .. colbblk .. "♬ " .. coldef .. colyel .. "paused" .. coldef .. " "
+            return "" .. colbblk .. "▶ " .. coldef .. colyel .. "paused" .. coldef .. " "
         end
     end)
 mpdwidget:buttons(
@@ -470,11 +470,11 @@ volwidget = widget({ type = "textbox" })
 vicious.register(volwidget, vicious.widgets.volume,
     function (widget, args)
         if args[1] == 0 or args[2] == "♩" then
-            return "" .. colbblk .. "♪ " .. coldef .. colyel .. "muted" .. coldef .. " "
+            return "" .. colbblk .. "♬ " .. coldef .. colyel .. "muted" .. coldef .. " "
         elseif args[1] > 60 then
-            return "" .. colbred .. "♪ " .. coldef .. colred .. args[1] .. "%" .. coldef .. " "
+            return "" .. colbred .. "♬ " .. coldef .. colred .. args[1] .. "%" .. coldef .. " "
         else
-            return "" .. colbblk .. "♪ " .. coldef .. colwhi .. args[1] .. "%" .. coldef .. " "
+            return "" .. colbblk .. "♬ " .. coldef .. colwhi .. args[1] .. "%" .. coldef .. " "
         end
     end, 2, "Master" )
 volwidget:buttons(
