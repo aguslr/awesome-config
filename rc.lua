@@ -686,15 +686,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "space",   function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space",   function () awful.layout.inc(layouts, -1) end),
 
-    -- Run applications with dmenu
-    -- http://awesome.naquadah.org/wiki/Using_dmenu#Integrating_with_your_awesome_theme
-    awful.key({ altkey },            "r",   function ()
-        awful.util.spawn("dmenu_run -i -p 'Run:' -nb '" .. 
-        beautiful.bg_normal .. "' -nf '" .. beautiful.fg_normal .. 
-        "' -sb '" .. beautiful.bg_focus .. 
-        "' -sf '" .. beautiful.fg_focus .. "'") 
-    end),
-
     -- Prompt
     awful.key({ altkey },            "F2",  function () mypromptbox[mouse.screen]:run() end),
 
