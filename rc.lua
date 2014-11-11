@@ -189,6 +189,7 @@ mymainmenu = awful.menu({
     width = 150,
     items = {
         { "Awesome", myawesomemenu },
+		{ "Debian", debian.menu.Debian_menu.Debian },
         { "Editors", editorsmenu },
         { "Graphics", graphicsmenu },
         { "Multimedia", mediamenu },
