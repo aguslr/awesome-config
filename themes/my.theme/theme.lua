@@ -16,7 +16,7 @@ theme.fg_minimize   = "#424446"
 
 theme.border_width  = "1"
 theme.border_normal = "#424446"
-theme.border_focus  = "#6c8b9e"
+theme.border_focus  = "#b8baba"
 theme.border_marked = "#986b9e"
 
 -- TAGLIST
@@ -51,7 +51,8 @@ theme.menu_height       = "14"
 theme.menu_width        = "100"
 
 -- WALLPAPER
-theme.wallpaper_cmd = { "awsetbg -c " .. os.getenv("HOME") .. "/Imágenes/background.jpg" }
+--theme.wallpaper_cmd = { "awsetbg -c " .. os.getenv("HOME") .. "/Imágenes/background.jpg" }
+theme.wallpaper_cmd = { "awsetbg -t " .. os.getenv("HOME") .. "/Imágenes/pattern.png" }
 
 -- ICON
 theme.awesome_icon  = "/usr/share/awesome/icons/awesome16.png"
