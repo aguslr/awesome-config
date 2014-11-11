@@ -44,11 +44,16 @@ theme.layout_cascade       = awful.util.getdir("config") .. "/vain/themes/defaul
 theme.layout_cascadebrowse = awful.util.getdir("config") .. "/vain/themes/default/layouts/cascadebrowsew.png"
 theme.layout_centerwork    = awful.util.getdir("config") .. "/vain/themes/default/layouts/centerworkw.png"
 
-
 -- MENU
 theme.menu_submenu_icon = awful.util.getdir("config") .. "/themes/my.theme/submenu.png"
 theme.menu_height       = "14"
 theme.menu_width        = "100"
+theme.menu_bg_normal    = "#000000"
+theme.menu_bg_focus     = "#111313"
+theme.menu_fg_normal    = "#424446"
+theme.menu_fg_focus     = "#b8baba"
+theme.menu_border_color = "#000000"
+theme.menu_border_width = "1"
 
 -- WALLPAPER
 --theme.wallpaper_cmd = { "awsetbg -c " .. os.getenv("HOME") .. "/Imágenes/background.jpg" }
