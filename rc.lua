@@ -824,6 +824,8 @@ run_once("urxvtd","--quiet --opendisplay --fork")
 run_once("empathy", "-h")
 -- Start ownCloud client
 run_once("owncloud")
+-- Start clipboard manager
+run_once("parcellite")
 
 
 -- }}}
