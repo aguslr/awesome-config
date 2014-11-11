@@ -822,6 +822,8 @@ run_once("urxvtd","--quiet --opendisplay --fork")
 --run_once("xcompmgr")
 -- Start Empathy
 run_once("empathy", "-h")
+-- Start Music Player Daemon
+run_once("mpd")
 -- Start ownCloud client
 run_once("owncloud")
 -- Start clipboard manager
