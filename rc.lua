@@ -379,7 +379,6 @@ vicious.register(netewidget, vicious.widgets.net,
             return "" .. colbblk .. "⇋ " .. coldef .. colcya .. args["{eth0 down_kb}"] .. "k " .. coldef .. colmag .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
         end
     end)
-netewidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
 
 ethwidget = widget({ type = "textbox" })
 vicious.register(ethwidget, vicious.widgets.netinfo,
@@ -389,9 +388,10 @@ vicious.register(ethwidget, vicious.widgets.netinfo,
             return ""
         else
             netewidget.visible = true
-            return "" .. colbblk .. "ip " .. coldef .. colwhi .. args["{ip}"] .. coldef .. " "
+            return "" .. colbblk .. "ℹ " .. coldef .. colwhi .. args["{ip}"] .. coldef .. " "
         end
     end, refresh_delay, "eth0")
+ethwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
 
 -- wlan0
 netwwidget = widget({ type = "textbox" })
@@ -403,7 +403,6 @@ vicious.register(netwwidget, vicious.widgets.net,
             return "" .. colbblk .. "⇋ " .. coldef .. colcya .. args["{wlan0 down_kb}"] .. "k " .. coldef .. colmag .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
         end
     end)
-netwwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
 
 wifiwidget = widget({ type = "textbox" })
 vicious.register(wifiwidget, vicious.widgets.wifi,
@@ -413,9 +412,10 @@ vicious.register(wifiwidget, vicious.widgets.wifi,
             return ""
         else
             netwwidget.visible = true
-            return "" .. colbblk .. "ssid " .. coldef .. colwhi .. string.format("%s [%i%%]", args["{ssid}"], args["{link}"]/70*100) .. coldef .. " "
+            return "" .. colbblk .. "ℹ " .. coldef .. colwhi .. string.format("%s [%i%%]", args["{ssid}"], args["{link}"]/70*100) .. coldef .. " "
         end
     end, 30, "wlan0" )
+wifiwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
 
 -- Keyboard Layout widget
 kbdcfg = {}
