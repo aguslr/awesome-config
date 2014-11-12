@@ -578,7 +578,7 @@ for s = 1, screen.count() do
                            end, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "top", height = "14", bg = "#000000", screen = s })
+    mywibox[s] = awful.wibox({ position = "top", height = "16", bg = "#000000", screen = s })
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
@@ -600,7 +600,7 @@ for s = 1, screen.count() do
     }
 
     -- Create the infobox
-    infobox[s] = awful.wibox({ position = "bottom", height = "14", bg = "#000000", screen = s })
+    infobox[s] = awful.wibox({ position = "bottom", height = "16", bg = "#000000", screen = s })
     -- Add widgets to the infobox - order matters
     infobox[s].widgets = {
         {
