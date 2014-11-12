@@ -444,31 +444,23 @@ netewidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.net)
 vicious.register(netewidget, vicious.widgets.net,
     function (widget, args)
-        if args["{eth0 up_kb}"] == nil then
-	        neteicon.visible = false
-	        netewidget.visible = false
-	        return ""
-	    else
-            if args["{eth0 down_kb}"] == "0.0" and args["{eth0 up_kb}"] == "0.0" then
-                return "" .. colwhi .. args["{eth0 down_kb}"] .. "k " .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
-            else
-                return "" .. colcya .. args["{eth0 down_kb}"] .. "k " .. coldef .. colmag .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
-            end
+        if args["{eth0 down_kb}"] == "0.0" and args["{eth0 up_kb}"] == "0.0" then
+            return "" .. colwhi .. args["{eth0 down_kb}"] .. "k " .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
+        else
+            return "" .. colcya .. args["{eth0 down_kb}"] .. "k " .. coldef .. colmag .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
         end
     end)
+netewidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
 
 ethwidget = widget({ type = "textbox" })
 vicious.register(ethwidget, vicious.widgets.netinfo,
     function (widget, args)
         if args["{ip}"] == nil then
+            neteicon.visible = false
             netewidget.visible = false
             return ""
-        else
-            netewidget.visible = true
-            return "" .. colbblk .. "ℹ " .. coldef .. colwhi .. args["{ip}"] .. coldef .. " "
         end
     end, refresh_delay, "eth0")
-ethwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
 
 -- wlan0
 netwicon = widget({ type = "textbox" })
@@ -476,31 +468,23 @@ netwicon.text = "" .. colbblk .. "⇋ " .. coldef .. ""
 netwwidget = widget({ type = "textbox" })
 vicious.register(netwwidget, vicious.widgets.net,
     function (widget, args)
-        if args["{wlan0 up_kb}"] == nil then
-	        netwicon.visible = false
-	        netwwidget.visible = false
-	        return ""
-	    else
-            if args["{wlan0 down_kb}"] == "0.0" and args["{wlan0 up_kb}"] == "0.0" then
-                return "" .. colbblk .. "⇋ " .. coldef .. colwhi .. args["{wlan0 down_kb}"] .. "k " .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
-            else
-                return "" .. colbblk .. "⇋ " .. coldef .. colcya .. args["{wlan0 down_kb}"] .. "k " .. coldef .. colmag .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
-            end
-	    end
+        if args["{wlan0 down_kb}"] == "0.0" and args["{wlan0 up_kb}"] == "0.0" then
+            return "" .. colbblk .. "⇋ " .. coldef .. colwhi .. args["{wlan0 down_kb}"] .. "k " .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
+        else
+            return "" .. colbblk .. "⇋ " .. coldef .. colcya .. args["{wlan0 down_kb}"] .. "k " .. coldef .. colmag .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
+        end
     end)
+netwwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
 
 wifiwidget = widget({ type = "textbox" })
 vicious.register(wifiwidget, vicious.widgets.wifi,
     function (widget, args)
         if args["{link}"] == 0 then
+            netwicon.visible = false
             netwwidget.visible = false
             return ""
-        else
-            netwwidget.visible = true
-            return "" .. colbblk .. "ℹ " .. coldef .. colwhi .. string.format("%s [%i%%]", args["{ssid}"], args["{link}"]/70*100) .. coldef .. " "
         end
     end, 30, "wlan0" )
-wifiwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
 
 -- Keyboard Layout widget
 kbdicon = widget({ type = "textbox" })
@@ -658,8 +642,8 @@ for s = 1, screen.count() do
         -- Keyboard Layout widget
         kbdwidget, kbdicon,
         -- Net widgets
-        wifiwidget, netwwidget,
-        ethwidget, netewidget, neteicon,
+        netwwidget, netwicon,
+        netewidget, neteicon,
         -- Filesystem widgets
         fsdwidget, fsdicon,
         fshwidget, fshicon,
