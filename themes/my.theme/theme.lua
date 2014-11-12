@@ -56,8 +56,8 @@ theme.menu_border_color = "#000000"
 theme.menu_border_width = "1"
 
 -- WALLPAPER
---theme.wallpaper_cmd = { "awsetbg -c " .. os.getenv("HOME") .. "/Imágenes/background.jpg" }
-theme.wallpaper_cmd = { "awsetbg -t " .. os.getenv("HOME") .. "/Imágenes/pattern.png" }
+--theme.wallpaper_cmd = { "awsetbg -c " .. os.getenv("HOME") .. "/Imágenes/wallpaper" }
+theme.wallpaper_cmd = { "awsetbg -t " .. os.getenv("HOME") .. "/Imágenes/pattern" }
 
 -- ICON
 theme.awesome_icon  = "/usr/share/awesome/icons/awesome16.png"
