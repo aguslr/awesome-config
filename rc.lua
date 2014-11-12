@@ -263,18 +263,6 @@ vicious.register(weatherwidget, vicious.widgets.weather,
 		end
 	end, 1200, "LECO")
 
--- Mbox widget
---mboxwidget = widget({ type = "textbox" })
---vicious.register(mboxwidget, vicious.widgets.mboxc,
---    function (widget, args)
---        if args[3] > 0 then
---            return "" .. colyel .. "mbox " .. coldef .. colbblu .. args[3] .. "/" .. args[1] .. coldef .. " "
---        else
---            return "" .. colblk .. "mbox " .. coldef .. colbblk .. args[3] .. "/" .. args[1] .. coldef .. " "
---        end
---    end, 5, { os.getenv("MAIL") } )
---mboxwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn(mail) end ) ) )
-
 -- Gmail widget
 gmailicon = widget({ type = "textbox" })
 gmailicon.text = "" .. colbblk .. "✉ " .. coldef .. ""
