@@ -1,11 +1,13 @@
 ---------------------------------------------------
 -- Licensed under the GNU General Public License v2
---  * (c) 2010, Agus L. http://github.com/aguslopez
+--  * (c) 2014, Agus L. http://github.com/aguslr
 ---------------------------------------------------
 
 -- {{{ Grab environment
 local tonumber = tonumber
+local math = { ceil = math.ceil }
 local setmetatable = setmetatable
+local helpers = require("vicious.helpers")
 local io = {
     open = io.open,
     popen = io.popen
@@ -17,19 +19,19 @@ local string = {
 -- }}}
 
 
--- Netinfo: provides network information for a requested interface
+-- Wifi: provides wireless information for a requested interface
 module("vicious.widgets.netinfo")
 
 
--- Initialize function tables
-local winfo = {
-    ["{ip}"] = nil,
-    ["{mac}"] = nil
-}
-
--- {{{ Netinfo widget type
+-- {{{ Wireless widget type
 local function worker(format, warg)
     if not warg then return end
+
+    -- Default values
+    local winfo = {
+        ["{ip}"] = nil,
+        ["{mac}"] = nil
+    }
 
     -- Get data from ifconfig where available
     local ifconfig = "/sbin/ifconfig"
@@ -43,17 +45,17 @@ local function worker(format, warg)
     local iw = f:read("*all")
     f:close()
 
-    -- ifconfig wasn't found, isn't executable, or no interface
-    if iw == nil or string.find(iw, "Device not found") then
+    -- ifconfig wasn't found, isn't executable, or non-wireless interface
+    if iw == nil or string.find(iw, "No such device") then
         return winfo
     end
 
     -- Output differs from system to system, some stats can be
     -- separated by =, and not all drivers report all stats
     winfo["{ip}"] =  -- IP address can only be digits
-      string.match(iw, "inet addr[=:](%d+.%d+.%d+.%d+)") or winfo["{ip}"]
+      helpers.escape(string.match(iw, "inet addr[=:](%d+.%d+.%d+.%d+)") or winfo["{ip}"])
     winfo["{mac}"] =  -- MAC address
-      string.match(iw, "HWaddr (%w+:%w+:%w+:%w+:%w+:%w+)") or winfo["{mac}"]
+      helpers.escape(string.match(iw, "HWaddr (%w+:%w+:%w+:%w+:%w+:%w+)") or winfo["{mac}"])
 
     return winfo
 end
