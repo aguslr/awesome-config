@@ -276,13 +276,15 @@ vicious.register(weatherwidget, vicious.widgets.weather,
 --mboxwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn(mail) end ) ) )
 
 -- Gmail widget
+gmailicon = widget({ type = "textbox" })
+gmailicon.text = "" .. colbblk .. "✉ " .. coldef .. ""
 gmailwidget = widget({ type = "textbox" })
 vicious.register(gmailwidget, vicious.widgets.gmail,
     function (widget, args)
         if args["{count}"] > 0 then
-            return "" .. colbyel .. "✉ " .. coldef .. colblu .. args["{count}"] .. coldef .. " "
+            return "" .. colblu .. args["{count}"] .. coldef .. " "
         else
-            return "" .. colbblk .. "✉ " .. coldef .. colwhi .. args["{count}"] .. coldef .. " "
+            return "" .. colwhi .. args["{count}"] .. coldef .. " "
         end
     end, 10)
 gmailwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( mail ) end ) ) )
@@ -317,98 +319,141 @@ mpdwidget:buttons(
 -- {{{{ Bottom right widgets (Infobox)
 
 -- CPU widget
+cpuicon = widget({ type = "textbox" })
+cpuicon.text = "" .. colbblk .. "⌚ " .. coldef .. ""
 cpuwidget = widget({ type = "textbox" })
 vicious.register(cpuwidget, vicious.widgets.cpu,
     function (widget, args)
         if args[1] >= 50 then
-            return "" .. colbred .. "⌚ " .. coldef .. colred .. args[1] .. "%" .. coldef .. " "
+            return "" .. colred .. args[1] .. "%" .. coldef .. " "
         else
-            return "" .. colbblk .. "⌚ " .. coldef .. colwhi .. args[1] .. "%" .. coldef .. " "
+            return "" .. colwhi .. args[1] .. "%" .. coldef .. " "
         end
     end, 20)
 cpuwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e htop --sort-key PERCENT_CPU" ) end ) ) )
 
 -- Ram widget
+memicon = widget({ type = "textbox" })
+memicon.text = "" .. colbblk .. "≣ " .. coldef .. ""
 memwidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.mem)
 vicious.register(memwidget, vicious.widgets.mem,
     function (widget, args)
         if args[1] >= 80 then
-            return "" .. colbred .. "≣ " .. coldef .. colred .. args[1] .. "%" .. coldef .. " "
+            return "" .. colred .. args[1] .. "%" .. coldef .. " "
         else
-            return "" .. colbblk .. "≣ " .. coldef .. colwhi .. args[1] .. "%" .. coldef .. " "
+            return "" .. colwhi .. args[1] .. "%" .. coldef .. " "
         end
     end, 20)
 memwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e htop --sort-key PERCENT_MEM" ) end ) ) )
 
--- CPU temp widgets
--- coretemp0
-coretemp0widget = widget({ type = "textbox" })
-vicious.register(coretemp0widget, vicious.widgets.thermal,
+-- Temp widgets
+tempicon = widget({ type = "textbox" })
+tempicon.text = "" .. colbblk .. "≈ " .. coldef .. ""
+-- phys0
+cputempwidget = widget({ type = "textbox" })
+vicious.register(cputempwidget, vicious.widgets.thermal,
     function (widget, args)
         if args[1] >= 85 then
-            return "" .. colbred .. "≈ " .. coldef .. colred .. args[1] .. "°C" .. coldef .. " "
+            return "" .. colred .. args[1] .. "°" .. coldef .. " "
         else
-            return "" .. colbblk .. "≈ " .. coldef .. colwhi .. args[1] .. "°C" .. coldef .. " "
+            return "" .. colwhi .. args[1] .. "°" .. coldef .. " "
         end
-    end, 20, { "coretemp.0/hwmon/hwmon1", "core0"} )
-coretemp0widget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e watch sensors" ) end ) ) )
+    end, 20, { "coretemp.0/hwmon/hwmon1", "core"} )
+cputempwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e watch sensors" ) end ) ) )
 
--- Thermal widgets
 -- zone0
 temp0widget = widget({ type = "textbox" })
 vicious.register(temp0widget, vicious.widgets.thermal,
     function (widget, args)
         if args[1] >= 85 then
-            return "" .. colred .. args[1] .. "°C" .. coldef .. " "
+            return "" .. colred .. args[1] .. "°" .. coldef .. " "
         else
-            return "" .. colwhi .. args[1] .. "°C" .. coldef .. " "
+            return "" .. colwhi .. args[1] .. "°" .. coldef .. " "
         end
     end, 20, "thermal_zone0" )
 temp0widget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e watch sensors" ) end ) ) )
 
+-- zone1
+temp1widget = widget({ type = "textbox" })
+vicious.register(temp1widget, vicious.widgets.thermal,
+    function (widget, args)
+        if args[1] >= 85 then
+            return "" .. colred .. args[1] .. "°" .. coldef .. " "
+        else
+            return "" .. colwhi .. args[1] .. "°" .. coldef .. " "
+        end
+    end, 20, "thermal_zone1" )
+temp1widget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e watch sensors" ) end ) ) )
+
+-- zone2
+temp2widget = widget({ type = "textbox" })
+vicious.register(temp2widget, vicious.widgets.thermal,
+    function (widget, args)
+        if args[1] >= 85 then
+            return "" .. colred .. args[1] .. "°" .. coldef .. " "
+        else
+            return "" .. colwhi .. args[1] .. "°" .. coldef .. " "
+        end
+    end, 20, "thermal_zone2" )
+temp2widget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e watch sensors" ) end ) ) )
+
 -- Filesystem widgets
 -- root
+fsricon = widget({ type = "textbox" })
+fsricon.text = "" .. colbblk .. "/ " .. coldef .. ""
 fsrwidget = widget({ type = "textbox" })
 vicious.register(fsrwidget, vicious.widgets.fs,
     function (widget, args)
         if args["{/ used_p}"] >= 90 and args["{/ used_p}"] <= 100 then
-            return "" .. colbred .. "/ " .. coldef .. colred .. args["{/ used_p}"] .. "%" .. coldef .. " "
+            return "" .. colred .. args["{/ used_p}"] .. "%" .. coldef .. " "
         else
-            return "" .. colbblk .. "/ " .. coldef .. colwhi .. args["{/ used_p}"] .. "%" .. coldef .. " "
+            return "" .. colwhi .. args["{/ used_p}"] .. "%" .. coldef .. " "
         end
     end, 620)
 -- /mnt/home
+fshicon = widget({ type = "textbox" })
+fshicon.text = "" .. colbblk .. "~ " .. coldef .. ""
 fshwidget = widget({ type = "textbox" })
 vicious.register(fshwidget, vicious.widgets.fs,
     function (widget, args)
         if args["{/mnt/home used_p}"] >= 90 and args["{/mnt/home used_p}"] < 100 then
-            return "" .. colbred .. "~ " .. coldef .. colred .. args["{/mnt/home used_p}"] .. "%" .. coldef .. " "
+            return "" .. colred .. args["{/mnt/home used_p}"] .. "%" .. coldef .. " "
         else
-            return "" .. colbblk .. "~ " .. coldef .. colwhi .. args["{/mnt/home used_p}"] .. "%" .. coldef .. " "
+            return "" .. colwhi .. args["{/mnt/home used_p}"] .. "%" .. coldef .. " "
         end
     end, 620)
 -- /mntdata/
+fsdicon = widget({ type = "textbox" })
+fsdicon.text = "" .. colbblk .. "# " .. coldef .. ""
 fsdwidget = widget({ type = "textbox" })
 vicious.register(fsdwidget, vicious.widgets.fs,
     function (widget, args)
         if args["{/mnt/data used_p}"] >= 90 and args["{/mnt/data used_p}"] < 100 then
-            return "" .. colbred .. "# " .. coldef .. colred .. args["{/mnt/data used_p}"] .. "%" .. coldef .. " "
+            return "" .. colred .. args["{/mnt/data used_p}"] .. "%" .. coldef .. " "
         else
-            return "" .. colbblk .. "# " .. coldef .. colwhi .. args["{/mnt/data used_p}"] .. "%" .. coldef .. " "
+            return "" .. colwhi .. args["{/mnt/data used_p}"] .. "%" .. coldef .. " "
         end
     end, 620)
 
 -- Net widgets
 -- eth0
+neteicon = widget({ type = "textbox" })
+neteicon.text = "" .. colbblk .. "⇋ " .. coldef .. ""
 netewidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.net)
 vicious.register(netewidget, vicious.widgets.net,
     function (widget, args)
-        if args["{eth0 down_kb}"] == "0.0" and args["{eth0 up_kb}"] == "0.0" then
-            return "" .. colbblk .. "⇋ " .. coldef .. colwhi .. args["{eth0 down_kb}"] .. "k " .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
-        else
-            return "" .. colbblk .. "⇋ " .. coldef .. colcya .. args["{eth0 down_kb}"] .. "k " .. coldef .. colmag .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
+        if args["{eth0 up_kb}"] == nil then
+	        neteicon.visible = false
+	        netewidget.visible = false
+	        return ""
+	    else
+            if args["{eth0 down_kb}"] == "0.0" and args["{eth0 up_kb}"] == "0.0" then
+                return "" .. colwhi .. args["{eth0 down_kb}"] .. "k " .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
+            else
+                return "" .. colcya .. args["{eth0 down_kb}"] .. "k " .. coldef .. colmag .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
+            end
         end
     end)
 
@@ -426,14 +471,22 @@ vicious.register(ethwidget, vicious.widgets.netinfo,
 ethwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
 
 -- wlan0
+netwicon = widget({ type = "textbox" })
+netwicon.text = "" .. colbblk .. "⇋ " .. coldef .. ""
 netwwidget = widget({ type = "textbox" })
 vicious.register(netwwidget, vicious.widgets.net,
     function (widget, args)
-        if args["{wlan0 down_kb}"] == "0.0" and args["{wlan0 up_kb}"] == "0.0" then
-            return "" .. colbblk .. "⇋ " .. coldef .. colwhi .. args["{wlan0 down_kb}"] .. "k " .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
-        else
-            return "" .. colbblk .. "⇋ " .. coldef .. colcya .. args["{wlan0 down_kb}"] .. "k " .. coldef .. colmag .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
-        end
+        if args["{wlan0 up_kb}"] == nil then
+	        netwicon.visible = false
+	        netwwidget.visible = false
+	        return ""
+	    else
+            if args["{wlan0 down_kb}"] == "0.0" and args["{wlan0 up_kb}"] == "0.0" then
+                return "" .. colbblk .. "⇋ " .. coldef .. colwhi .. args["{wlan0 down_kb}"] .. "k " .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
+            else
+                return "" .. colbblk .. "⇋ " .. coldef .. colcya .. args["{wlan0 down_kb}"] .. "k " .. coldef .. colmag .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
+            end
+	    end
     end)
 
 wifiwidget = widget({ type = "textbox" })
@@ -450,32 +503,36 @@ vicious.register(wifiwidget, vicious.widgets.wifi,
 wifiwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
 
 -- Keyboard Layout widget
+kbdicon = widget({ type = "textbox" })
+kbdicon.text = "" .. colbblk .. "⚑ " .. coldef .. ""
 kbdcfg = {}
 kbdcfg.cmd = "setxkbmap"
 kbdcfg.layout = { { "gb", "" }, { "es", "" } }
 kbdcfg.current = 1  -- is our default layout
-kbdcfg.widget = widget({ type = "textbox", align = "right" })
-kbdcfg.widget.text = colbblk .. "⚑ " .. coldef .. colwhi .. kbdcfg.layout[kbdcfg.current][1] .. coldef .. " "
+kbdwidget = widget({ type = "textbox", align = "right" })
+kbdwidget.text = colwhi .. kbdcfg.layout[kbdcfg.current][1] .. coldef .. " "
 kbdcfg.switch = function ()
     kbdcfg.current = kbdcfg.current % #(kbdcfg.layout) + 1
     local t = kbdcfg.layout[kbdcfg.current]
-    kbdcfg.widget.text = colbyel .. "⚑ " .. coldef .. colyel .. t[1] .. coldef .. " "
+    kbdwidget.text = colyel .. t[1] .. coldef .. " "
     os.execute( kbdcfg.cmd .. " " .. t[1] .. " " .. t[2] )
 end
-kbdcfg.widget:buttons(awful.util.table.join(
+kbdwidget:buttons(awful.util.table.join(
     awful.button({ }, 1, function () kbdcfg.switch() end)
 ))
 
 -- Volume widget
+volicon = widget({ type = "textbox" })
+volicon.text = "" .. colbblk .. "♬ " .. coldef .. ""
 volwidget = widget({ type = "textbox" })
 vicious.register(volwidget, vicious.widgets.volume,
     function (widget, args)
         if args[1] == 0 or args[2] == "♩" then
-            return "" .. colbblk .. "♬ " .. coldef .. colyel .. "muted" .. coldef .. " "
+            return "" .. colyel .. "muted" .. coldef .. " "
         elseif args[1] > 60 then
-            return "" .. colbred .. "♬ " .. coldef .. colred .. args[1] .. "%" .. coldef .. " "
+            return "" .. colred .. args[1] .. "%" .. coldef .. " "
         else
-            return "" .. colbblk .. "♬ " .. coldef .. colwhi .. args[1] .. "%" .. coldef .. " "
+            return "" .. colwhi .. args[1] .. "%" .. coldef .. " "
         end
     end, 2, "Master" )
 volwidget:buttons(
@@ -595,26 +652,25 @@ for s = 1, screen.count() do
         -- Systray
         s == 1 and mysystray or nil,
         -- Volume widget
-        volwidget,
-        -- Battery widget
-        batwidget,
+        volwidget, volicon,
         -- Gmail widget
-        gmailwidget,
+        gmailwidget, gmailicon,
         -- Keyboard Layout widget
-        kbdcfg.widget,
+        kbdwidget, kbdicon,
         -- Net widgets
         wifiwidget, netwwidget,
-        ethwidget, netewidget,
+        ethwidget, netewidget, neteicon,
         -- Filesystem widgets
-        fsdwidget, fshwidget, fsrwidget,
+        fsdwidget, fsdicon,
+        fshwidget, fshicon,
+        fsrwidget, fsricon,
         -- Thermal widgets
-        temp0widget,
-        -- CPU temp widgets
-        coretemp0widget,
+        temp2widget, temp1widget, temp0widget,
+        cputempwidget, tempicon,
         -- Ram widgets
-        memwidget,
+        memwidget, memicon,
         -- CPU widget
-        cpuwidget,
+        cpuwidget, cpuicon,
         separatorwidget,
         layout = awful.widget.layout.horizontal.rightleft
     }
