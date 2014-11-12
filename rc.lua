@@ -88,10 +88,10 @@ layouts =
 
 ---- shifty: predefined tags
 shifty.config.tags = {
-    ["1:main"] = { init = true, position = 1, layout = layouts[2] },
-    ["2:www"] = { position = 2, layout = layouts[6] },
+    ["1:main"] = { init = true, position = 1, layout = layouts[6] },
+    ["2:www"] = { position = 2, layout = layouts[8] },
     ["3:dev"] = { position = 3, layout = layouts[2] },
-    ["4:chat"] = { position = 4, layout = layouts[3] },
+    ["4:chat"] = { position = 4, layout = layouts[9] },
     ["5:graph"] = { position = 5, layout = layouts[6] },
     ["6:media"] = { position = 6, layout = layouts[10] },
     ["7:office"] = { position = 7, layout = layouts[6] },
