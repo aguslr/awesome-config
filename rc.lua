@@ -705,6 +705,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space",   function () awful.layout.inc(layouts, -1) end),
 
     -- Prompt
+    awful.key({ modkey },            "r",   function () mypromptbox[mouse.screen]:run() end),
     awful.key({ altkey },            "F2",  function () mypromptbox[mouse.screen]:run() end),
 
     awful.key({ modkey }, "x",
