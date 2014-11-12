@@ -17,8 +17,6 @@ require("shifty")
 require("vicious")
 -- Calendar widget (http://awesome.naquadah.org/wiki/Calendar_widget)
 require("calendar2")
--- Netinfo widget (from vicious wlan widget)
-require("vicious.widgets.netinfo")
 
 -- Load Debian menu entries
 require("debian.menu")
