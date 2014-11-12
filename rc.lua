@@ -317,8 +317,8 @@ mpdwidget:buttons(
 -- {{{{ Bottom right widgets (Infobox)
 
 -- CPU widget
-cputwidget = widget({ type = "textbox" })
-vicious.register(cputwidget, vicious.widgets.cpu,
+cpuwidget = widget({ type = "textbox" })
+vicious.register(cpuwidget, vicious.widgets.cpu,
     function (widget, args)
         if args[1] >= 50 then
             return "" .. colbred .. "⌚ " .. coldef .. colred .. args[1] .. "%" .. coldef .. " "
@@ -326,7 +326,7 @@ vicious.register(cputwidget, vicious.widgets.cpu,
             return "" .. colbblk .. "⌚ " .. coldef .. colwhi .. args[1] .. "%" .. coldef .. " "
         end
     end, 20)
-cputwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e htop --sort-key PERCENT_CPU" ) end ) ) )
+cpuwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e htop --sort-key PERCENT_CPU" ) end ) ) )
 
 -- Ram widget
 memwidget = widget({ type = "textbox" })
@@ -614,7 +614,7 @@ for s = 1, screen.count() do
         -- Ram widgets
         memwidget,
         -- CPU widget
-        cputwidget,
+        cpuwidget,
         separatorwidget,
         layout = awful.widget.layout.horizontal.rightleft
     }
