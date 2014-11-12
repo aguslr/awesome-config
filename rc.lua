@@ -432,23 +432,19 @@ netewidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.net)
 vicious.register(netewidget, vicious.widgets.net,
     function (widget, args)
-        if args["{eth0 down_kb}"] == "0.0" and args["{eth0 up_kb}"] == "0.0" then
-            return "" .. colblk .. args["{eth0 down_kb}"] .. "k " .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
-        else
-            return "" .. colcya .. args["{eth0 down_kb}"] .. "k " .. coldef .. colmag .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
-        end
-    end)
-netewidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
-
-ethwidget = widget({ type = "textbox" })
-vicious.register(ethwidget, vicious.widgets.netinfo,
-    function (widget, args)
-        if args["{ip}"] == nil then
+        if args["{eth0 carrier}"] == 0 then
             neteicon.visible = false
             netewidget.visible = false
             return ""
+        else
+            if args["{eth0 down_kb}"] == "0.0" and args["{eth0 up_kb}"] == "0.0" then
+                return "" .. colblk .. args["{eth0 down_kb}"] .. "k " .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
+            else
+                return "" .. colcya .. args["{eth0 down_kb}"] .. "k " .. coldef .. colmag .. args["{eth0 up_kb}"] .. "k" .. coldef .. " "
+            end
         end
-    end, 30, "eth0")
+    end)
+netewidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
 
 -- wlan0
 netwicon = widget({ type = "textbox" })
@@ -456,23 +452,19 @@ netwicon.text = "" .. colbblk .. "⇋ " .. coldef .. ""
 netwwidget = widget({ type = "textbox" })
 vicious.register(netwwidget, vicious.widgets.net,
     function (widget, args)
-        if args["{wlan0 down_kb}"] == "0.0" and args["{wlan0 up_kb}"] == "0.0" then
-            return "" .. colblk .. args["{wlan0 down_kb}"] .. "k " .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
-        else
-            return "" .. colcya .. args["{wlan0 down_kb}"] .. "k " .. coldef .. colmag .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
-        end
-    end)
-netwwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
-
-wifiwidget = widget({ type = "textbox" })
-vicious.register(wifiwidget, vicious.widgets.wifi,
-    function (widget, args)
-        if args["{link}"] == 0 then
+        if args["{wlan0 carrier}"] == 0 then
             netwicon.visible = false
             netwwidget.visible = false
             return ""
+        else
+            if args["{wlan0 down_kb}"] == "0.0" and args["{wlan0 up_kb}"] == "0.0" then
+                return "" .. colblk .. args["{wlan0 down_kb}"] .. "k " .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
+            else
+                return "" .. colcya .. args["{wlan0 down_kb}"] .. "k " .. coldef .. colmag .. args["{wlan0 up_kb}"] .. "k" .. coldef .. " "
+            end
         end
-    end, 30, "wlan0" )
+    end)
+netwwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nm-tool 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
 
 -- Keyboard Layout widget
 kbdicon = widget({ type = "textbox" })
