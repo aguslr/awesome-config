@@ -222,27 +222,19 @@ calendar2.addCalendarToWidget(datewidget, "" .. colyel .. "%s" .. coldef .. "")
 timewidget = widget({ type = "textbox" })
 vicious.register(timewidget, vicious.widgets.date, "" .. colbyel .. "%H:%M" .. coldef .. " ", 1)
 function cal_gett()
-    local fp = io.popen("cat " .. os.getenv("HOME") .. "/todo.txt")
-        local rem = fp:read("*a")
-        fp:close()
-            rem = string.gsub(rem, "\027%[0m", coldef)
-            rem = string.gsub(rem, "\027%[0;30m", colblk)  --black
-            rem = string.gsub(rem, "\027%[0;31m", colred)  --red
-            rem = string.gsub(rem, "\027%[0;32m", colgre)  --green
-            rem = string.gsub(rem, "\027%[0;33m", colyel)  --yellow
-            rem = string.gsub(rem, "\027%[0;34m", colblu)  --blue
-            rem = string.gsub(rem, "\027%[0;35m", colmag)  --magenta
-            rem = string.gsub(rem, "\027%[0;36m", colcya)  --cyan
-            rem = string.gsub(rem, "\027%[0;37m", colwhi)  --white
-            rem = string.gsub(rem, "\027%[1;30m", colbblk) --br-black
-            rem = string.gsub(rem, "\027%[1;31m", colbred) --br-red
-            rem = string.gsub(rem, "\027%[1;32m", colbgre) --br-green
-            rem = string.gsub(rem, "\027%[1;33m", colbyel) --br-yellow
-            rem = string.gsub(rem, "\027%[1;34m", colbblu) --br-blue
-            rem = string.gsub(rem, "\027%[1;35m", colbmag) --br-magenta
-            rem = string.gsub(rem, "\027%[1;36m", colbcya) --br-cyan
-            rem = string.gsub(rem, "\027%[1;37m", colbwhi) --br-white
-            return rem
+    local todo = ""
+    for line in io.lines(os.getenv("HOME") .. "/todo.txt") do
+        if string.find(line, '^%(A%)') then
+            todo = "" .. todo .. colred .. line .. coldef .. "\n"
+        elseif string.find(line, '^%(B%)') then
+            todo = "" .. todo .. colyel .. line .. coldef .. "\n"
+        elseif string.find(line, '^%(C%)') then
+            todo = "" .. todo .. colblu .. line .. coldef .. "\n"
+        else
+            todo = "" .. todo .. colwhi .. line .. coldef .. "\n"
+        end
+    end
+    return string.sub(todo, 1, -2)
 end
 timewidget:add_signal('mouse::enter', function () cal_remt = { naughty.notify({ text = cal_gett(), border_color = "#000000", timeout = 0, hover_timeout = 0.5 }) } end)
 timewidget:add_signal('mouse::leave', function () naughty.destroy(cal_remt[1]) end)
