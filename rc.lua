@@ -222,19 +222,24 @@ calendar2.addCalendarToWidget(datewidget, "" .. colyel .. "%s" .. coldef .. "")
 timewidget = widget({ type = "textbox" })
 vicious.register(timewidget, vicious.widgets.date, "" .. colbyel .. "%H:%M" .. coldef .. " ", 1)
 function cal_gett()
-    local todo = ""
+    local fp = {}
     for line in io.lines(os.getenv("HOME") .. "/todo.txt") do
-        if string.find(line, '^%(A%)') then
-            todo = "" .. todo .. colred .. line .. coldef .. "\n"
-        elseif string.find(line, '^%(B%)') then
-            todo = "" .. todo .. colyel .. line .. coldef .. "\n"
-        elseif string.find(line, '^%(C%)') then
-            todo = "" .. todo .. colblu .. line .. coldef .. "\n"
+        table.insert(fp, line)
+    end
+    table.sort(fp)
+    local todo = {}
+    for i, value in pairs(fp) do
+        if string.find(value, '^%(A%)') then
+            table.insert(todo, "" .. colred .. value .. coldef .. "")
+        elseif string.find(value, '^%(B%)') then
+            table.insert(todo, "" .. colyel .. value .. coldef .. "")
+        elseif string.find(value, '^%(C%)') then
+            table.insert(todo, "" .. colblu .. value .. coldef .. "")
         else
-            todo = "" .. todo .. colwhi .. line .. coldef .. "\n"
+            table.insert(todo, "" .. colwhi .. value .. coldef .. "")
         end
     end
-    return string.sub(todo, 1, -2)
+    return table.concat(todo, "\n")
 end
 timewidget:add_signal('mouse::enter', function () cal_remt = { naughty.notify({ text = cal_gett(), border_color = "#000000", timeout = 0, hover_timeout = 0.5 }) } end)
 timewidget:add_signal('mouse::leave', function () naughty.destroy(cal_remt[1]) end)
