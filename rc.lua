@@ -2,12 +2,12 @@
 -- pretty much copied from JackH79 config files:
 -- http://github.com/JackH79/.dotfiles/tree/master/.config/awesome
 
+-- Theme handling library
+require("beautiful")
 -- Standard awesome library
 require("awful")
 require("awful.autofocus")
 require("awful.rules")
--- Theme handling library
-require("beautiful")
 -- Notification library
 require("naughty")
 -- Shifty library

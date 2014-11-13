@@ -9,6 +9,8 @@
 -- Grab environment we need
 local ipairs = ipairs
 local math = math
+local beautiful = beautiful
+local tonumber = tonumber
 local tag = require("awful.tag")
 
 --- Tiled layouts module for awful
@@ -65,15 +67,17 @@ local function tile_group(cls, wa, orientation, fact, group)
         geom[x] = group.coord
         geom[y] = coord
 
-
         coord = coord + geom[height]
         unused = unused - geom[height]
         total_fact = total_fact - fact[i]
         used_size = math.max(used_size, geom[width])
- 
 
         -- Useless gap.
-        useless_gap = 10
+        local useless_gap = tonumber(beautiful.useless_gap_width)
+        if useless_gap == nil
+        then
+            useless_gap = 0
+        end
         if useless_gap > 0
         then
             -- Top and left clients are shrinked by two steps and
@@ -108,27 +112,7 @@ local function tile_group(cls, wa, orientation, fact, group)
         -- End of useless gap.
 
         geom = cls[c]:geometry(geom)
-   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    end
     return used_size
 end
 
@@ -205,18 +189,6 @@ local function tile(param, orientation)
         end
         place_master = not place_master
     end
-
-
-
-
-
-
-
-
-
-
-
-
 end
 
 right = {}

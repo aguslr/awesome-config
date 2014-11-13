@@ -7,6 +7,8 @@
 
 -- Grab environment we need
 local ipairs = ipairs
+local beautiful = beautiful
+local tonumber = tonumber
 
 module("awful.layout.suit.spiral")
 
@@ -40,47 +42,50 @@ local function spiral(p, spiral)
             wa.y = wa.y + wa.height
         end
 
-            local wa2 = {}
-            wa2.x = wa.x
-            wa2.y = wa.y
-            wa2.height = wa.height
-            wa2.width = wa.width
+        local wa2 = {}
+        wa2.x = wa.x
+        wa2.y = wa.y
+        wa2.height = wa.height
+        wa2.width = wa.width
 
+        -- Useless gap.
+        local useless_gap = tonumber(beautiful.useless_gap_width)
+        if useless_gap == nil
+        then
+            useless_gap = 0
+        end
+        if useless_gap > 0
+        then
+            -- Top and left clients are shrinked by two steps and
+            -- get moved away from the border. Other clients just
+            -- get shrinked in one direction.
 
-            -- Useless gap.
-            useless_gap = 10
-            if useless_gap > 0
-            then
-                -- Top and left clients are shrinked by two steps and
-                -- get moved away from the border. Other clients just
-                -- get shrinked in one direction.
+            top = false
+            left = false
 
-                top = false
-		left = false
-
-                if wa2.y == static_wa.y then
-                    top = true
-                end
-
-		if wa2.x == static_wa.x then
-		    left = true
-		end
-
-		if top then
-	                wa2.height = wa2.height - 2 * useless_gap
-        	        wa2.y = wa2.y + useless_gap
-		else
-			wa2.height = wa2.height - useless_gap
-		end
-
-		if left then
-                	wa2.width = wa2.width - 2 * useless_gap
-                	wa2.x = wa2.x + useless_gap
-		else
-			wa2.width = wa2.width - useless_gap
-		end
+            if wa2.y == static_wa.y then
+                top = true
             end
-            -- End of useless gap.
+
+            if wa2.x == static_wa.x then
+                left = true
+            end
+
+            if top then
+                wa2.height = wa2.height - 2 * useless_gap
+                wa2.y = wa2.y + useless_gap
+            else
+                wa2.height = wa2.height - useless_gap
+            end
+
+            if left then
+                wa2.width = wa2.width - 2 * useless_gap
+                wa2.x = wa2.x + useless_gap
+            else
+                wa2.width = wa2.width - useless_gap
+            end
+        end
+        -- End of useless gap.
 
         c:geometry(wa2)
     end
@@ -98,5 +103,3 @@ name = "spiral"
 function arrange(p)
     return spiral(p, true)
 end
-
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:encoding=utf-8:textwidth=80

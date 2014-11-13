@@ -7,6 +7,8 @@
 -- Grab environment we need
 local ipairs = ipairs
 local math = math
+local beautiful = beautiful
+local tonumber = tonumber
 
 --- Fair layouts module for awful
 module("awful.layout.suit.fair")
@@ -47,9 +49,12 @@ local function fair(p, orientation)
                 g.y = wa.y + cell * g.height
             end
 
-
             -- Useless gap.
-            useless_gap = 10
+            local useless_gap = tonumber(beautiful.useless_gap_width)
+            if useless_gap == nil
+            then
+                useless_gap = 0
+            end
             if useless_gap > 0
             then
                 -- Top and left clients are shrinked by two steps and
@@ -57,33 +62,31 @@ local function fair(p, orientation)
                 -- get shrinked in one direction.
 
                 top = false
-		left = false
+                left = false
 
                 if g.x == wa.x then
                     top = true
                 end
 
-		if g.y == wa.y then
-		    left = true
-		end
+                if g.y == wa.y then
+                    left = true
+                end
 
-		if top then
-	                g.width = g.width - 2 * useless_gap
-        	        g.x = g.x + useless_gap
-		else
-			g.width = g.width - useless_gap
-		end
+                if top then
+                    g.width = g.width - 2 * useless_gap
+                    g.x = g.x + useless_gap
+                else
+                    g.width = g.width - useless_gap
+                end
 
-		if left then
-                	g.height = g.height - 2 * useless_gap
-                	g.y = g.y + useless_gap
-		else
-			g.height = g.height - useless_gap
-		end
+                if left then
+                    g.height = g.height - 2 * useless_gap
+                    g.y = g.y + useless_gap
+                else
+                    g.height = g.height - useless_gap
+                end
             end
             -- End of useless gap.
-
-
 
             c:geometry(g)
 
