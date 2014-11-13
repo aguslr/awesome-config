@@ -113,7 +113,7 @@ shifty.config.apps = {
     { match = { "^gimp%-dock$" }, geometry = {1105,15,175,770}, slave = true, border_width = 0 },
     -- client manipulation
     { match = { "" },
-        honorsizehints = true,
+        honorsizehints = false,
         buttons = awful.util.table.join (
         awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
         awful.button({ altkey }, 1, awful.mouse.client.move),
