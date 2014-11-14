@@ -834,7 +834,7 @@ client.add_signal("focus",
 client.add_signal("unfocus",
     function(c)
         c.border_color = beautiful.border_normal
-        c.opacity = 0.9
+        c.opacity = 1
     end)
 -- }}}
 
