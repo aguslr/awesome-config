@@ -868,7 +868,7 @@ run_once("xscreensaver","-no-splash")
 -- Start Terminal daemon
 run_once("urxvtd","--quiet --opendisplay --fork")
 -- Run composite manager
---run_once("xcompmgr")
+run_once("xcompmgr", "-c -C -t-5 -l-5 -r4.2 -o.55 -f -D5")
 -- Start Empathy
 run_once("empathy", "-h")
 -- Start Music Player Daemon
