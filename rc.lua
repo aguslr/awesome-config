@@ -427,7 +427,7 @@ netewidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.net)
 vicious.register(netewidget, vicious.widgets.net,
     function (widget, args)
-        if args["{eth0 carrier}"] == 0 then
+        if args["{eth0 carrier}"] ~= 1 then
             neteicon.visible = false
             netewidget.visible = false
             return ""
@@ -447,7 +447,7 @@ netwicon.text = "" .. colbblk .. "⇋ " .. coldef .. ""
 netwwidget = widget({ type = "textbox" })
 vicious.register(netwwidget, vicious.widgets.net,
     function (widget, args)
-        if args["{wlan0 carrier}"] == 0 then
+        if args["{wlan0 carrier}"] ~= 1 then
             netwicon.visible = false
             netwwidget.visible = false
             return ""
