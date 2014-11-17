@@ -93,7 +93,7 @@ shifty.config.tags = {
     ["5:graph"] = { position = 5, layout = layouts[6] },
     ["6:media"] = { position = 6, layout = layouts[10] },
     ["7:office"] = { position = 7, layout = layouts[6] },
-    ["8"] = { position = 8, layout = layouts[1] },
+    ["8:virt"] = { position = 8, layout = layouts[1] },
     ["9"] = { position = 9, layout = layouts[1] }
 }
 
@@ -105,6 +105,7 @@ shifty.config.apps = {
     { match = { "avidemux.*", "Blender", "cinelerra.*", "Darktable", "Gimp", "handbrake.*", "Inkscape", "openshot", "PencilMainWindow", "pitivi", "RawTherapee.*", "UFRaw" }, tag = "5:graph", },
     { match = { "clementine", "Popcorn Time", "Rhythmbox", "Totem", "Vlc" }, tag = "6:media", },
     { match = { "abiword", "gnumeric", "LibreOffice.*" }, tag = "7:office", },
+    { match = { "Administrador de Máquina Virtual", "virt-manager", "VirtualBox" }, tag = "8:virt", },
     -- Floating clients
     { match = { "alsamixer", "bash", "Empathy", "htop", "keepassx", "MPlayer", "mc", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "sensors", "Thunar", "Transmission", "uGet", "watch", "wyrd" }, float = true },
     -- Specific client properties
