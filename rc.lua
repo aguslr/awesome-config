@@ -253,11 +253,10 @@ vicious.register(weatherwidget, vicious.widgets.weather,
         if args["{tempc}"] == "N/A" then
             return ""
         else
-            weatherwidget:add_signal('mouse::enter', function () weather_n = { naughty.notify({ title = "" .. colblu .. string.upper(args["{city}"]) .. coldef .. "", text = "" .. colbblu .. "Wind    : " .. args["{windkmh}"] .. " km/h " .. args["{wind}"] .. "\nHumidity: " .. args["{humid}"] .. " %\nPressure: " .. args["{press}"] .. " hPa" .. coldef .. "", border_color = "#000000", timeout = 0, hover_timeout = 0.5 }) } end)
-            weatherwidget:add_signal('mouse::leave', function () naughty.destroy(weather_n[1]) end)
             return "" .. colbblu .. string.match(args["{city}"], '^(.*) /.*$') .. ": " .. coldef .. colblu .. string.lower(args["{sky}"]) .. ", " .. args["{tempc}"] .. "°C" .. coldef .. " "
         end
     end, 1200, "LECO")
+weatherwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( browser .. " http://weather.noaa.gov/weather/current/LECO.html" ) end ) ) )
 
 -- Gmail widget
 gmailicon = widget({ type = "textbox" })
