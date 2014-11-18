@@ -283,7 +283,17 @@ vicious.register(mpdwidget, vicious.widgets.mpd,
         if args["{state}"] == "Stop" then
             return "" .. colbblk .. "◾ " .. coldef
         elseif args["{state}"] == "Play" then
-            return "" .. colbblk .. "▶ " .. coldef .. colblu .. args["{Artist}"] .. " - " .. args["{Title}"] .. " [" .. args["{Album}"] .. "]" .. coldef .. " "
+            local trackinfo = ""
+            if args["{Artist}"] ~= "N/A" then
+                trackinfo = trackinfo .. args["{Artist}"] .. " - "
+            end
+            if args["{Title}"] ~= "N/A" then
+                trackinfo = trackinfo .. args["{Title}"]
+            end
+            if args["{Album}"] ~= "N/A" then
+                trackinfo = trackinfo .. " [" .. args["{Album}"] .. "]"
+            end
+            return "" .. colbblk .. "▶ " .. coldef .. colblu .. trackinfo .. coldef .. " "
         elseif args["{state}"] == "Pause" then
             return "" .. colbblk .. "▶ " .. coldef .. colyel .. "paused" .. coldef .. " "
         end
