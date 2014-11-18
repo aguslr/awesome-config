@@ -26,6 +26,28 @@ require("debian.menu")
 -- Themes define colours, icons, and wallpapers
 beautiful.init( awful.util.getdir("config") .. "/themes/my.theme/theme.lua" )
 
+-- Naughty notification properties
+naughty.config.default_preset.timeout           = 5
+naughty.config.default_preset.screen            = 1
+naughty.config.default_preset.position          = "bottom_right"
+naughty.config.default_preset.margin            = 10
+naughty.config.default_preset.gap               = 1
+naughty.config.default_preset.ontop             = true
+naughty.config.default_preset.font              = beautiful.font
+naughty.config.default_preset.icon              = nil
+naughty.config.default_preset.icon_size         = 16
+naughty.config.presets.low.fg                   = beautiful.fg_normal
+naughty.config.presets.low.bg                   = beautiful.bg_normal
+naughty.config.presets.low.border_color         = beautiful.border_normal
+naughty.config.presets.normal.fg                = beautiful.fg_focus
+naughty.config.presets.normal.bg                = beautiful.bg_focus
+naughty.config.presets.normal.border_color      = beautiful.border_focus
+naughty.config.presets.critical.fg              = beautiful.fg_urgent
+naughty.config.presets.critical.bg              = beautiful.bg_urgent
+naughty.config.presets.critical.border_color    = beautiful.border_marked
+naughty.config.default_preset.border_width      = 1
+naughty.config.default_preset.hover_timeout     = nil
+
 -- COLORS
 coldef  = "</span>"
 colblk  = "<span color='#111313'>"
@@ -242,7 +264,7 @@ function cal_gett()
     end
     return table.concat(todo, "\n")
 end
-timewidget:add_signal('mouse::enter', function () cal_remt = { naughty.notify({ text = cal_gett(), border_color = "#000000", timeout = 0, hover_timeout = 0.5 }) } end)
+timewidget:add_signal('mouse::enter', function () cal_remt = { naughty.notify({ text = cal_gett(), position = "top_right", border_color = "#000000", timeout = 0, hover_timeout = 0.5 }) } end)
 timewidget:add_signal('mouse::leave', function () naughty.destroy(cal_remt[1]) end)
 timewidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( editor_cmd .. " -o " .. os.getenv("HOME") .. "/todo.txt " .. os.getenv("HOME") .. "/done.txt" ) end ) ) )
 
