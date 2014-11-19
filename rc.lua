@@ -121,13 +121,15 @@ shifty.config.tags = {
 
 -- shifty: tags matching and client rules (use xprop to check window properties)
 shifty.config.apps = {
-    { match = { "Chromium", "ELinks", "Epiphany", "Firefox", "Filezilla", "Iceweasel", "luakit", "lynx.cur", "IEXPLORE.EXE", "Midori", "Speed Dial", "TorBrowser", "uzbl" }, tag = "2:www", float = false, },
-    { match = { "Eclipse", "Gvim", "Python Shell" }, tag = "3:dev", float = false, },
-    { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", float = false, },
-    { match = { "avidemux.*", "Blender", "cinelerra.*", "Darktable", "Gimp", "handbrake.*", "Inkscape", "openshot", "PencilMainWindow", "pitivi", "RawTherapee.*", "UFRaw" }, tag = "5:graph", float = false, },
-    { match = { "clementine", "Popcorn Time", "Rhythmbox", "Steam", "Totem", "Vlc" }, tag = "6:media", float = false, },
-    { match = { "abiword", "gnumeric", "LibreOffice.*" }, tag = "7:office", float = false, },
+    { match = { "Chromium", "ELinks", "Epiphany", "Firefox", "Filezilla", "Iceweasel", "luakit", "lynx.cur", "IEXPLORE.EXE", "Midori", "Speed Dial", "TorBrowser", "uzbl" }, tag = "2:www", },
+    { match = { "Eclipse", "Gvim", "Python Shell" }, tag = "3:dev", },
+    { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", },
+    { match = { "avidemux.*", "Blender", "cinelerra.*", "Darktable", "Gimp", "handbrake.*", "Inkscape", "openshot", "PencilMainWindow", "pitivi", "RawTherapee.*", "UFRaw" }, tag = "5:graph", },
+    { match = { "clementine", "Popcorn Time", "Rhythmbox", "Steam", "Totem", "Vlc" }, tag = "6:media", },
+    { match = { "abiword", "gnumeric", "LibreOffice.*" }, tag = "7:office", },
     { match = { "Administrador de Máquina Virtual", "virt-manager", "VirtualBox" }, tag = "8:virt", },
+    -- Floating clients
+    { match = { "alsamixer", "bash", "Empathy", "htop", "keepassx", "MPlayer", "mc", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "sensors", "Thunar", "Transmission", "uGet", "watch", "wyrd" }, float = true },
     -- client manipulation
     { match = { "" },
         honorsizehints = false
@@ -826,7 +828,6 @@ awful.rules.rules = {
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
                      focus = true,
-                     floating = true,
                      keys = clientkeys,
                      buttons = clientbuttons,
                      -- Avoid maximized windows
@@ -834,6 +835,11 @@ awful.rules.rules = {
                      maximized_horizontal = false } },
     -- Float dialogs
     { rule = { type = "dialog" },
+      properties = { floating = true } },
+    -- Set Flash to float
+    { rule = { instance = "plugin-container" },
+      properties = { floating = true } },
+    { rule = { class = "Exe"},
       properties = { floating = true } },
 }
 -- }}}
