@@ -121,15 +121,13 @@ shifty.config.tags = {
 
 -- shifty: tags matching and client rules (use xprop to check window properties)
 shifty.config.apps = {
-    { match = { "Chromium", "ELinks", "Epiphany", "Firefox", "Filezilla", "Iceweasel", "luakit", "lynx.cur", "IEXPLORE.EXE", "Midori", "Speed Dial", "TorBrowser", "uzbl" }, tag = "2:www", },
-    { match = { "Eclipse", "Gvim", "Python Shell" }, tag = "3:dev", },
-    { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", },
-    { match = { "avidemux.*", "Blender", "cinelerra.*", "Darktable", "Gimp", "handbrake.*", "Inkscape", "openshot", "PencilMainWindow", "pitivi", "RawTherapee.*", "UFRaw" }, tag = "5:graph", },
-    { match = { "clementine", "Popcorn Time", "Rhythmbox", "Steam", "Totem", "Vlc" }, tag = "6:media", },
-    { match = { "abiword", "gnumeric", "LibreOffice.*" }, tag = "7:office", },
+    { match = { "Chromium", "ELinks", "Epiphany", "Firefox", "Filezilla", "Iceweasel", "luakit", "lynx.cur", "IEXPLORE.EXE", "Midori", "Speed Dial", "TorBrowser", "uzbl" }, tag = "2:www", float = false, },
+    { match = { "Eclipse", "Gvim", "Python Shell" }, tag = "3:dev", float = false, },
+    { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", float = false, },
+    { match = { "avidemux.*", "Blender", "cinelerra.*", "Darktable", "Gimp", "handbrake.*", "Inkscape", "openshot", "PencilMainWindow", "pitivi", "RawTherapee.*", "UFRaw" }, tag = "5:graph", float = false, },
+    { match = { "clementine", "Popcorn Time", "Rhythmbox", "Steam", "Totem", "Vlc" }, tag = "6:media", float = false, },
+    { match = { "abiword", "gnumeric", "LibreOffice.*" }, tag = "7:office", float = false, },
     { match = { "Administrador de Máquina Virtual", "virt-manager", "VirtualBox" }, tag = "8:virt", },
-    -- Floating clients
-    { match = { "alsamixer", "bash", "Empathy", "htop", "keepassx", "MPlayer", "mc", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "sensors", "Thunar", "Transmission", "uGet", "watch", "wyrd" }, float = true },
     -- Specific client properties
     { match = { "gimp%-image%-window" }, geometry = {175,15,930,770}, border_width = 0 },
     { match = { "^gimp%-toolbox$" }, geometry = {0,15,175,770}, slave = true, border_width = 0 },
@@ -812,20 +810,8 @@ awful.rules.rules = {
                      -- Avoid maximized windows
                      maximized_vertical   = false,
                      maximized_horizontal = false,
+                     floating = true,
                      buttons = clientbuttons } },
-    -- Set this programs to float
-    { rule = { class = "gimp" },
-      properties = { floating = true } },
-    { rule = { class = "MPlayer" },
-      properties = { floating = true } },
-    -- Set Flash to float
-    { rule = { instance = "plugin-container" },
-      properties = { floating = true } },
-    { rule = { class = "Exe"},
-      properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
 }
 -- }}}
 
