@@ -830,6 +830,9 @@ awful.rules.rules = {
                      -- Avoid maximized windows
                      maximized_vertical   = false,
                      maximized_horizontal = false } },
+    -- Float dialogs
+    { rule = { type = "dialog" },
+      properties = { floating = true } },
 }
 -- }}}
 
