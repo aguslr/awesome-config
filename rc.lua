@@ -824,12 +824,12 @@ awful.rules.rules = {
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
                      focus = true,
+                     floating = true,
                      keys = clientkeys,
+                     buttons = clientbuttons,
                      -- Avoid maximized windows
                      maximized_vertical   = false,
-                     maximized_horizontal = false,
-                     floating = true,
-                     buttons = clientbuttons } },
+                     maximized_horizontal = false } },
 }
 -- }}}
 
