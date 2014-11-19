@@ -128,10 +128,6 @@ shifty.config.apps = {
     { match = { "clementine", "Popcorn Time", "Rhythmbox", "Steam", "Totem", "Vlc" }, tag = "6:media", float = false, },
     { match = { "abiword", "gnumeric", "LibreOffice.*" }, tag = "7:office", float = false, },
     { match = { "Administrador de Máquina Virtual", "virt-manager", "VirtualBox" }, tag = "8:virt", },
-    -- Specific client properties
-    { match = { "gimp%-image%-window" }, geometry = {175,15,930,770}, border_width = 0 },
-    { match = { "^gimp%-toolbox$" }, geometry = {0,15,175,770}, slave = true, border_width = 0 },
-    { match = { "^gimp%-dock$" }, geometry = {1105,15,175,770}, slave = true, border_width = 0 },
     -- client manipulation
     { match = { "" },
         honorsizehints = false
