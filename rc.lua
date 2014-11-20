@@ -262,11 +262,13 @@ timewidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.u
 
 -- Weather widget
 weatherwidget = widget({ type = "textbox" })
+weatherwidget_t = awful.tooltip({ objects = { weatherwidget },})
 vicious.register(weatherwidget, vicious.widgets.weather,
     function (widget, args)
         if args["{tempc}"] == "N/A" then
             return ""
         else
+            weatherwidget_t:set_text("" .. colblu .. string.upper(args["{city}"]) .. coldef .. "" .. colbblu .. "\nWind    : " .. args["{windkmh}"] .. " km/h " .. args["{wind}"] .. "\nHumidity: " .. args["{humid}"] .. " %\nPressure: " .. args["{press}"] .. " hPa" .. coldef .. "")
             return "" .. colbblu .. string.match(args["{city}"], '^(.*) /.*$') .. ": " .. coldef .. colblu .. string.lower(args["{sky}"]) .. ", " .. args["{tempc}"] .. "°C" .. coldef .. " "
         end
     end, 1200, "LECO")
