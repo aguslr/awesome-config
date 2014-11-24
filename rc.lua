@@ -116,7 +116,7 @@ shifty.config.tags = {
     ["6:media"] = { position = 6, layout = layouts[10] },
     ["7:office"] = { position = 7, layout = layouts[6] },
     ["8:virt"] = { position = 8, layout = layouts[1] },
-    ["9"] = { position = 9, layout = layouts[1] }
+    ["9"] = { leave_kills = true, position = 9, layout = layouts[1] }
 }
 
 -- shifty: tags matching and client rules (use xprop to check window properties)
