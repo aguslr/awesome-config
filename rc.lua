@@ -109,13 +109,13 @@ layouts =
 ---- shifty: predefined tags
 shifty.config.tags = {
     ["1:main"] = { init = true, position = 1, layout = layouts[3], mwfact = 0.60 },
-    ["2:www"] = { leave_kills = true, position = 2, layout = layouts[2], mwfact = 0.60 },
-    ["3:dev"] = { leave_kills = true, position = 3, layout = layouts[2], mwfact = 0.60 },
-    ["4:chat"] = { leave_kills = true, position = 4, layout = layouts[9] },
-    ["5:graph"] = { leave_kills = true, position = 5, layout = layouts[6] },
-    ["6:media"] = { leave_kills = true, position = 6, layout = layouts[10] },
-    ["7:office"] = { leave_kills = true, position = 7, layout = layouts[6] },
-    ["8:virt"] = { leave_kills = true, position = 8, layout = layouts[1] },
+    ["2:www"] = { position = 2, layout = layouts[2], mwfact = 0.60 },
+    ["3:dev"] = { position = 3, layout = layouts[2], mwfact = 0.60 },
+    ["4:chat"] = { position = 4, layout = layouts[9] },
+    ["5:graph"] = { position = 5, layout = layouts[6] },
+    ["6:media"] = { position = 6, layout = layouts[10] },
+    ["7:office"] = { position = 7, layout = layouts[6] },
+    ["8:virt"] = { position = 8, layout = layouts[1] },
     ["9"] = { position = 9, layout = layouts[1] }
 }
 
