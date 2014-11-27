@@ -920,6 +920,8 @@ awful.util.spawn_with_shell("xrandr --output VGA1 --auto")
 run_once("xscreensaver","-no-splash")
 -- Start Terminal daemon
 run_once("urxvtd","--quiet --opendisplay --fork")
+-- Start Udisks-glue for device automonting
+run_once("udisks-glue")
 -- Start Empathy
 run_once("empathy", "-h")
 -- Start Music Player Daemon
