@@ -930,8 +930,6 @@ end
 
 -- Set background color
 --awful.util.spawn_with_shell("hsetroot -solid '#1a1a1a'")
--- Set X Server properties
-awful.util.spawn_with_shell("xrdb ~/.Xdefaults")
 -- Change resolution for external monitor
 awful.util.spawn_with_shell("xrandr --output VGA1 --auto")
 -- Start ScreenSaver daemon
