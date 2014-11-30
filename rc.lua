@@ -893,21 +893,39 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 
 -- {{{ Startup programs
 
--- Function to run programs once
-function run_once(prg,arg_string,pname,screen)
-    if not prg then
-        do return nil end
+-- Functions to run programs once
+-- http://awesome.naquadah.org/wiki/Autostart#The_native_lua_way
+require("lfs")
+local function processwalker()
+    local function yieldprocess()
+        for dir in lfs.dir("/proc") do
+            -- All directories in /proc containing a number, represent a process
+            if tonumber(dir) ~= nil then
+                local f, err = io.open("/proc/"..dir.."/cmdline")
+                if f then
+                    local cmdline = f:read("*all")
+                    f:close()
+                    if cmdline ~= "" then
+                        coroutine.yield(cmdline)
+                    end
+                end
+            end
+        end
     end
+    return coroutine.wrap(yieldprocess)
+end
+local function run_once(process, cmd)
+    assert(type(process) == "string")
+    local regex_killer = {
+      ["+"]  = "%+", ["-"] = "%-",
+      ["*"]  = "%*", ["?"]  = "%?" }
 
-    if not pname then
-       pname = prg
+    for p in processwalker() do
+        if p:find(process:gsub("[-+?*]", regex_killer)) then
+            return
+        end
     end
-
-    if not arg_string then 
-        awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. ")",screen)
-    else
-        awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. " " .. arg_string .. ")",screen)
-    end
+    return awful.util.spawn(cmd or process)
 end
 
 -- Set background color
@@ -917,13 +935,13 @@ awful.util.spawn_with_shell("xrdb ~/.Xdefaults")
 -- Change resolution for external monitor
 awful.util.spawn_with_shell("xrandr --output VGA1 --auto")
 -- Start ScreenSaver daemon
-run_once("xscreensaver","-no-splash")
+run_once("xscreensaver","xscreensaver -no-splash")
 -- Start Terminal daemon
-run_once("urxvtd","--quiet --opendisplay --fork")
+run_once("urxvtd","urxvtd --quiet --opendisplay --fork")
 -- Start Udisks-glue for device automonting
 run_once("udisks-glue")
 -- Start Empathy
-run_once("empathy", "-h")
+run_once("empathy", "empathy -h")
 -- Start Music Player Daemon
 run_once("mpd")
 -- Start ownCloud client
