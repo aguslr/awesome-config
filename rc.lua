@@ -757,10 +757,10 @@ globalkeys = awful.util.table.join(
 
     -- Multimedia keys
     -- requires: mmkeys.sh (https://gist.github.com/8538bd7adb15b734e085)
-    awful.key({}, "XF86AudioPrev", function () awful.util.spawn_with_shell("mmkeys.sh --prev", false) end),
-    awful.key({}, "XF86AudioNext", function () awful.util.spawn_with_shell("mmkeys.sh --next", false) end),
-    awful.key({}, "XF86AudioStop", function () awful.util.spawn_with_shell("mmkeys.sh --stop", false) end),
-    awful.key({}, "XF86AudioPlay", function () awful.util.spawn_with_shell("mmkeys.sh --play", false) end),
+    awful.key({}, "XF86AudioPrev", function () awful.util.spawn_with_shell(os.getenv("HOME") .. "/bin/mmkeys.sh --prev", false) end),
+    awful.key({}, "XF86AudioNext", function () awful.util.spawn_with_shell(os.getenv("HOME") .. "/bin/mmkeys.sh --next", false) end),
+    awful.key({}, "XF86AudioStop", function () awful.util.spawn_with_shell(os.getenv("HOME") .. "/bin/mmkeys.sh --stop", false) end),
+    awful.key({}, "XF86AudioPlay", function () awful.util.spawn_with_shell(os.getenv("HOME") .. "/bin/mmkeys.sh --play", false) end),
 
     -- Print info on current client
     awful.key({ modkey }, "i",
