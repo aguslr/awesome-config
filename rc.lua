@@ -953,6 +953,8 @@ run_once("mpd")
 run_once("owncloud")
 -- Start clipboard manager
 run_once("parcellite")
+-- Start lightsOn script
+run_once("lightsOn.sh", os.getenv("HOME") .. "/bin/lightsOn.sh 300")
 
 
 -- }}}
