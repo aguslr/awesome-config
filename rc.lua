@@ -958,3 +958,4 @@ run_once("lightsOn.sh", os.getenv("HOME") .. "/bin/lightsOn.sh 300")
 
 
 -- }}}
+-- vim: set ts=4 sw=4 tw=0 et :
