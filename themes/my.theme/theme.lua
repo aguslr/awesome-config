@@ -87,3 +87,5 @@ theme.system_icons  = "/usr/share/pixmaps/"
 theme.useless_gap_width = "20"
 
 return theme
+
+-- vim: set ts=4 sw=4 tw=0 et :
