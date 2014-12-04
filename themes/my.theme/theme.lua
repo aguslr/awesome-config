@@ -66,9 +66,9 @@ for line in io.lines(os.getenv("HOME") .. "/.xcolors") do
 end
 
 theme.bg_normal     = theme.colorbg
-theme.bg_focus      = theme.color_black
-theme.bg_urgent     = theme.color_black
-theme.bg_minimize   = theme.color_black
+theme.bg_focus      = theme.colorbg
+theme.bg_urgent     = theme.colorbg
+theme.bg_minimize   = theme.colorbg
 
 theme.fg_normal     = theme.colorfg
 theme.fg_focus      = theme.color_blue
