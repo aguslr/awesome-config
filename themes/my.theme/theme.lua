@@ -26,9 +26,9 @@ theme.color_bwhite      = "#ffffff"
 
 -- Optionally, parse ~/.xcolors file
 for line in io.lines(os.getenv("HOME") .. "/.xcolors") do
-    if string.find(line, "foreground:") then
+    if string.find(line, "foreground%s*:") then
         theme.colorfg = string.match(line, '(#.+)$')
-    elseif string.find(line, "background:") then
+    elseif string.find(line, "background%s*:") then
         theme.colorbg = string.match(line, '(#.+)$')
     elseif string.find(line, "color0%s*:") then
         theme.color_black = string.match(line, '(#.+)$')
