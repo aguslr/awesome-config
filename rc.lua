@@ -50,22 +50,22 @@ naughty.config.default_preset.hover_timeout     = nil
 
 -- COLORS
 coldef  = "</span>"
-colblk  = "<span color='#111313'>"
-colred  = "<span color='#9e6b71'>"
-colgre  = "<span color='#719e6b'>"
-colyel  = "<span color='#9e986c'>"
-colblu  = "<span color='#6c8b9e'>"
-colmag  = "<span color='#986b9e'>"
-colcya  = "<span color='#6b9e98'>"
-colwhi  = "<span color='#b8baba'>"
-colbblk = "<span color='#424446'>"
-colbred = "<span color='#b69094'>"
-colbgre = "<span color='#94b690'>"
-colbyel = "<span color='#b5b18f'>"
-colbblu = "<span color='#90a7b6'>"
-colbmag = "<span color='#b290b6'>"
-colbcya = "<span color='#90b6b3'>"
-colbwhi = "<span color='#cdcfce'>"
+colblk  = "<span color='" .. beautiful.color_black .. "'>"
+colred  = "<span color='" .. beautiful.color_red .. "'>"
+colgre  = "<span color='" .. beautiful.color_green .. "'>"
+colyel  = "<span color='" .. beautiful.color_yellow .. "'>"
+colblu  = "<span color='" .. beautiful.color_blue .. "'>"
+colmag  = "<span color='" .. beautiful.color_magenta .. "'>"
+colcya  = "<span color='" .. beautiful.color_cyan .. "'>"
+colwhi  = "<span color='" .. beautiful.color_white .. "'>"
+colbblk = "<span color='" .. beautiful.color_bblack .. "'>"
+colbred = "<span color='" .. beautiful.color_bred .. "'>"
+colbgre = "<span color='" .. beautiful.color_bgreen .. "'>"
+colbyel = "<span color='" .. beautiful.color_byellow .. "'>"
+colbblu = "<span color='" .. beautiful.color_bblue .. "'>"
+colbmag = "<span color='" .. beautiful.color_bmagenta .. "'>"
+colbcya = "<span color='" .. beautiful.color_bcyan .. "'>"
+colbwhi = "<span color='" .. beautiful.color_bwhite .. "'>"
 
 -- These are used later as the default programs
 terminal    = "urxvtc"
@@ -601,7 +601,7 @@ for s = 1, screen.count() do
                            end, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "top", height = "16", bg = "#000000", screen = s })
+    mywibox[s] = awful.wibox({ position = "top", height = "16", bg = "" .. beautiful.colorbg .. "", screen = s })
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
@@ -623,7 +623,7 @@ for s = 1, screen.count() do
     }
 
     -- Create the infobox
-    infobox[s] = awful.wibox({ position = "bottom", height = "16", bg = "#000000", screen = s })
+    infobox[s] = awful.wibox({ position = "bottom", height = "16", bg = "" .. beautiful.colorbg .. "", screen = s })
     -- Add widgets to the infobox - order matters
     infobox[s].widgets = {
         {

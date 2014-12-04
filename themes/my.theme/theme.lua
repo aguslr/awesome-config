@@ -4,30 +4,50 @@ theme = {}
 
 theme.font          = "terminus 9"
 
-theme.bg_normal     = "#000000"
-theme.bg_focus      = "#111313"
-theme.bg_urgent     = "#111313"
-theme.bg_minimize   = "#111313"
+-- COLORS
+theme.colorfg           = "#cdcfce"
+theme.colorbg           = "#111313"
+theme.color_black       = "#111313"
+theme.color_bblack      = "#424446"
+theme.color_red         = "#9e6b71"
+theme.color_bred        = "#b69094"
+theme.color_green       = "#719e6b"
+theme.color_bgreen      = "#94b690"
+theme.color_yellow      = "#9e986c"
+theme.color_byellow     = "#b5b18f"
+theme.color_blue        = "#6c8b9e"
+theme.color_bblue       = "#90a7b6"
+theme.color_magenta     = "#986b9e"
+theme.color_bmagenta    = "#b290b6"
+theme.color_cyan        = "#6b9e98"
+theme.color_bcyan       = "#90b6b3"
+theme.color_white       = "#b8baba"
+theme.color_bwhite      = "#cdcfce"
 
-theme.fg_normal     = "#b8baba"
-theme.fg_focus      = "#6c8b9e"
-theme.fg_urgent     = "#b290b6"
-theme.fg_minimize   = "#424446"
+theme.bg_normal     = theme.colorbg
+theme.bg_focus      = theme.color_black
+theme.bg_urgent     = theme.color_black
+theme.bg_minimize   = theme.color_black
+
+theme.fg_normal     = theme.colorfg
+theme.fg_focus      = theme.color_blue
+theme.fg_urgent     = theme.color_bmagenta
+theme.fg_minimize   = theme.color_bblack
 
 theme.border_width  = "1"
-theme.border_normal = "#424446"
-theme.border_focus  = "#b8baba"
-theme.border_marked = "#986b9e"
+theme.border_normal = theme.color_bblack
+theme.border_focus  = theme.color_white
+theme.border_marked = theme.color_magenta
 
 -- MENU
 theme.menu_submenu_icon = awful.util.getdir("config") .. "/themes/my.theme/submenu.png"
 theme.menu_height       = "14"
 theme.menu_width        = "100"
-theme.menu_bg_normal    = "#000000"
-theme.menu_bg_focus     = "#111313"
-theme.menu_fg_normal    = "#b8baba"
-theme.menu_fg_focus     = "#6c8b9e"
-theme.menu_border_color = "#000000"
+theme.menu_bg_normal    = theme.colorbg
+theme.menu_bg_focus     = theme.color_black
+theme.menu_fg_normal    = theme.color_white
+theme.menu_fg_focus     = theme.color_blue
+theme.menu_border_color = theme.colorbg
 theme.menu_border_width = "1"
 
 -- TAGLIST
