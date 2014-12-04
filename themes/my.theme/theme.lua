@@ -5,24 +5,65 @@ theme = {}
 theme.font          = "terminus 9"
 
 -- COLORS
-theme.colorfg           = "#cdcfce"
-theme.colorbg           = "#111313"
-theme.color_black       = "#111313"
-theme.color_bblack      = "#424446"
-theme.color_red         = "#9e6b71"
-theme.color_bred        = "#b69094"
-theme.color_green       = "#719e6b"
-theme.color_bgreen      = "#94b690"
-theme.color_yellow      = "#9e986c"
-theme.color_byellow     = "#b5b18f"
-theme.color_blue        = "#6c8b9e"
-theme.color_bblue       = "#90a7b6"
-theme.color_magenta     = "#986b9e"
-theme.color_bmagenta    = "#b290b6"
-theme.color_cyan        = "#6b9e98"
-theme.color_bcyan       = "#90b6b3"
-theme.color_white       = "#b8baba"
-theme.color_bwhite      = "#cdcfce"
+theme.colorfg           = "#ffffff"
+theme.colorbg           = "#000000"
+theme.color_black       = "#000000"
+theme.color_bblack      = "#555555"
+theme.color_red         = "#aa0000"
+theme.color_bred        = "#ff0000"
+theme.color_green       = "#00aa00"
+theme.color_bgreen      = "#00ff00"
+theme.color_yellow      = "#aa6600"
+theme.color_byellow     = "#ffff00"
+theme.color_blue        = "#000080"
+theme.color_bblue       = "#0000ff"
+theme.color_magenta     = "#aa00aa"
+theme.color_bmagenta    = "#ff00ff"
+theme.color_cyan        = "#00aaaa"
+theme.color_bcyan       = "#00ffff"
+theme.color_white       = "#aaaaaa"
+theme.color_bwhite      = "#ffffff"
+
+-- Optionally, parse ~/.xcolors file
+for line in io.lines(os.getenv("HOME") .. "/.xcolors") do
+    if string.find(line, "foreground:") then
+        theme.colorfg = string.match(line, '(#.+)$')
+    elseif string.find(line, "background:") then
+        theme.colorbg = string.match(line, '(#.+)$')
+    elseif string.find(line, "color0%s*:") then
+        theme.color_black = string.match(line, '(#.+)$')
+    elseif string.find(line, "color8%s*:") then
+        theme.color_bblack = string.match(line, '(#.+)$')
+    elseif string.find(line, "color1%s*:") then
+        theme.color_red = string.match(line, '(#.+)$')
+    elseif string.find(line, "color9%s*:") then
+        theme.color_bred = string.match(line, '(#.+)$')
+    elseif string.find(line, "color2%s*:") then
+        theme.color_green = string.match(line, '(#.+)$')
+    elseif string.find(line, "color10%s*:") then
+        theme.color_bgreen = string.match(line, '(#.+)$')
+    elseif string.find(line, "color3%s*:") then
+        theme.color_yellow = string.match(line, '(#.+)$')
+    elseif string.find(line, "color11%s*:") then
+        theme.color_byellow = string.match(line, '(#.+)$')
+    elseif string.find(line, "color4%s*:") then
+        theme.color_blue = string.match(line, '(#.+)$')
+    elseif string.find(line, "color12%s*:") then
+        theme.color_bblue = string.match(line, '(#.+)$')
+    elseif string.find(line, "color5%s*:") then
+        theme.color_magenta = string.match(line, '(#.+)$')
+    elseif string.find(line, "color13%s*:") then
+        theme.color_bmagenta = string.match(line, '(#.+)$')
+    elseif string.find(line, "color6%s*:") then
+        theme.color_cyan = string.match(line, '(#.+)$')
+    elseif string.find(line, "color14%s*:") then
+        theme.color_bcyan = string.match(line, '(#.+)$')
+    elseif string.find(line, "color7%s*:") then
+        theme.color_white = string.match(line, '(#.+)$')
+    elseif string.find(line, "color15%s*:") then
+        theme.color_bwhite = string.match(line, '(#.+)$')
+    end
+end
 
 theme.bg_normal     = theme.colorbg
 theme.bg_focus      = theme.color_black
