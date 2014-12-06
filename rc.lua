@@ -606,7 +606,6 @@ for s = 1, screen.count() do
     mywibox[s].widgets = {
         {
             mytaglist[s],
-            spacerwidget,
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
@@ -618,7 +617,6 @@ for s = 1, screen.count() do
         weatherwidget,
         -- Tasks
         mytasklist[s],
-        spacerwidget,
         layout = awful.widget.layout.horizontal.rightleft
     }
 
