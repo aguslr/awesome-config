@@ -936,7 +936,7 @@ local function run_once(process, cmd)
 end
 
 -- Set background color
---awful.util.spawn_with_shell("hsetroot -solid '#1a1a1a'")
+awful.util.spawn_with_shell("hsetroot -solid '" .. beautiful.color_black .. "'")
 -- Change resolution for external monitor
 awful.util.spawn_with_shell("xrandr --output VGA1 --auto")
 -- Start ScreenSaver daemon

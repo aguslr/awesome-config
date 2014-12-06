@@ -117,7 +117,7 @@ theme.layout_centerwork    = awful.util.getdir("config") .. "/vain/themes/defaul
 
 -- WALLPAPER
 --theme.wallpaper_cmd = { "awsetbg -c " .. os.getenv("HOME") .. "/Imágenes/wallpaper" }
-theme.wallpaper_cmd = { "awsetbg -t " .. os.getenv("HOME") .. "/Imágenes/pattern" }
+--theme.wallpaper_cmd = { "awsetbg -t " .. os.getenv("HOME") .. "/Imágenes/pattern" }
 
 -- ICON
 theme.awesome_icon  = "/usr/share/awesome/icons/awesome16.png"
