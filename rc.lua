@@ -268,7 +268,7 @@ vicious.register(weatherwidget, vicious.widgets.weather,
         if args["{tempc}"] == "N/A" then
             return ""
         else
-            weatherwidget_t:set_text("" .. colblu .. string.upper(args["{city}"]) .. coldef .. "" .. colbblu .. "\nWind    : " .. args["{windkmh}"] .. " km/h " .. args["{wind}"] .. "\nHumidity: " .. args["{humid}"] .. " %\nPressure: " .. args["{press}"] .. " hPa" .. coldef .. "")
+            weatherwidget_t:set_text("" .. colbblu .. string.upper(args["{city}"]) .. coldef .. "" .. colblu .. "\nWind    : " .. args["{windkmh}"] .. " km/h " .. args["{wind}"] .. "\nHumidity: " .. args["{humid}"] .. " %\nPressure: " .. args["{press}"] .. " hPa" .. coldef .. "")
             return "" .. colbblu .. string.match(args["{city}"], '^(.*) /.*$') .. ": " .. coldef .. colblu .. string.lower(args["{sky}"]) .. ", " .. args["{tempc}"] .. "°C" .. coldef .. " "
         end
     end, 1200, "LECO")
