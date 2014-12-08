@@ -492,7 +492,7 @@ kbdicon = widget({ type = "textbox" })
 kbdicon.text = "" .. colbblk .. "⚑ " .. coldef .. ""
 kbdcfg = {}
 kbdcfg.cmd = "setxkbmap"
-kbdcfg.layout = { { "gb", "" }, { "es", "" } }
+kbdcfg.layout = { { "gb", "" }, { "us", "altgr-intl" }, { "es", "" } }
 kbdcfg.current = 1  -- is our default layout
 kbdwidget = widget({ type = "textbox", align = "right" })
 kbdwidget.text = colwhi .. kbdcfg.layout[kbdcfg.current][1] .. coldef .. " "
