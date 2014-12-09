@@ -21,6 +21,10 @@ require("calendar2")
 -- Load Debian menu entries
 require("debian.menu")
 
+-- Load awesome-vain
+require("vain")
+vain.widgets.terminal = "urxvtc"
+
 -- {{{ Variable definitions
 
 -- Themes define colours, icons, and wallpapers
@@ -102,6 +106,11 @@ layouts =
     awful.layout.suit.max,              -- 10
     awful.layout.suit.max.fullscreen,   -- 11
     awful.layout.suit.magnifier,        -- 12
+    vain.layout.termfair,               -- 13
+    vain.layout.browse,                 -- 14
+    vain.layout.cascade,                -- 15
+    vain.layout.cascadebrowse,          -- 16
+    vain.layout.centerwork,             -- 17
 }
 
 -- {{{ Tags
