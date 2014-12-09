@@ -91,10 +91,6 @@ theme.menu_fg_focus     = theme.color_bwhite
 theme.menu_border_color = theme.colorbg
 theme.menu_border_width = "1"
 
--- TAGLIST
-theme.taglist_squares_sel   = awful.util.getdir("config") .. "/themes/my.theme/taglist/squarefw.png"
-theme.taglist_squares_unsel = awful.util.getdir("config") .. "/themes/my.theme/taglist/squarew.png"
-
 -- LAYOUTS
 theme.layout_tile          = awful.util.getdir("config") .. "/themes/my.theme/layouts/tile.png"
 theme.layout_tileleft      = awful.util.getdir("config") .. "/themes/my.theme/layouts/tileleft.png"
