@@ -121,7 +121,7 @@ theme.debian_icon   = "/usr/share/pixmaps/debian-logo.png"
 theme.system_icons  = "/usr/share/pixmaps/"
 
 -- GAPS
-theme.useless_gap_width = "20"
+theme.useless_gap_width = "15"
 
 return theme
 
