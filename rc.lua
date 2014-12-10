@@ -278,7 +278,7 @@ vicious.register(weatherwidget, vicious.widgets.weather,
             return ""
         else
             weatherwidget_t:set_text("" .. colbblu .. string.upper(args["{city}"]) .. coldef .. "" .. colblu .. "\nWind    : " .. args["{windkmh}"] .. " km/h " .. args["{wind}"] .. "\nHumidity: " .. args["{humid}"] .. " %\nPressure: " .. args["{press}"] .. " hPa" .. coldef .. "")
-            return "" .. colbblu .. string.match(args["{city}"], '^(.*) /.*$') .. ": " .. coldef .. colblu .. string.lower(args["{sky}"]) .. ", " .. args["{tempc}"] .. "°C" .. coldef .. " "
+            return "" .. colblu .. args["{sky}"] .. ": " .. args["{tempc}"] .. "°C" .. coldef .. " "
         end
     end, 1200, "LECO")
 weatherwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( browser .. " http://weather.noaa.gov/weather/current/LECO.html" ) end ) ) )
