@@ -237,15 +237,23 @@ separatorwidget.text  = " "
 
 -- {{{{  Top right widgets (Wibox)
 
--- Date widget
-datewidget = widget({ type = "textbox" })
-vicious.register(datewidget, vicious.widgets.date, "" .. colyel .. "%a,%e %b" .. coldef .. " ", 3600)
-calendar2.addCalendarToWidget(datewidget, "" .. colyel .. "%s" .. coldef .. "")
-
 -- Time widget
 timewidget = widget({ type = "textbox" })
-vicious.register(timewidget, vicious.widgets.date, "" .. colbyel .. "%H:%M" .. coldef .. " ", 1)
-function cal_gett()
+vicious.register(timewidget, vicious.widgets.date, "" .. colbyel .. "%a %e %b, %H:%M" .. coldef .. " ", 1)
+calendar2.addCalendarToWidget(timewidget, "" .. colyel .. "%s" .. coldef .. "")
+
+-- ToDo widget
+todowidget = widget({ type = "textbox" })
+todotimer = timer({ timeout = 10 })
+todotimer:add_signal("timeout", function ()
+    local c = 0
+    for line in io.lines(os.getenv("HOME") .. "/todo.txt") do
+        c = c + 1
+    end
+    todowidget.text = colyel .. "" .. c .. " tasks" .. coldef .. " "
+end)
+todotimer:start()
+function todo_list()
     local fp = {}
     for line in io.lines(os.getenv("HOME") .. "/todo.txt") do
         table.insert(fp, line)
@@ -265,9 +273,10 @@ function cal_gett()
     end
     return table.concat(todo, "\n")
 end
-timewidget:add_signal('mouse::enter', function () cal_remt = { naughty.notify({ text = cal_gett(), position = "top_right", border_color = "#000000", timeout = 0, hover_timeout = 0.5 }) } end)
-timewidget:add_signal('mouse::leave', function () naughty.destroy(cal_remt[1]) end)
-timewidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( editor_cmd .. " -o " .. os.getenv("HOME") .. "/todo.txt " .. os.getenv("HOME") .. "/done.txt" ) end ) ) )
+todowidget:add_signal('mouse::enter', function () todo_n = { naughty.notify({ text = todo_list(), position = "top_right", border_color = "#000000", timeout = 0, hover_timeout = 0.5 }) } end)
+todowidget:add_signal('mouse::leave', function () naughty.destroy(todo_n[1]) end)
+todowidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( editor_cmd .. " -o " .. os.getenv("HOME") .. "/todo.txt " .. os.getenv("HOME") .. "/done.txt" ) end ) ) )
+
 
 -- Weather widget
 weatherwidget = widget({ type = "textbox" })
@@ -620,8 +629,8 @@ for s = 1, screen.count() do
         mylayoutbox[s],
         -- Time widget
         timewidget,
-        -- Date widget
-        datewidget,
+        -- ToDo widget
+        todowidget,
         -- Weather widget
         weatherwidget,
         -- Tasks
