@@ -917,7 +917,19 @@ client.add_signal("manage", function (c, startup)
     end
 end)
 
-client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+client.add_signal("focus", function(c)
+    c.border_color = beautiful.border_focus
+    -- Mouse follows focus
+    -- https://stackoverflow.com/q/26330225
+    local focusClientCoord = c.geometry(c)
+    local mCoords = mouse.coords()
+    if mCoords.x < focusClientCoord.x
+        or mCoords.x > (focusClientCoord.x+focusClientCoord.width)
+        or mCoords.y < focusClientCoord.y
+        or mCoords.y > (focusClientCoord.y+focusClientCoord.height) then
+        mouse.coords({ x=focusClientCoord.x+100, y=focusClientCoord.y+100}, true)
+    end
+end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
