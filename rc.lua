@@ -833,8 +833,20 @@ clientkeys = awful.util.table.join(
 
 clientbuttons = awful.util.table.join(
     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
-    awful.button({ altkey }, 1, awful.mouse.client.move),
-    awful.button({ altkey }, 3, awful.mouse.client.resize))
+    -- Allow moving and resizing maximized clients
+    -- https://stackoverflow.com/a/22970288
+    awful.button({ altkey }, 1,
+        function (c)
+            c.maximized_horizontal = false
+            c.maximized_vertical   = false
+            awful.mouse.client.move(c)
+        end),
+    awful.button({ altkey }, 3,
+        function (c)
+            c.maximized_horizontal = false
+            c.maximized_vertical   = false
+            awful.mouse.client.resize(c)
+    end))
 
 -- WORKSPACES
 -- shifty:
