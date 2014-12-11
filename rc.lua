@@ -25,6 +25,9 @@ require("debian.menu")
 require("vain")
 vain.widgets.terminal = "urxvtc"
 
+-- Load treesome
+require("treesome")
+
 -- {{{ Variable definitions
 
 -- Themes define colours, icons, and wallpapers
@@ -111,6 +114,7 @@ layouts =
     vain.layout.cascade,                -- 15
     vain.layout.cascadebrowse,          -- 16
     vain.layout.centerwork,             -- 17
+    treesome,                           -- 18
 }
 
 -- {{{ Tags
@@ -778,6 +782,11 @@ globalkeys = awful.util.table.join(
     awful.key({}, "XF86AudioStop", function () awful.util.spawn_with_shell(os.getenv("HOME") .. "/bin/mmkeys.sh --stop", false) end),
     awful.key({}, "XF86AudioPlay", function () awful.util.spawn_with_shell(os.getenv("HOME") .. "/bin/mmkeys.sh --play", false) end),
 
+    -- Modules
+    -- treesome
+    awful.key({ modkey            }, "s",       treesome.horizontal), -- split next horizontal
+    awful.key({ modkey            }, "v",       treesome.vertical),   -- split next vertical
+
     -- Print info on current client
     awful.key({ modkey }, "i",
               function ()
@@ -803,8 +812,6 @@ globalkeys = awful.util.table.join(
                       timeout = 10,
                   })
               end)
-
-    -- Modules
 )
 
 clientkeys = awful.util.table.join(
