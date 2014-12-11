@@ -74,12 +74,10 @@ local function tile_group(cls, wa, orientation, fact, group)
 
         -- Useless gap.
         local useless_gap = tonumber(beautiful.useless_gap_width)
-        if useless_gap == nil
-        then
+        if useless_gap == nil then
             useless_gap = 0
         end
-        if useless_gap > 0
-        then
+        if useless_gap > 0 then
             -- Top and left clients are shrinked by two steps and
             -- get moved away from the border. Other clients just
             -- get shrinked in one direction.
