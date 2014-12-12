@@ -163,25 +163,31 @@ shifty.init()
 networkmenu = {
     { "&Chromium",  "chromium"},
     { "&Firefox",   browser},
-    { "Lua&kit",    "luakit"},
     { "&Lynx",      terminal .. " -e lynx" },
     { "&Mutt",      mail},
-    { "&Weechat",   chat}
+    { "&Weechat",   chat},
+    { "&XChat",     "xchat"}
 }
 
 officemenu = {
-    { "&Abiword",   "abiword"},
-    { "&GNumeric",  "gnumeric"}
+    { "&Abiword",               "abiword"},
+    { "&GNumeric",              "gnumeric"},
+    { "LibreOffice &Base",      "lobase"},
+    { "LibreOffice &Calc",      "localc"},
+    { "LibreOffice &Draw",      "lodraw"},
+    { "LibreOffice &Impress",   "loimpress"},
+    { "LibreOffice &Math",      "lomath"},
+    { "LibreOffice &Writer",    "lowriter"}
 }
 
 editorsmenu = {
     { "&GVIM",      "gvim"},
-    { "&vim",       editor_cmd }
+    { "&vim",       terminal .. " -e vim"}
 }
 
 graphicsmenu = {
-    { "&Inkscape",  "inkscape"},
-    { "The &GIMP",  "gimp"}
+    { "&GIMP",      "gimp"},
+    { "&Inkscape",  "inkscape"}
 }
 
 mediamenu = {
@@ -191,7 +197,7 @@ mediamenu = {
 
 utilitiesmenu = {
     { "&file manager",      terminal .. " -e mc" },
-    { "&terminal",          terminal },
+    { "&Thunar",            "thunar"},
     { "&VirtualBox",        "VirtualBox" },
     { "virtual &manager",   "virt-manager" }
 }
