@@ -161,68 +161,68 @@ shifty.init()
 
 -- MENU
 networkmenu = {
-    { "Chromium",   "chromium"},
-    { "Firefox",    browser},
-    { "Luakit",     "luakit"},
-    { "Lynx",       terminal .. " -e lynx" },
-    { "Mutt",       mail},
-    { "Weechat",    chat}
+    { "&Chromium",  "chromium"},
+    { "&Firefox",   browser},
+    { "Lua&kit",    "luakit"},
+    { "&Lynx",      terminal .. " -e lynx" },
+    { "&Mutt",      mail},
+    { "&Weechat",   chat}
 }
 
 officemenu = {
-    { "Abiword",    "abiword"},
-    { "GNumeric",   "gnumeric"}
+    { "&Abiword",   "abiword"},
+    { "&GNumeric",  "gnumeric"}
 }
 
 editorsmenu = {
-    { "GVIM",   "gvim"},
-    { "vim",    editor_cmd }
+    { "&GVIM",      "gvim"},
+    { "&vim",       editor_cmd }
 }
 
 graphicsmenu = {
-    { "Inkscape",   "inkscape"},
-    { "The GIMP",   "gimp"}
+    { "&Inkscape",  "inkscape"},
+    { "The &GIMP",  "gimp"}
 }
 
 mediamenu = {
-    { "ncmpcpp",    mpd },
-    { "VLC",        "vlc"}
+    { "&ncmpcpp",   mpd },
+    { "&VLC",       "vlc"}
 }
 
 utilitiesmenu = {
-    { "file manager",       terminal .. " -e mc" },
-    { "terminal",           terminal },
-    { "VirtualBox",         "VirtualBox" },
-    { "virtual manager",    "virt-manager" }
+    { "&file manager",      terminal .. " -e mc" },
+    { "&terminal",          terminal },
+    { "&VirtualBox",        "VirtualBox" },
+    { "virtual &manager",   "virt-manager" }
 }
 
 systemmenu = {
-    { "htop",   terminal .. " -e htop" },
-    { "kill",   "xkill" }
+    { "&htop",  terminal .. " -e htop" },
+    { "&kill",  "xkill" }
 }
 
 -- Create a laucher widget and a main menu
 myawesomemenu = {
-   { "manual",      terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
-   { "restart",     awesome.restart },
-   { "quit",        awesome.quit },
-   { "reboot",      "dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart" },
-   { "shutdown",    "dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop" }
+   { "&manual",         terminal .. " -e man awesome" },
+   { "&edit config",    editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
+   { "&restart",        awesome.restart },
+   { "&quit",           awesome.quit },
+   { "re&boot",         "dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart" },
+   { "&shutdown",       "dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop" }
 }
 
 mymainmenu = awful.menu({
     width = 150,
     items = {
-        { "Awesome", myawesomemenu },
-        { "Debian", debian.menu.Debian_menu.Debian },
-        { "Editors", editorsmenu },
-        { "Graphics", graphicsmenu },
-        { "Multimedia", mediamenu },
-        { "Network", networkmenu },
-        { "Office", officemenu },
-        { "System", systemmenu },
-        { "Utilities", utilitiesmenu },
+        { "&Awesome", myawesomemenu },
+        { "&Debian", debian.menu.Debian_menu.Debian },
+        { "&Editors", editorsmenu },
+        { "&Graphics", graphicsmenu },
+        { "&Multimedia", mediamenu },
+        { "&Network", networkmenu },
+        { "&Office", officemenu },
+        { "&System", systemmenu },
+        { "&Utilities", utilitiesmenu },
     }
 })
 
