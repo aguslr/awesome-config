@@ -77,8 +77,8 @@ colbwhi = "<span color='" .. beautiful.color_bwhite .. "'>"
 -- These are used later as the default programs
 terminal    = "urxvtc"
 browser     = "firefox"
-editor      = "vim"
-editor_cmd  = terminal .. " -e " .. editor
+editor      = "gvim"
+editor_cmd  = editor
 
 -- Other programs
 chat    = terminal .. " -geometry 130x40 -e weechat-curses"     -- Chat client
