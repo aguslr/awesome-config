@@ -123,7 +123,7 @@ layouts =
 shifty.config.tags = {
     ["1:main"] = { init = true, position = 1, layout = layouts[3], mwfact = 0.60 },
     ["2:www"] = { position = 2, layout = layouts[17], mwfact = 0.55 },
-    ["3:dev"] = { position = 3, layout = layouts[2], mwfact = 0.60 },
+    ["3:dev"] = { position = 3, layout = layouts[18] },
     ["4:chat"] = { position = 4, layout = layouts[9] },
     ["5:graph"] = { position = 5, layout = layouts[6] },
     ["6:media"] = { position = 6, layout = layouts[10] },
