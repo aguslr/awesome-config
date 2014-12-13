@@ -304,7 +304,7 @@ weatherwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awfu
 
 -- Gmail widget
 gmailicon = widget({ type = "textbox" })
-gmailicon.text = "" .. colbblk .. "✉ " .. coldef .. ""
+gmailicon.text = "" .. colbblu .. "✉ " .. coldef .. ""
 gmailwidget = widget({ type = "textbox" })
 vicious.register(gmailwidget, vicious.widgets.gmail,
     function (widget, args)
@@ -325,7 +325,7 @@ mpdwidget = widget({ type = 'textbox' })
 vicious.register(mpdwidget, vicious.widgets.mpd,
     function (widget, args)
         if args["{state}"] == "Stop" then
-            return "" .. colbblk .. "◾ " .. coldef
+            return "" .. colbblu .. "◾ " .. coldef
         elseif args["{state}"] == "Play" then
             local trackinfo = ""
             if args["{Artist}"] ~= "N/A" then
@@ -337,9 +337,9 @@ vicious.register(mpdwidget, vicious.widgets.mpd,
             if args["{Album}"] ~= "N/A" then
                 trackinfo = trackinfo .. " [" .. args["{Album}"] .. "]"
             end
-            return "" .. colbblk .. "▶ " .. coldef .. colblu .. trackinfo .. coldef .. " "
+            return "" .. colbblu .. "▶ " .. coldef .. colblu .. trackinfo .. coldef .. " "
         elseif args["{state}"] == "Pause" then
-            return "" .. colbblk .. "▶ " .. coldef .. colyel .. "paused" .. coldef .. " "
+            return "" .. colbblu .. "▶ " .. coldef .. colyel .. "paused" .. coldef .. " "
         end
     end)
 mpdwidget:buttons(
@@ -357,7 +357,7 @@ mpdwidget:buttons(
 
 -- CPU widget
 cpuicon = widget({ type = "textbox" })
-cpuicon.text = "" .. colbblk .. "⌚ " .. coldef .. ""
+cpuicon.text = "" .. colbblu .. "⌚ " .. coldef .. ""
 cpuwidget = widget({ type = "textbox" })
 vicious.register(cpuwidget, vicious.widgets.cpu,
     function (widget, args)
@@ -371,7 +371,7 @@ cpuwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.ut
 
 -- Ram widget
 memicon = widget({ type = "textbox" })
-memicon.text = "" .. colbblk .. "≣ " .. coldef .. ""
+memicon.text = "" .. colbblu .. "≣ " .. coldef .. ""
 memwidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.mem)
 vicious.register(memwidget, vicious.widgets.mem,
@@ -386,7 +386,7 @@ memwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.ut
 
 -- Temp widgets
 tempicon = widget({ type = "textbox" })
-tempicon.text = "" .. colbblk .. "≈ " .. coldef .. ""
+tempicon.text = "" .. colbblu .. "≈ " .. coldef .. ""
 -- phys0
 cputempwidget = widget({ type = "textbox" })
 vicious.register(cputempwidget, vicious.widgets.thermal,
@@ -438,7 +438,7 @@ temp2widget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.
 -- Filesystem widgets
 -- root
 fsricon = widget({ type = "textbox" })
-fsricon.text = "" .. colbblk .. "/ " .. coldef .. ""
+fsricon.text = "" .. colbblu .. "/ " .. coldef .. ""
 fsrwidget = widget({ type = "textbox" })
 vicious.register(fsrwidget, vicious.widgets.fs,
     function (widget, args)
@@ -450,7 +450,7 @@ vicious.register(fsrwidget, vicious.widgets.fs,
     end, 620)
 -- /mnt/home
 fshicon = widget({ type = "textbox" })
-fshicon.text = "" .. colbblk .. "~ " .. coldef .. ""
+fshicon.text = "" .. colbblu .. "~ " .. coldef .. ""
 fshwidget = widget({ type = "textbox" })
 vicious.register(fshwidget, vicious.widgets.fs,
     function (widget, args)
@@ -462,7 +462,7 @@ vicious.register(fshwidget, vicious.widgets.fs,
     end, 620)
 -- /mntdata/
 fsdicon = widget({ type = "textbox" })
-fsdicon.text = "" .. colbblk .. "# " .. coldef .. ""
+fsdicon.text = "" .. colbblu .. "# " .. coldef .. ""
 fsdwidget = widget({ type = "textbox" })
 vicious.register(fsdwidget, vicious.widgets.fs,
     function (widget, args)
@@ -476,7 +476,7 @@ vicious.register(fsdwidget, vicious.widgets.fs,
 -- Net widgets
 -- eth0
 neteicon = widget({ type = "textbox" })
-neteicon.text = "" .. colbblk .. "⇋ " .. coldef .. ""
+neteicon.text = "" .. colbblu .. "⇋ " .. coldef .. ""
 netewidget = widget({ type = "textbox" })
 vicious.cache(vicious.widgets.net)
 vicious.register(netewidget, vicious.widgets.net,
@@ -497,7 +497,7 @@ netewidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.u
 
 -- wlan0
 netwicon = widget({ type = "textbox" })
-netwicon.text = "" .. colbblk .. "⇋ " .. coldef .. ""
+netwicon.text = "" .. colbblu .. "⇋ " .. coldef .. ""
 netwwidget = widget({ type = "textbox" })
 vicious.register(netwwidget, vicious.widgets.net,
     function (widget, args)
@@ -517,7 +517,7 @@ netwwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.u
 
 -- Keyboard Layout widget
 kbdicon = widget({ type = "textbox" })
-kbdicon.text = "" .. colbblk .. "⚑ " .. coldef .. ""
+kbdicon.text = "" .. colbblu .. "⚑ " .. coldef .. ""
 kbdcfg = {}
 kbdcfg.cmd = "setxkbmap"
 kbdcfg.layout = { { "gb", "" }, { "us", "altgr-intl" }, { "es", "" } }
@@ -536,7 +536,7 @@ kbdwidget:buttons(awful.util.table.join(
 
 -- Volume widget
 volicon = widget({ type = "textbox" })
-volicon.text = "" .. colbblk .. "♬ " .. coldef .. ""
+volicon.text = "" .. colbblu .. "♬ " .. coldef .. ""
 volwidget = widget({ type = "textbox" })
 vicious.register(volwidget, vicious.widgets.volume,
     function (widget, args)
