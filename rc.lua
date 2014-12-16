@@ -207,14 +207,20 @@ systemmenu = {
     { "&kill",  "xkill" }
 }
 
+powermenu = {
+   { "&hibernate",  'dbus-send --system --print-reply --dest="org.freedesktop.DeviceKit.Power" /org/freedesktop/DeviceKit/Power org.freedesktop.DeviceKit.Power.Hibernate' },
+   { "&suspend",    'dbus-send --system --print-reply --dest="org.freedesktop.DeviceKit.Power" /org/freedesktop/DeviceKit/Power org.freedesktop.DeviceKit.Power.Suspend' },
+   { "&reboot",     'dbus-send --system --print-reply --dest="org.freedesktop.ConsoleKit" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart' },
+   { "&poweroff",   'dbus-send --system --print-reply --dest="org.freedesktop.ConsoleKit" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop' }
+}
+
 -- Create a laucher widget and a main menu
 myawesomemenu = {
    { "&manual",         terminal .. " -e man awesome" },
    { "&edit config",    editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
    { "&restart",        awesome.restart },
    { "&quit",           awesome.quit },
-   { "re&boot",         "dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart" },
-   { "&shutdown",       "dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop" }
+   { "&Shutdown",       powermenu }
 }
 
 mymainmenu = awful.menu({
