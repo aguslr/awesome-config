@@ -995,6 +995,8 @@ run_once("xscreensaver","xscreensaver -no-splash")
 run_once("urxvtd","urxvtd --quiet --opendisplay --fork")
 -- Start Udisks-glue for device automonting
 run_once("udisks-glue")
+-- Start Update-notifier
+run_once("update-notifier")
 -- Start Empathy
 run_once("empathy", "empathy -h")
 -- Start Music Player Daemon
