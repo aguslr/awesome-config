@@ -121,7 +121,7 @@ layouts =
 
 ---- shifty: predefined tags
 shifty.config.tags = {
-    ["1:main"] = { init = true, position = 1, layout = layouts[3], mwfact = 0.60 },
+    ["1:main"] = { position = 1, layout = layouts[3], mwfact = 0.60, init = true },
     ["2:www"] = { position = 2, layout = layouts[17], mwfact = 0.55 },
     ["3:dev"] = { position = 3, layout = layouts[18] },
     ["4:chat"] = { position = 4, layout = layouts[9] },
@@ -129,7 +129,7 @@ shifty.config.tags = {
     ["6:media"] = { position = 6, layout = layouts[1], leave_kills = true },
     ["7:office"] = { position = 7, layout = layouts[6] },
     ["8:virt"] = { position = 8, layout = layouts[1] },
-    ["9"] = { leave_kills = true, position = 9, layout = layouts[1] }
+    ["9"] = { position = 9, layout = layouts[1], leave_kills = true }
 }
 
 -- shifty: tags matching and client rules (use xprop to check window properties)
