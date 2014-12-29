@@ -142,7 +142,7 @@ shifty.config.apps = {
     { match = { "abiword", "gnumeric", "LibreOffice.*" }, tag = "7:office", },
     { match = { "Administrador de Máquina Virtual", "virt-manager", "VirtualBox" }, tag = "8:virt", },
     -- Floating clients
-    { match = { "alsamixer", "bash", "Empathy", "htop", "ImageMagick", "keepassx", "MPlayer", "mc", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "ristretto", "sensors", "Sonata", "Thunar", "Transmission", "uGet", "watch", "wyrd" }, float = true },
+    { match = { "alsamixer", "bash", "Empathy", "htop", "ImageMagick", "keepassx", "MPlayer", "mc", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "ristretto", "sensors", "Sonata", "Thunar", "Transmission", "uGet", "Update Manager", "watch", "wyrd" }, float = true },
     -- client manipulation
     { match = { "" },
         honorsizehints = false
