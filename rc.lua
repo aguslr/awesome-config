@@ -711,8 +711,7 @@ globalkeys = awful.util.table.join(
     awful.key({ altkey, "Control" }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ altkey, "Control" }, "Right",  awful.tag.viewnext       ),
-    awful.key({ modkey, "Control" }, "Escape", awful.tag.history.restore),
-
+    awful.key({ modkey,           }, "Tab",    awful.tag.history.restore),
 
     -- Vi-like client movement
     awful.key({ modkey,           }, "h",
