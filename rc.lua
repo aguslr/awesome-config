@@ -191,7 +191,7 @@ graphicsmenu = {
 }
 
 mediamenu = {
-    { "&ncmpcpp",   mpd },
+    { "nc&mpcpp",   mpd },
     { "&VLC",       "vlc"}
 }
 
@@ -204,7 +204,7 @@ utilitiesmenu = {
 
 systemmenu = {
     { "&htop",  terminal .. " -e htop" },
-    { "&kill",  "xkill" }
+    { "x&kill", "xkill" }
 }
 
 powermenu = {
@@ -220,7 +220,7 @@ myawesomemenu = {
    { "&edit config",    editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
    { "&restart",        awesome.restart },
    { "&quit",           awesome.quit },
-   { "&Shutdown",       powermenu }
+   { "&Power",          powermenu }
 }
 
 mymainmenu = awful.menu({
