@@ -2,7 +2,7 @@
 
 theme = {}
 
-theme.font          = "terminus 9"
+theme.font          = "terminus 10"
 
 -- COLORS
 theme.colorfg           = "#ffffff"
