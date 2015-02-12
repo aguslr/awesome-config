@@ -164,7 +164,8 @@ networkmenu = {
     { "&Chromium",  "chromium"},
     { "&Firefox",   browser},
     { "&Lynx",      terminal .. " -e lynx" },
-    { "&Mutt",      mail},
+    { "&Midori",    "midori"},
+    { "M&utt",      mail},
     { "&Weechat",   chat},
     { "&XChat",     "xchat"}
 }
