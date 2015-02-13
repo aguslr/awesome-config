@@ -75,16 +75,16 @@ colbcya = "<span color='" .. beautiful.color_bcyan .. "'>"
 colbwhi = "<span color='" .. beautiful.color_bwhite .. "'>"
 
 -- These are used later as the default programs
-terminal    = "urxvtc"
+terminal    = "urxvtc -geometry 130x40"
 browser     = "firefox"
 editor      = "gvim"
 editor_cmd  = editor
 
 -- Other programs
-chat    = terminal .. " -geometry 130x40 -e weechat-curses"     -- Chat client
-fm      = terminal .. " -geometry 130x40 -e mc"                 -- File Manager
-mail    = terminal .. " -geometry 130x40 -e mutt"               -- Mail client
-mpd     = terminal .. " -geometry 130x40 -e ncmpcpp"            -- MPD client
+chat    = terminal .. " -e weechat-curses"     -- Chat client
+fm      = terminal .. " -e mc"                 -- File Manager
+mail    = terminal .. " -e mutt"               -- Mail client
+mpd     = terminal .. " -e ncmpcpp"            -- MPD client
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
