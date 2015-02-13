@@ -76,6 +76,7 @@ colbwhi = "<span color='" .. beautiful.color_bwhite .. "'>"
 
 -- These are used later as the default programs
 terminal    = "urxvtc -geometry 130x40"
+miniterminal= "urxvtc -geometry 62x15"
 browser     = "firefox"
 editor      = "gvim"
 editor_cmd  = editor
@@ -759,7 +760,7 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ altkey, "Control" }, "l",       function () awful.util.spawn( "xscreensaver-command -lock" ) end),
-    awful.key({ modkey,           }, "Return",  function () awful.util.spawn( terminal ) end),
+    awful.key({ modkey,           }, "Return",  function () awful.util.spawn( miniterminal ) end),
     awful.key({ modkey, "Shift"   }, "r",       awesome.restart),
     awful.key({ modkey, "Shift"   }, "q",       awesome.quit),
 
