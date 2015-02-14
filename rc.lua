@@ -127,7 +127,7 @@ shifty.config.tags = {
     ["3:dev"] = { position = 3, layout = layouts[18] },
     ["4:chat"] = { position = 4, layout = layouts[9] },
     ["5:graph"] = { position = 5, layout = layouts[6] },
-    ["6:media"] = { position = 6, layout = layouts[10] },
+    ["6:media"] = { position = 6, layout = layouts[1] },
     ["7:office"] = { position = 7, layout = layouts[6] },
     ["8:virt"] = { position = 8, layout = layouts[1] },
     ["9"] = { position = 9, layout = layouts[1], leave_kills = true }
