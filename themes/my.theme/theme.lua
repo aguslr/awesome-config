@@ -71,13 +71,13 @@ theme.bg_urgent     = theme.color_bwhite
 theme.bg_minimize   = theme.colorbg
 
 theme.fg_normal     = theme.color_black
-theme.fg_focus      = theme.color_white
+theme.fg_focus      = theme.color_bwhite
 theme.fg_urgent     = theme.color_magenta
 theme.fg_minimize   = theme.color_bblack
 
 theme.border_width  = "1"
 theme.border_normal = theme.color_black
-theme.border_focus  = theme.color_white
+theme.border_focus  = theme.color_bwhite
 theme.border_marked = theme.color_magenta
 
 -- MENU
@@ -88,7 +88,7 @@ theme.menu_bg_normal    = theme.colorbg
 theme.menu_bg_focus     = theme.color_black
 theme.menu_fg_normal    = theme.color_white
 theme.menu_fg_focus     = theme.color_bwhite
-theme.menu_border_color = theme.colorbg
+theme.menu_border_color = theme.color_black
 theme.menu_border_width = "1"
 
 -- LAYOUTS
