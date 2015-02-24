@@ -84,11 +84,11 @@ theme.border_marked = theme.color_magenta
 theme.menu_submenu_icon = awful.util.getdir("config") .. "/themes/my.theme/submenu.png"
 theme.menu_height       = "14"
 theme.menu_width        = "100"
-theme.menu_bg_normal    = theme.colorbg
-theme.menu_bg_focus     = theme.color_black
-theme.menu_fg_normal    = theme.color_white
+theme.menu_bg_normal    = theme.color_bwhite
+theme.menu_bg_focus     = theme.color_blue
+theme.menu_fg_normal    = theme.color_black
 theme.menu_fg_focus     = theme.color_bwhite
-theme.menu_border_color = theme.color_black
+theme.menu_border_color = theme.color_bwhite
 theme.menu_border_width = "1"
 
 -- LAYOUTS
