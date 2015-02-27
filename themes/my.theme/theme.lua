@@ -77,7 +77,7 @@ theme.fg_minimize   = theme.color_bblack
 
 theme.border_width  = "1"
 theme.border_normal = theme.color_black
-theme.border_focus  = theme.color_bwhite
+theme.border_focus  = theme.color_white
 theme.border_marked = theme.color_magenta
 
 -- MENU
