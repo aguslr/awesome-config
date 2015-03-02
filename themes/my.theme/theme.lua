@@ -67,13 +67,13 @@ end
 
 theme.bg_normal     = theme.colorbg
 theme.bg_focus      = theme.colorbg
-theme.bg_urgent     = theme.color_bwhite
+theme.bg_urgent     = theme.color_bmagenta
 theme.bg_minimize   = theme.colorbg
 
-theme.fg_normal     = theme.color_black
-theme.fg_focus      = theme.color_white
+theme.fg_normal     = theme.color_bblack
+theme.fg_focus      = theme.color_bwhite
 theme.fg_urgent     = theme.color_magenta
-theme.fg_minimize   = theme.color_bblack
+theme.fg_minimize   = theme.color_black
 
 theme.border_width  = "1"
 theme.border_normal = theme.color_black
