@@ -71,7 +71,7 @@ theme.bg_urgent     = theme.color_bwhite
 theme.bg_minimize   = theme.colorbg
 
 theme.fg_normal     = theme.color_black
-theme.fg_focus      = theme.color_bwhite
+theme.fg_focus      = theme.color_white
 theme.fg_urgent     = theme.color_magenta
 theme.fg_minimize   = theme.color_bblack
 
