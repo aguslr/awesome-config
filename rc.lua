@@ -200,6 +200,7 @@ mediamenu = {
 utilitiesmenu = {
     { "&file manager",      terminal .. " -e mc" },
     { "&Nautilus",          "nautilus --no-desktop"},
+    { "&terminal",          terminal },
     { "&VirtualBox",        "VirtualBox" },
     { "virtual &manager",   "virt-manager" }
 }
