@@ -199,7 +199,7 @@ mediamenu = {
 
 utilitiesmenu = {
     { "&file manager",      terminal .. " -e mc" },
-    { "&Thunar",            "thunar"},
+    { "&Nautilus",          "nautilus --no-desktop"},
     { "&VirtualBox",        "VirtualBox" },
     { "virtual &manager",   "virt-manager" }
 }
