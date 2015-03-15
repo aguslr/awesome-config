@@ -951,7 +951,7 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 
 -- {{{ Screen edge tag switching
 -- Switch to next tag when mouse hits left screen edge
-edge_size = 2
+edge_size = 1
 edge_timeout = 2
 ledge_timer = timer({ timeout = edge_timeout })
 ledge_timer:add_signal('timeout', function()
