@@ -139,7 +139,7 @@ shifty.config.apps = {
     { match = { "Android *", "Arduino", "Atom", "Brackets", "Eclipse", "Gvim", "MySQL Workbench", "Python Shell", "Qtoctave", "Scilab" }, tag = "3:dev", },
     { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", },
     { match = { "Adobe Illustrator*", "avidemux.*", "Blender", "cinelerra.*", "Darktable", "Gimp", "handbrake.*", "Inkscape", "openshot", "PencilMainWindow", "pitivi", "RawTherapee.*", "Simple Scan", "UFRaw" }, tag = "5:graph", },
-    { match = { "clementine", "Popcorn Time", "Rhythmbox", "Steam", "Totem", "Vlc" }, tag = "6:media", },
+    { match = { "clementine", "Lmms", "Popcorn Time", "Rhythmbox", "Steam", "Totem", "Vlc" }, tag = "6:media", },
     { match = { "abiword", "gnumeric", "LibreOffice.*" }, tag = "7:office", },
     { match = { "Administrador de Máquina Virtual", "virt-manager", "VirtualBox" }, tag = "8:virt", },
     -- Floating clients
