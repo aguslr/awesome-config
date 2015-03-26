@@ -1022,8 +1022,6 @@ run_once("udisks-glue")
 run_once("update-notifier")
 -- Start Empathy
 run_once("empathy", "empathy -h")
--- Start Music Player Daemon
-run_once("mpd")
 -- Start ownCloud client
 run_once("owncloud")
 -- Start clipboard manager
