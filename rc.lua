@@ -948,29 +948,6 @@ client.add_signal("focus", function(c) c.border_color = beautiful.border_focus e
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-
--- {{{ Screen edge tag switching
--- Switch to next tag when mouse hits left screen edge
-edge_size = 1
-edge_timeout = 1
-ledge_timer = timer({ timeout = edge_timeout })
-ledge_timer:add_signal('timeout', function()
-    if mouse.coords()["x"] <= edge_size then
-        awful.tag.viewidx(-1)
-    end
-end)
-ledge_timer:start()
--- Switch to previous tag when mouse hits right screen edge
-redge_timer = timer({ timeout = edge_timeout })
-redge_timer:add_signal('timeout', function()
-    if mouse.coords()["x"] >= screen[mouse.screen].workarea.width - edge_size then
-        awful.tag.viewidx(1)
-    end
-end)
-redge_timer:start()
--- }}}
-
-
 -- {{{ Startup programs
 
 -- Functions to run programs once
