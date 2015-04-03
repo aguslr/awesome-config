@@ -141,7 +141,7 @@ shifty.config.apps = {
     { match = { "Adobe Illustrator*", "avidemux.*", "Blender", "cinelerra.*", "Darktable", "Gimp", "handbrake.*", "Inkscape", "openshot", "PencilMainWindow", "pitivi", "RawTherapee.*", "Simple Scan", "UFRaw" }, tag = "5:graph", },
     { match = { "clementine", "Desura", "Lmms", "Popcorn Time", "Rhythmbox", "Steam", "Totem", "Vlc" }, tag = "6:media", },
     { match = { "abiword", "gnumeric", "LibreOffice.*" }, tag = "7:office", },
-    { match = { "Administrador de Máquina Virtual", "virt-manager", "VirtualBox" }, tag = "8:virt", },
+    { match = { "Administrador de Máquina Virtual", "OpenXenManager", "virt-manager", "VirtualBox" }, tag = "8:virt", },
     -- Floating clients
     { match = { "alsamixer", "Arduino", "bash", "Empathy", "Eog", "grab_screen.sh", "htop", "ImageMagick", "keepassx", "MPlayer", "mc", "mpv", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "ristretto", "sensors", "Sonata", "Thunar", "Transmission", "uGet", "Update Manager", "watch", "wyrd" }, float = true },
     -- client manipulation
