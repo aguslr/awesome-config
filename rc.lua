@@ -457,28 +457,16 @@ vicious.register(fsrwidget, vicious.widgets.fs,
             return "" .. colwhi .. args["{/ used_p}"] .. "%" .. coldef .. " "
         end
     end, 620)
--- /mnt/home
+-- /home
 fshicon = widget({ type = "textbox" })
 fshicon.text = "" .. colbblk .. "~ " .. coldef .. ""
 fshwidget = widget({ type = "textbox" })
 vicious.register(fshwidget, vicious.widgets.fs,
     function (widget, args)
-        if args["{/mnt/home used_p}"] >= 90 and args["{/mnt/home used_p}"] < 100 then
-            return "" .. colred .. args["{/mnt/home used_p}"] .. "%" .. coldef .. " "
+        if args["{/home used_p}"] >= 90 and args["{/home used_p}"] < 100 then
+            return "" .. colred .. args["{/home used_p}"] .. "%" .. coldef .. " "
         else
-            return "" .. colwhi .. args["{/mnt/home used_p}"] .. "%" .. coldef .. " "
-        end
-    end, 620)
--- /mntdata/
-fsdicon = widget({ type = "textbox" })
-fsdicon.text = "" .. colbblk .. "# " .. coldef .. ""
-fsdwidget = widget({ type = "textbox" })
-vicious.register(fsdwidget, vicious.widgets.fs,
-    function (widget, args)
-        if args["{/mnt/data used_p}"] >= 90 and args["{/mnt/data used_p}"] < 100 then
-            return "" .. colred .. args["{/mnt/data used_p}"] .. "%" .. coldef .. " "
-        else
-            return "" .. colwhi .. args["{/mnt/data used_p}"] .. "%" .. coldef .. " "
+            return "" .. colwhi .. args["{/home used_p}"] .. "%" .. coldef .. " "
         end
     end, 620)
 
