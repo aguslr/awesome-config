@@ -82,7 +82,7 @@ theme.border_focus  = theme.color_white
 theme.border_marked = theme.color_magenta
 
 -- MENU
-theme.menu_submenu_icon = awful.util.getdir("config") .. "/themes/my.theme/submenu.png"
+theme.menu_submenu_icon = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/submenu.png"
 theme.menu_height       = 14
 theme.menu_width        = 100
 theme.menu_bg_normal    = theme.color_bwhite
@@ -93,24 +93,25 @@ theme.menu_border_color = theme.color_bwhite
 theme.menu_border_width = 1
 
 -- LAYOUTS
-theme.layout_tile          = awful.util.getdir("config") .. "/themes/my.theme/layouts/tile.png"
-theme.layout_tileleft      = awful.util.getdir("config") .. "/themes/my.theme/layouts/tileleft.png"
-theme.layout_tilebottom    = awful.util.getdir("config") .. "/themes/my.theme/layouts/tilebottom.png"
-theme.layout_tiletop       = awful.util.getdir("config") .. "/themes/my.theme/layouts/tiletop.png"
-theme.layout_fairv         = awful.util.getdir("config") .. "/themes/my.theme/layouts/fairv.png"
-theme.layout_fairh         = awful.util.getdir("config") .. "/themes/my.theme/layouts/fairh.png"
-theme.layout_spiral        = awful.util.getdir("config") .. "/themes/my.theme/layouts/spiral.png"
-theme.layout_dwindle       = awful.util.getdir("config") .. "/themes/my.theme/layouts/dwindle.png"
-theme.layout_max           = awful.util.getdir("config") .. "/themes/my.theme/layouts/max.png"
-theme.layout_fullscreen    = awful.util.getdir("config") .. "/themes/my.theme/layouts/fullscreen.png"
-theme.layout_magnifier     = awful.util.getdir("config") .. "/themes/my.theme/layouts/magnifier.png"
-theme.layout_floating      = awful.util.getdir("config") .. "/themes/my.theme/layouts/floating.png"
+theme.layout_tile          = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/tile.png"
+theme.layout_tileleft      = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/tileleft.png"
+theme.layout_tilebottom    = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/tilebottom.png"
+theme.layout_tiletop       = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/tiletop.png"
+theme.layout_fairv         = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/fairv.png"
+theme.layout_fairh         = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/fairh.png"
+theme.layout_spiral        = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/spiral.png"
+theme.layout_dwindle       = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/dwindle.png"
+theme.layout_max           = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/max.png"
+theme.layout_fullscreen    = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/fullscreen.png"
+theme.layout_magnifier     = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/magnifier.png"
+theme.layout_floating      = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/floating.png"
 theme.lain_icons           = os.getenv("HOME") .. "/.config/awesome/lain/icons/layout/default/"
 theme.layout_termfair      = theme.lain_icons .. "termfairw.png"
 theme.layout_cascade       = theme.lain_icons .. "cascadew.png"
 theme.layout_cascadetile   = theme.lain_icons .. "cascadetilew.png"
+theme.layout_centerfair    = theme.lain_icons .. "centerfairw.png"
 theme.layout_centerwork    = theme.lain_icons .. "centerworkw.png"
-theme.layout_leaved        = awful.util.getdir("config") .. "/awesome-leaved/leaved.png"
+theme.layout_leaved        = os.getenv("HOME") .. "/.config/awesome/awesome-leaved/leaved.png"
 
 -- WALLPAPER
 --theme.wallpaper = { os.getenv("HOME") .. "/Imágenes/wallpaper" }

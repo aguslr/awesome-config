@@ -57,15 +57,15 @@ end
 beautiful.init( awful.util.getdir("config") .. "/themes/my.theme/theme.lua" )
 
 -- Naughty notification properties
-naughty.config.default_preset.timeout           = 5
-naughty.config.default_preset.screen            = 1
-naughty.config.default_preset.position          = "bottom_right"
-naughty.config.default_preset.margin            = 10
-naughty.config.default_preset.gap               = 1
-naughty.config.default_preset.ontop             = true
-naughty.config.default_preset.font              = beautiful.font
-naughty.config.default_preset.icon              = nil
-naughty.config.default_preset.icon_size         = 16
+naughty.config.defaults.timeout                 = 5
+naughty.config.defaults.screen                  = 1
+naughty.config.defaults.position                = "bottom_right"
+naughty.config.defaults.margin                  = 10
+naughty.config.defaults.gap                     = 1
+naughty.config.defaults.ontop                   = true
+naughty.config.defaults.font                    = beautiful.font
+naughty.config.defaults.icon                    = nil
+naughty.config.defaults.icon_size               = 16
 naughty.config.presets.low.fg                   = beautiful.fg_normal
 naughty.config.presets.low.bg                   = beautiful.bg_normal
 naughty.config.presets.low.border_color         = beautiful.border_normal
@@ -75,8 +75,8 @@ naughty.config.presets.normal.border_color      = beautiful.border_focus
 naughty.config.presets.critical.fg              = beautiful.fg_urgent
 naughty.config.presets.critical.bg              = beautiful.bg_urgent
 naughty.config.presets.critical.border_color    = beautiful.border_marked
-naughty.config.default_preset.border_width      = 1
-naughty.config.default_preset.hover_timeout     = nil
+naughty.config.defaults.border_width            = 1
+naughty.config.defaults.hover_timeout           = nil
 
 -- COLORS
 coldef  = "</span>"
@@ -138,10 +138,10 @@ local layouts =
     lain.layout.cascade,                -- 15
     lain.layout.cascadetile,            -- 16
     lain.layout.centerwork,             -- 17
-    leaved.layout.suit.tile.right       -- 18
-    leaved.layout.suit.tile.left        -- 19
-    leaved.layout.suit.tile.bottom      -- 20
-    leaved.layout.suit.tile.top         -- 21
+    leaved.layout.suit.tile.right,      -- 18
+    leaved.layout.suit.tile.left,       -- 19
+    leaved.layout.suit.tile.bottom,     -- 20
+    leaved.layout.suit.tile.top,        -- 21
 }
 -- }}}
 
@@ -164,7 +164,7 @@ shifty.config.tags = {
     media = { position = 6, layout = layouts[1] },
     office = { position = 7, layout = layouts[6] },
     virt = { position = 8, layout = layouts[1] },
-    9 = { position = 9, layout = layouts[1], leave_kills = true }
+    misc = { position = 9, layout = layouts[1], leave_kills = true },
 }
 
 -- SHIFTY: application matching rules
@@ -347,7 +347,7 @@ vicious.register(weatherwidget, vicious.widgets.weather,
         if args["{tempc}"] == "N/A" then
             return ""
         else
-            weatherwidget_t:set_text("" .. colbblu .. string.upper(args["{city}"]) .. coldef .. "" .. colblu .. "\nWind    : " .. args["{windkmh}"] .. " km/h " .. args["{wind}"] .. "\nHumidity: " .. args["{humid}"] .. " %\nPressure: " .. args["{press}"] .. " hPa" .. coldef .. "")
+            weatherwidget_t:set_markup("" .. colbblu .. string.upper(args["{city}"]) .. coldef .. "" .. colblu .. "\nWind    : " .. args["{windkmh}"] .. " km/h " .. args["{wind}"] .. "\nHumidity: " .. args["{humid}"] .. " %\nPressure: " .. args["{press}"] .. " hPa" .. coldef .. "")
             return "" .. colblu .. args["{sky}"] .. ": " .. args["{tempc}"] .. "°C" .. coldef .. " "
         end
     end, 1200, "LECO")
@@ -372,7 +372,7 @@ gmailwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.
 -- {{{{ Bottom right widgets (Infobox)
 
 -- MPD widget
-mpdwidget = widget({ type = 'textbox' })
+mpdwidget = wibox.widget.textbox()
 vicious.register(mpdwidget, vicious.widgets.mpd,
     function (widget, args)
         if args["{state}"] == "Stop" then
@@ -561,7 +561,7 @@ kbdcfg = {}
 kbdcfg.cmd = "setxkbmap"
 kbdcfg.layout = { { "gb", "" }, { "us", "altgr-intl" }, { "es", "" } }
 kbdcfg.current = 1  -- is our default layout
-kbdwidget = widget({ type = "textbox", align = "right" })
+kbdwidget = wibox.widget.textbox()
 kbdwidget:set_markup(colwhi .. kbdcfg.layout[kbdcfg.current][1] .. coldef .. " ")
 kbdcfg.switch = function ()
     kbdcfg.current = kbdcfg.current % #(kbdcfg.layout) + 1
@@ -598,9 +598,6 @@ volwidget:buttons(
 
 -- }}}}
 
--- Create a systray
-mysystray = wibox.widget.systray()
-
 -- Create a wibox for each screen and add it
 mywibox = {}
 myinfobox = {}
@@ -617,7 +614,7 @@ mytaglist.buttons = awful.util.table.join(
                     awful.button({ }, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
                     awful.button({ }, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
                     )
-shifty.taglist = mytaglist
+
 -- tasklist
 mytasklist = {}
 mytasklist.buttons = awful.util.table.join(
@@ -642,7 +639,7 @@ mytasklist.buttons = awful.util.table.join(
                                                   instance:hide()
                                                   instance = nil
                                               else
-                                                  instance = awful.menu.clients({ 
+                                                  instance = awful.menu.clients({
                                                       theme = { width = 500 }
                                                   })
                                               end
@@ -658,7 +655,7 @@ mytasklist.buttons = awful.util.table.join(
 
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
-    mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
+    mypromptbox[s] = awful.widget.prompt()
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
@@ -672,6 +669,12 @@ for s = 1, screen.count() do
 
     -- Create a tasklist widget
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
+
+    -- SHIFTY: initialize shifty
+    -- the assignment of shifty.taglist must always be after its actually
+    -- initialized with awful.widget.taglist.new()
+    shifty.taglist = mytaglist
+    shifty.init()
 
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", height = "16", bg = "" .. beautiful.colorbg .. "", screen = s })
@@ -690,7 +693,7 @@ for s = 1, screen.count() do
     top_layout:set_middle(mytasklist[s])
     top_layout:set_right(top_right_layout)
     mywibox[s]:set_widget(top_layout)
-    
+
     -- Create the infobox
     myinfobox[s] = awful.wibox({ position = "bottom", height = "16", bg = "" .. beautiful.colorbg .. "", screen = s })
     -- Widgets that are aligned to the left
@@ -724,17 +727,18 @@ for s = 1, screen.count() do
     bottom_right_layout:add(netwwidget)
     -- Gmail widget
     bottom_right_layout:add(gmailicon)
-    bottom_right_layout:add(gmailidget)
+    bottom_right_layout:add(gmailwidget)
     -- Volume widget
     bottom_right_layout:add(volicon)
     bottom_right_layout:add(volwidget)
+    -- Systray
     if s == 1 then bottom_right_layout:add(wibox.widget.systray()) end
     -- Now bring it all together
     local bottom_layout = wibox.layout.align.horizontal()
     bottom_layout:set_left(bottom_left_layout)
     bottom_layout:set_right(bottom_right_layout)
     myinfobox[s]:set_widget(bottom_layout)
-    
+
 end
 -- }}}
 
