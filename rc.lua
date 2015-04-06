@@ -154,6 +154,12 @@ end
 -- }}}
 
 -- {{{ Tags
+-- Lain config
+lain.layout.termfair.nmaster = 2
+lain.layout.termfair.ncol = 1
+lain.layout.centerfair.nmaster = 2
+lain.layout.centerfair.ncol = 1
+
 ---- shifty: predefined tags
 shifty.config.tags = {
     ["1:main"] = { position = 1, layout = layouts[3], mwfact = 0.60, init = true },
