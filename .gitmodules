@@ -1,3 +1,6 @@
 [submodule "shifty"]
 	path = shifty
 	url = https://github.com/cdump/awesome-shifty.git
+[submodule "lain"]
+	path = lain
+	url = https://github.com/copycat-killer/lain.git
