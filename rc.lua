@@ -301,7 +301,7 @@ separatorwidget:set_markup(" ")
 
 -- Time widget
 timewidget = wibox.widget.textbox()
-vicious.register(timewidget, vicious.widgets.date, "" .. colbyel .. "%a %e %b, %H:%M" .. coldef .. " ", 1)
+vicious.register(timewidget, vicious.widgets.date, "" .. colbyel .. "%a%e %b %H:%M" .. coldef .. " ", 1)
 
 -- ToDo widget
 todowidget = wibox.widget.textbox()
