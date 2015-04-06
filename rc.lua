@@ -156,15 +156,15 @@ end
 -- {{{ Tags
 ---- shifty: predefined tags
 shifty.config.tags = {
-    main = { position = 1, layout = layouts[3], mwfact = 0.60, init = true },
-    www = { position = 2, layout = layouts[17], mwfact = 0.55 },
-    dev = { position = 3, layout = layouts[18] },
-    chat = { position = 4, layout = layouts[9] },
-    graph = { position = 5, layout = layouts[6] },
-    media = { position = 6, layout = layouts[1] },
-    office = { position = 7, layout = layouts[6] },
-    virt = { position = 8, layout = layouts[1] },
-    misc = { position = 9, layout = layouts[1], leave_kills = true },
+    ["1:main"] = { position = 1, layout = layouts[3], mwfact = 0.60, init = true },
+    ["2:www"] = { position = 2, layout = layouts[17], mwfact = 0.55 },
+    ["3:dev"] = { position = 3, layout = layouts[18] },
+    ["4:chat"] = { position = 4, layout = layouts[9] },
+    ["5:graph"] = { position = 5, layout = layouts[6] },
+    ["6:media"] = { position = 6, layout = layouts[1] },
+    ["7:office"] = { position = 7, layout = layouts[6] },
+    ["8:virt"] = { position = 8, layout = layouts[1] },
+    ["9:misc"] = { position = 9, layout = layouts[1], leave_kills = true },
 }
 
 -- SHIFTY: application matching rules
