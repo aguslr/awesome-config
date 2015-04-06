@@ -1,6 +1,0 @@
-[submodule "awesome-vain"]
-	path = awesome-vain
-	url = https://github.com/vain/awesome-vain.git
-[submodule "treesome"]
-	path = treesome
-	url = https://github.com/aguslr/treesome.git
