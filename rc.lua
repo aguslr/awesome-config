@@ -554,23 +554,24 @@ vicious.register(netwwidget, vicious.widgets.net,
 netwwidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( terminal .. " -e bash -c \"nmcli device show wlan0 2>/dev/null && read -rsp $'Press any key to continue...\n' -n 1 key\"" ) end ) ) )
 
 -- Keyboard Layout widget
+-- https://awesome.naquadah.org/wiki/Change_keyboard_maps
 kbdicon = wibox.widget.textbox()
 kbdicon:set_markup("" .. colbblk .. "⚑ " .. coldef .. "")
 kbdcfg = {}
 kbdcfg.cmd = "setxkbmap"
 kbdcfg.layout = { { "gb", "" }, { "us", "altgr-intl" }, { "es", "" } }
 kbdcfg.current = 1  -- is our default layout
-kbdwidget = wibox.widget.textbox()
-kbdwidget:set_markup(colwhi .. kbdcfg.layout[kbdcfg.current][1] .. coldef .. " ")
+kbdcfg.widget = wibox.widget.textbox()
+kbdcfg.widget:set_markup(colwhi .. kbdcfg.layout[kbdcfg.current][1] .. coldef .. " ")
 kbdcfg.switch = function ()
     kbdcfg.current = kbdcfg.current % #(kbdcfg.layout) + 1
     local t = kbdcfg.layout[kbdcfg.current]
-    kbdwidget:set_markup(colyel .. t[1] .. coldef .. " ")
+    kbdcfg.widget:set_markup(colyel .. t[1] .. coldef .. " ")
     os.execute( kbdcfg.cmd .. " " .. t[1] .. " " .. t[2] )
 end
-kbdwidget:buttons(awful.util.table.join(
-    awful.button({ }, 1, function () kbdcfg.switch() end)
-))
+kbdcfg.widget:buttons(
+ awful.util.table.join(awful.button({ }, 1, function () kbdcfg.switch() end))
+)
 
 -- Volume widget
 volicon = wibox.widget.textbox()
@@ -727,6 +728,9 @@ for s = 1, screen.count() do
     -- Gmail widget
     bottom_right_layout:add(gmailicon)
     bottom_right_layout:add(gmailwidget)
+    -- Keyboard widget
+    bottom_right_layout:add(kbdicon)
+    bottom_right_layout:add(kbdcfg.widget)
     -- Volume widget
     bottom_right_layout:add(volicon)
     bottom_right_layout:add(volwidget)
