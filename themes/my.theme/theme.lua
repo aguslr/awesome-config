@@ -69,27 +69,28 @@ theme.bg_normal     = theme.colorbg
 theme.bg_focus      = theme.colorbg
 theme.bg_urgent     = theme.color_bmagenta
 theme.bg_minimize   = theme.colorbg
+theme.bg_systray    = theme.colorbg
 
 theme.fg_normal     = theme.color_bblack
 theme.fg_focus      = theme.color_bwhite
 theme.fg_urgent     = theme.color_magenta
 theme.fg_minimize   = theme.color_black
 
-theme.border_width  = "1"
+theme.border_width  = 1
 theme.border_normal = theme.color_black
 theme.border_focus  = theme.color_white
 theme.border_marked = theme.color_magenta
 
 -- MENU
 theme.menu_submenu_icon = awful.util.getdir("config") .. "/themes/my.theme/submenu.png"
-theme.menu_height       = "14"
-theme.menu_width        = "100"
+theme.menu_height       = 14
+theme.menu_width        = 100
 theme.menu_bg_normal    = theme.color_bwhite
 theme.menu_bg_focus     = theme.color_blue
 theme.menu_fg_normal    = theme.color_black
 theme.menu_fg_focus     = theme.color_bwhite
 theme.menu_border_color = theme.color_bwhite
-theme.menu_border_width = "1"
+theme.menu_border_width = 1
 
 -- LAYOUTS
 theme.layout_tile          = awful.util.getdir("config") .. "/themes/my.theme/layouts/tile.png"
@@ -112,17 +113,22 @@ theme.layout_cascadebrowse = awful.util.getdir("config") .. "/vain/themes/defaul
 theme.layout_centerwork    = awful.util.getdir("config") .. "/vain/themes/default/layouts/centerworkw.png"
 
 -- WALLPAPER
---theme.wallpaper_cmd = { "awsetbg -c " .. os.getenv("HOME") .. "/Imágenes/wallpaper" }
---theme.wallpaper_cmd = { "awsetbg -t " .. os.getenv("HOME") .. "/Imágenes/pattern" }
+--theme.wallpaper = { os.getenv("HOME") .. "/Imágenes/wallpaper" }
 
 -- ICON
 theme.awesome_icon  = "/usr/share/awesome/icons/awesome16.png"
 theme.debian_icon   = "/usr/share/pixmaps/debian-logo.png"
-theme.system_icons  = "/usr/share/pixmaps/"
+
+-- Define the icon theme for application icons. If not set then the icons 
+-- from /usr/share/icons and /usr/share/icons/hicolor will be used.
+theme.icon_theme = nil
+
+-- TASKLIST
+-- http://awesome.naquadah.org/wiki/Remove_icons
+theme.tasklist_disable_icon = true
 
 -- GAPS
 theme.useless_gap_width = "15"
 
 return theme
-
--- vim: set ts=4 sw=4 tw=0 et :
+-- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
