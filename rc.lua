@@ -20,9 +20,8 @@ local shifty = require("shifty")
 -- Widget libraries
 local vicious = require("vicious")
 
--- Load awesome-vain
-local vain = require("vain")
-vain.widgets.terminal = "urxvtc"
+-- Load awesome-lain
+local lain = require("lain")
 
 -- Load treesome
 local treesome = require("treesome")
@@ -134,11 +133,11 @@ local layouts =
     awful.layout.suit.max,              -- 10
     awful.layout.suit.max.fullscreen,   -- 11
     awful.layout.suit.magnifier,        -- 12
-    vain.layout.termfair,               -- 13
-    vain.layout.browse,                 -- 14
-    vain.layout.cascade,                -- 15
-    vain.layout.cascadebrowse,          -- 16
-    vain.layout.centerwork,             -- 17
+    lain.layout.termfair,               -- 13
+    lain.layout.centerfair,             -- 14
+    lain.layout.cascade,                -- 15
+    lain.layout.cascadetile,            -- 16
+    lain.layout.centerwork,             -- 17
     treesome,                           -- 18
 }
 -- }}}

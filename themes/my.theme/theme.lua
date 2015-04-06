@@ -105,12 +105,11 @@ theme.layout_max           = awful.util.getdir("config") .. "/themes/my.theme/la
 theme.layout_fullscreen    = awful.util.getdir("config") .. "/themes/my.theme/layouts/fullscreen.png"
 theme.layout_magnifier     = awful.util.getdir("config") .. "/themes/my.theme/layouts/magnifier.png"
 theme.layout_floating      = awful.util.getdir("config") .. "/themes/my.theme/layouts/floating.png"
-theme.layout_termfair      = awful.util.getdir("config") .. "/vain/themes/default/layouts/termfairw.png"
-theme.layout_browse        = awful.util.getdir("config") .. "/vain/themes/default/layouts/browsew.png"
-theme.layout_gimp          = awful.util.getdir("config") .. "/vain/themes/default/layouts/gimpw.png"
-theme.layout_cascade       = awful.util.getdir("config") .. "/vain/themes/default/layouts/cascadew.png"
-theme.layout_cascadebrowse = awful.util.getdir("config") .. "/vain/themes/default/layouts/cascadebrowsew.png"
-theme.layout_centerwork    = awful.util.getdir("config") .. "/vain/themes/default/layouts/centerworkw.png"
+theme.lain_icons           = os.getenv("HOME") .. "/.config/awesome/lain/icons/layout/default/"
+theme.layout_termfair      = theme.lain_icons .. "termfairw.png"
+theme.layout_cascade       = theme.lain_icons .. "cascadew.png"
+theme.layout_cascadetile   = theme.lain_icons .. "cascadetilew.png"
+theme.layout_centerwork    = theme.lain_icons .. "centerworkw.png"
 
 -- WALLPAPER
 --theme.wallpaper = { os.getenv("HOME") .. "/Imágenes/wallpaper" }
