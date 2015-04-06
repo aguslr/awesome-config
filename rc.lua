@@ -23,8 +23,8 @@ local vicious = require("vicious")
 -- Load awesome-lain
 local lain = require("lain")
 
--- Load treesome
-local treesome = require("treesome")
+-- Load awesome-leaved
+local leaved = require "awesome-leaved"
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -138,7 +138,10 @@ local layouts =
     lain.layout.cascade,                -- 15
     lain.layout.cascadetile,            -- 16
     lain.layout.centerwork,             -- 17
-    treesome,                           -- 18
+    leaved.layout.suit.tile.right       -- 18
+    leaved.layout.suit.tile.left        -- 19
+    leaved.layout.suit.tile.bottom      -- 20
+    leaved.layout.suit.tile.top         -- 21
 }
 -- }}}
 
@@ -833,9 +836,11 @@ globalkeys = awful.util.table.join(
     awful.key({}, "XF86AudioPlay", function () awful.util.spawn_with_shell(os.getenv("HOME") .. "/bin/mmkeys.sh --play", false) end),
 
     -- Modules
-    -- treesome
-    awful.key({ modkey            }, "s",       treesome.horizontal), -- split next horizontal
-    awful.key({ modkey            }, "v",       treesome.vertical),   -- split next vertical
+    -- awesome-leaved
+    awful.key({ modkey            }, "s",       leaved.keys.splitH),        -- split next horizontal
+    awful.key({ modkey            }, "v",       leaved.keys.splitV),        -- split next vertical
+    awful.key({ modkey, "Shift"   }, "o",       leaved.keys.splitOpp),      -- split in opposing direction
+    awful.key({ modkey, "Shift"   }, "t",       leaved.keys.shiftStyle),    -- switch: notabs-tabs-stack
 
     -- Print info on current client
     awful.key({ modkey }, "i",

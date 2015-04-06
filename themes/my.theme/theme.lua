@@ -110,6 +110,7 @@ theme.layout_termfair      = theme.lain_icons .. "termfairw.png"
 theme.layout_cascade       = theme.lain_icons .. "cascadew.png"
 theme.layout_cascadetile   = theme.lain_icons .. "cascadetilew.png"
 theme.layout_centerwork    = theme.lain_icons .. "centerworkw.png"
+theme.layout_leaved        = awful.util.getdir("config") .. "/awesome-leaved/leaved.png"
 
 -- WALLPAPER
 --theme.wallpaper = { os.getenv("HOME") .. "/Imágenes/wallpaper" }
