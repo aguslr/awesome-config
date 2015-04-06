@@ -4,3 +4,6 @@
 [submodule "lain"]
 	path = lain
 	url = https://github.com/copycat-killer/lain.git
+[submodule "awesome-leaved"]
+	path = awesome-leaved
+	url = https://github.com/michaelbeaumont/awesome-leaved.git
