@@ -170,13 +170,13 @@ shifty.config.tags = {
 -- SHIFTY: application matching rules
 -- order here matters, early rules will be applied first
 shifty.config.apps = {
-    { match = { "Chromium", "ELinks", "Epiphany", "Firefox", "Filezilla", "Iceweasel", "luakit", "lynx.cur", "IEXPLORE.EXE", "Midori", "Speed Dial", "TorBrowser", "uzbl" }, tag = "2:www", },
-    { match = { "Android *", "Arduino", "Atom", "Brackets", "Eclipse", "Gvim", "MySQL Workbench", "Python Shell", "Qtoctave", "Scilab" }, tag = "3:dev", },
-    { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", },
-    { match = { "Adobe Illustrator*", "avidemux.*", "Blender", "cinelerra.*", "Darktable", "Gimp", "handbrake.*", "Inkscape", "openshot", "PencilMainWindow", "pitivi", "RawTherapee.*", "Simple Scan", "UFRaw" }, tag = "5:graph", },
-    { match = { "clementine", "Desura", "Lmms", "Popcorn Time", "Rhythmbox", "Steam", "Totem", "Vlc" }, tag = "6:media", },
-    { match = { "abiword", "gnumeric", "LibreOffice.*" }, tag = "7:office", },
-    { match = { "Gestor de Máquina Virtual", "OpenXenManager", "VirtualBox", "Virtual Machine Manager" }, tag = "8:virt", },
+    { match = { "Chromium", "ELinks", "Epiphany", "Firefox", "Filezilla", "Iceweasel", "luakit", "lynx.cur", "IEXPLORE.EXE", "Midori", "Speed Dial", "TorBrowser", "uzbl" }, tag = "www", },
+    { match = { "Android *", "Arduino", "Atom", "Brackets", "Eclipse", "Gvim", "MySQL Workbench", "Python Shell", "Qtoctave", "Scilab" }, tag = "dev", },
+    { match = { "irssi", "weechat", "xchat" }, tag = "chat", },
+    { match = { "Adobe Illustrator*", "avidemux.*", "Blender", "cinelerra.*", "Darktable", "Gimp", "handbrake.*", "Inkscape", "openshot", "PencilMainWindow", "pitivi", "RawTherapee.*", "Simple Scan", "UFRaw" }, tag = "graph", },
+    { match = { "clementine", "Desura", "Lmms", "Popcorn Time", "Rhythmbox", "Steam", "Totem", "Vlc" }, tag = "media", },
+    { match = { "abiword", "gnumeric", "LibreOffice.*" }, tag = "office", },
+    { match = { "Gestor de Máquina Virtual", "OpenXenManager", "VirtualBox", "Virtual Machine Manager" }, tag = "virt", },
     -- Minimized clients
     { match = { "grab_screen.sh" }, minimized = true },
     -- Slave clients
