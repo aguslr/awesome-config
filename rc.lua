@@ -334,10 +334,9 @@ function todo_list()
     end
     return table.concat(todo, "\n")
 end
-todowidget:connect_signal('mouse::enter', function () todo_n = { naughty.notify({ text = todo_list(), position = "top_right", border_color = "#000000", timeout = 0, hover_timeout = 0.5 }) } end)
-todowidget:connect_signal('mouse::leave', function () naughty.destroy(todo_n[1]) end)
+todowidget_t = awful.tooltip({ objects = { todowidget },})
+todowidget_t:set_markup( todo_list() )
 todowidget:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn( editor_cmd .. " -o " .. os.getenv("HOME") .. "/todo.txt " .. os.getenv("HOME") .. "/done.txt" ) end ) ) )
-
 
 -- Weather widget
 weatherwidget = wibox.widget.textbox()
