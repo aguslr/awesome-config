@@ -180,9 +180,9 @@ shifty.config.apps = {
     -- Minimized clients
     { match = { "grab_screen.sh" }, minimized = true },
     -- Slave clients
-    { match = { "grab_screen.sh", "mc", "Nautilus", "ncmpcpp", "Pcmanfm", "Thunar", "~" }, slave = true },
+    { match = { "~" }, slave = true },
     -- Floating clients
-    { match = { "alsamixer", "bash", "Empathy", "Eog", "grab_screen.sh", "htop", "ImageMagick", "keepassx", "MPlayer", "mpv", "mutt", "ristretto", "sensors", "Sonata", "Transmission", "uGet", "Update Manager", "watch", "wyrd" }, float = true },
+    { match = { "alsamixer", "bash", "Empathy", "Eog", "grab_screen.sh", "htop", "ImageMagick", "keepassx", "mc", "MPlayer", "mpv", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "ristretto", "sensors", "Sonata", "Thunar", "Transmission", "uGet", "Update Manager", "watch", "wyrd" }, float = true },
     -- client manipulation
     { match = { "" },
         honorsizehints = false
