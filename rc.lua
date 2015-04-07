@@ -292,6 +292,17 @@ mymainmenu = awful.menu({
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
+
+-- Menubar configuration
+menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+menubar.menu_gen.all_menu_dirs = { "/usr/share/applications/", "/usr/local/share/applications", "~/.local/share/applications" }
+-- show at the bottom
+menubar.geometry = {
+    height = 16,
+    width = 1920,
+    x = 0,
+    y = 1064,
+}
 -- }}}
 
 
@@ -840,6 +851,8 @@ globalkeys = awful.util.table.join(
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
               end),
+    -- Menubar
+    awful.key({ modkey },            "p",   function() menubar.show() end),
 
     -- Multimedia keys
     -- requires: mmkeys.sh (https://gist.github.com/8538bd7adb15b734e085)
