@@ -166,29 +166,28 @@ shifty.config.tags = {
     ["2:www"] = { position = 2, layout = layouts[17], mwfact = 0.55 },
     ["3:dev"] = { position = 3, layout = layouts[18] },
     ["4:chat"] = { position = 4, layout = layouts[9] },
-    ["5:image"] = { position = 5, layout = layouts[6] },
-    ["6:video"] = { position = 6, layout = layouts[1] },
-    ["7:office"] = { position = 7, layout = layouts[6] },
-    ["8:virt"] = { position = 8, layout = layouts[1] },
-    ["9:misc"] = { position = 9, layout = layouts[1], leave_kills = true },
+    ["5:edit"] = { position = 5, layout = layouts[6] },
+    ["6:play"] = { position = 6, layout = layouts[1] },
+    ["7:virt"] = { position = 7, layout = layouts[1] },
+    ["8"] = { position = 8, layout = layouts[1], leave_kills = true },
+    ["9"] = { position = 9, layout = layouts[1], leave_kills = true },
 }
 
 -- SHIFTY: application matching rules
 -- order here matters, early rules will be applied first
 shifty.config.apps = {
-    { match = { "Chromium", "ELinks", "Epiphany", "Firefox", "Filezilla", "Iceweasel", "luakit", "lynx.cur", "IEXPLORE.EXE", "Midori", "Speed Dial", "TorBrowser", "uzbl" }, tag = "2:www", },
-    { match = { "Android *", "Arduino", "Atom", "Brackets", "Eclipse", "Gvim", "MySQL Workbench", "Python Shell", "Qtoctave", "Scilab" }, tag = "3:dev", },
+    { match = { class = { "Firefox", "Iceweasel", "Midori" } }, tag = "2:www", },
+    { match = { class = { "Atom", "Brackets", "Eclipse", "Gvim", "Ltbin" }, name = { "Android Studio", "Arduino" } }, tag = "3:dev", },
     { match = { "irssi", "weechat", "xchat" }, tag = "4:chat", },
-    { match = { "Adobe Illustrator*", "avidemux.*", "Blender", "cinelerra.*", "Darktable", "Gimp", "handbrake.*", "Inkscape", "openshot", "PencilMainWindow", "pitivi", "RawTherapee.*", "Simple Scan", "UFRaw" }, tag = "5:image", },
-    { match = { "clementine", "Desura", "Lmms", "Popcorn Time", "Rhythmbox", "Steam", "Totem", "Vlc" }, tag = "6:video", },
-    { match = { "abiword", "gnumeric", "LibreOffice.*" }, tag = "7:office", },
-    { match = { "Gestor de Máquina Virtual", "OpenXenManager", "VirtualBox", "Virtual Machine Manager" }, tag = "8:virt", },
+    { match = { class = { "Abiword", "Avidemux", "Blender", "Darktable", "Gimp", "Gnumeric", "Handbrake", "Illustrator.exe", "Inkscape", "libreoffice", "Openshot", "Pitivi", "Rawtherapee", "Ufraw" } }, tag = "5:edit" },
+    { match = { class = { "Desura", "Steam", "Vlc" }, name = { "Popcorn Time" } }, tag = "6:play", },
+    { match = { "Gestor de Máquina Virtual", "OpenXenManager", "VirtualBox", "Virtual Machine Manager" }, tag = "7:virt", },
     -- Minimized clients
-    { match = { "grab_screen.sh" }, minimized = true },
+    { match = { "grab_screen.sh" }, float = true, minimized = true },
     -- Slave clients
     { match = { "~" }, slave = true },
     -- Floating clients
-    { match = { "alsamixer", "bash", "Empathy", "Eog", "grab_screen.sh", "htop", "ImageMagick", "keepassx", "mc", "MPlayer", "mpv", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "ristretto", "sensors", "Sonata", "Thunar", "Transmission", "uGet", "Update Manager", "watch", "wyrd" }, float = true },
+    { match = { "alsamixer", "bash", "Empathy", "Eog", "htop", "ImageMagick", "keepassx", "mc", "MPlayer", "mpv", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "ristretto", "sensors", "Sonata", "Thunar", "Transmission", "uGet", "Update Manager", "watch", "wyrd" }, float = true },
     -- client manipulation
     { match = { "" },
         honorsizehints = false
