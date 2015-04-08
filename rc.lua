@@ -196,7 +196,7 @@ shifty.config.apps = {
 
 -- shifty: defaults
 shifty.config.defaults = {
-    layout = awful.layout.suit.max,
+    layout = awful.layout.suit.floating,
     ncol = 1,
     mwfact = 0.60,
     floatBars = false,
