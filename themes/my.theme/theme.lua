@@ -5,24 +5,24 @@ theme = {}
 theme.font          = "terminus 10"
 
 -- COLORS
-theme.colorfg           = "#ffffff"
-theme.colorbg           = "#000000"
-theme.color_black       = "#000000"
-theme.color_bblack      = "#555555"
-theme.color_red         = "#aa0000"
-theme.color_bred        = "#ff0000"
-theme.color_green       = "#00aa00"
-theme.color_bgreen      = "#00ff00"
-theme.color_yellow      = "#aa6600"
-theme.color_byellow     = "#ffff00"
-theme.color_blue        = "#000080"
-theme.color_bblue       = "#0000ff"
-theme.color_magenta     = "#aa00aa"
-theme.color_bmagenta    = "#ff00ff"
-theme.color_cyan        = "#00aaaa"
-theme.color_bcyan       = "#00ffff"
-theme.color_white       = "#aaaaaa"
-theme.color_bwhite      = "#ffffff"
+theme.colorfg               = "#ffffff"
+theme.colorbg               = "#000000"
+theme.color_black           = "#000000"
+theme.color_lightblack      = "#555555"
+theme.color_red             = "#aa0000"
+theme.color_lightred        = "#ff0000"
+theme.color_green           = "#00aa00"
+theme.color_lightgreen      = "#00ff00"
+theme.color_yellow          = "#aa6600"
+theme.color_lightyellow     = "#ffff00"
+theme.color_blue            = "#000080"
+theme.color_lightblue       = "#0000ff"
+theme.color_magenta         = "#aa00aa"
+theme.color_lightmagenta    = "#ff00ff"
+theme.color_cyan            = "#00aaaa"
+theme.color_lightcyan       = "#00ffff"
+theme.color_white           = "#aaaaaa"
+theme.color_lightwhite      = "#ffffff"
 
 -- Optionally, parse ~/.xcolors file
 for line in io.lines(os.getenv("HOME") .. "/.xcolors") do
@@ -33,46 +33,46 @@ for line in io.lines(os.getenv("HOME") .. "/.xcolors") do
     elseif string.find(line, "color0%s*:") then
         theme.color_black = string.match(line, '(#.+)$')
     elseif string.find(line, "color8%s*:") then
-        theme.color_bblack = string.match(line, '(#.+)$')
+        theme.color_lightblack = string.match(line, '(#.+)$')
     elseif string.find(line, "color1%s*:") then
         theme.color_red = string.match(line, '(#.+)$')
     elseif string.find(line, "color9%s*:") then
-        theme.color_bred = string.match(line, '(#.+)$')
+        theme.color_lightred = string.match(line, '(#.+)$')
     elseif string.find(line, "color2%s*:") then
         theme.color_green = string.match(line, '(#.+)$')
     elseif string.find(line, "color10%s*:") then
-        theme.color_bgreen = string.match(line, '(#.+)$')
+        theme.color_lightgreen = string.match(line, '(#.+)$')
     elseif string.find(line, "color3%s*:") then
         theme.color_yellow = string.match(line, '(#.+)$')
     elseif string.find(line, "color11%s*:") then
-        theme.color_byellow = string.match(line, '(#.+)$')
+        theme.color_lightyellow = string.match(line, '(#.+)$')
     elseif string.find(line, "color4%s*:") then
         theme.color_blue = string.match(line, '(#.+)$')
     elseif string.find(line, "color12%s*:") then
-        theme.color_bblue = string.match(line, '(#.+)$')
+        theme.color_lightblue = string.match(line, '(#.+)$')
     elseif string.find(line, "color5%s*:") then
         theme.color_magenta = string.match(line, '(#.+)$')
     elseif string.find(line, "color13%s*:") then
-        theme.color_bmagenta = string.match(line, '(#.+)$')
+        theme.color_lightmagenta = string.match(line, '(#.+)$')
     elseif string.find(line, "color6%s*:") then
         theme.color_cyan = string.match(line, '(#.+)$')
     elseif string.find(line, "color14%s*:") then
-        theme.color_bcyan = string.match(line, '(#.+)$')
+        theme.color_lightcyan = string.match(line, '(#.+)$')
     elseif string.find(line, "color7%s*:") then
         theme.color_white = string.match(line, '(#.+)$')
     elseif string.find(line, "color15%s*:") then
-        theme.color_bwhite = string.match(line, '(#.+)$')
+        theme.color_lightwhite = string.match(line, '(#.+)$')
     end
 end
 
 theme.bg_normal     = theme.colorbg
 theme.bg_focus      = theme.colorbg
-theme.bg_urgent     = theme.color_bmagenta
+theme.bg_urgent     = theme.color_lightmagenta
 theme.bg_minimize   = theme.colorbg
 theme.bg_systray    = theme.colorbg
 
-theme.fg_normal     = theme.color_bblack
-theme.fg_focus      = theme.color_bwhite
+theme.fg_normal     = theme.color_lightblack
+theme.fg_focus      = theme.color_lightwhite
 theme.fg_urgent     = theme.color_magenta
 theme.fg_minimize   = theme.color_black
 
@@ -85,11 +85,11 @@ theme.border_marked = theme.color_magenta
 theme.menu_submenu_icon = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/submenu.png"
 theme.menu_height       = 14
 theme.menu_width        = 100
-theme.menu_bg_normal    = theme.color_bwhite
+theme.menu_bg_normal    = theme.color_lightwhite
 theme.menu_bg_focus     = theme.color_blue
 theme.menu_fg_normal    = theme.color_black
-theme.menu_fg_focus     = theme.color_bwhite
-theme.menu_border_color = theme.color_bwhite
+theme.menu_fg_focus     = theme.color_lightwhite
+theme.menu_border_color = theme.color_lightwhite
 theme.menu_border_width = 1
 
 -- LAYOUTS
