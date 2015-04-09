@@ -54,7 +54,7 @@ end
 -- {{{ Variable definitions
 
 -- Themes define colours, icons, and wallpapers
-beautiful.init( awful.util.getdir("config") .. "/themes/my.theme/theme.lua" )
+beautiful.init( awful.util.getdir("config") .. "/themes/xcolors/theme.lua" )
 
 -- Naughty notification properties
 naughty.config.defaults.timeout                 = 5
@@ -309,7 +309,7 @@ menubar.geometry = {
 
 -- Spacer widget
 spacerwidget = wibox.widget.imagebox()
-spacerwidget:set_image(awful.util.getdir("config") .. "/themes/my.theme/spacer.png")
+spacerwidget:set_image(awful.util.getdir("config") .. "/themes/xcolors/spacer.png")
 separatorwidget = wibox.widget.textbox()
 separatorwidget:set_markup(" ")
 

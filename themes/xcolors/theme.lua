@@ -1,4 +1,7 @@
--- Awesome WM theme
+-------------------------------
+--  "Xcolors" awesome theme  --
+--    By Agus Lopez (aguslr) --
+-------------------------------
 
 theme = {}
 
@@ -82,7 +85,7 @@ theme.border_focus  = theme.color_white
 theme.border_marked = theme.color_magenta
 
 -- MENU
-theme.menu_submenu_icon = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/submenu.png"
+theme.menu_submenu_icon = os.getenv("HOME") .. "/.config/awesome/themes/xcolors/submenu.png"
 theme.menu_height       = 14
 theme.menu_width        = 100
 theme.menu_bg_normal    = theme.color_lightwhite
@@ -93,18 +96,18 @@ theme.menu_border_color = theme.color_lightwhite
 theme.menu_border_width = 1
 
 -- LAYOUTS
-theme.layout_tile          = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/tile.png"
-theme.layout_tileleft      = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/tileleft.png"
-theme.layout_tilebottom    = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/tilebottom.png"
-theme.layout_tiletop       = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/tiletop.png"
-theme.layout_fairv         = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/fairv.png"
-theme.layout_fairh         = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/fairh.png"
-theme.layout_spiral        = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/spiral.png"
-theme.layout_dwindle       = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/dwindle.png"
-theme.layout_max           = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/max.png"
-theme.layout_fullscreen    = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/fullscreen.png"
-theme.layout_magnifier     = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/magnifier.png"
-theme.layout_floating      = os.getenv("HOME") .. "/.config/awesome/themes/my.theme/layouts/floating.png"
+theme.layout_tile          = os.getenv("HOME") .. "/.config/awesome/themes/xcolors/layouts/tile.png"
+theme.layout_tileleft      = os.getenv("HOME") .. "/.config/awesome/themes/xcolors/layouts/tileleft.png"
+theme.layout_tilebottom    = os.getenv("HOME") .. "/.config/awesome/themes/xcolors/layouts/tilebottom.png"
+theme.layout_tiletop       = os.getenv("HOME") .. "/.config/awesome/themes/xcolors/layouts/tiletop.png"
+theme.layout_fairv         = os.getenv("HOME") .. "/.config/awesome/themes/xcolors/layouts/fairv.png"
+theme.layout_fairh         = os.getenv("HOME") .. "/.config/awesome/themes/xcolors/layouts/fairh.png"
+theme.layout_spiral        = os.getenv("HOME") .. "/.config/awesome/themes/xcolors/layouts/spiral.png"
+theme.layout_dwindle       = os.getenv("HOME") .. "/.config/awesome/themes/xcolors/layouts/dwindle.png"
+theme.layout_max           = os.getenv("HOME") .. "/.config/awesome/themes/xcolors/layouts/max.png"
+theme.layout_fullscreen    = os.getenv("HOME") .. "/.config/awesome/themes/xcolors/layouts/fullscreen.png"
+theme.layout_magnifier     = os.getenv("HOME") .. "/.config/awesome/themes/xcolors/layouts/magnifier.png"
+theme.layout_floating      = os.getenv("HOME") .. "/.config/awesome/themes/xcolors/layouts/floating.png"
 theme.lain_icons           = os.getenv("HOME") .. "/.config/awesome/lain/icons/layout/default/"
 theme.layout_termfair      = theme.lain_icons .. "termfairw.png"
 theme.layout_cascade       = theme.lain_icons .. "cascadew.png"
