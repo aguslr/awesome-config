@@ -182,16 +182,6 @@ shifty.config.apps = {
     { match = { class = { "Abiword", "Avidemux", "Blender", "Darktable", "Gimp", "Gnumeric", "Handbrake", "Illustrator.exe", "Inkscape", "libreoffice", "Openshot", "Pitivi", "Rawtherapee", "Ufraw" } }, tag = "5:edit" },
     { match = { class = { "Desura", "Steam", "Vlc" }, name = { "Popcorn Time" } }, tag = "6:play", },
     { match = { "Gestor de Máquina Virtual", "OpenXenManager", "VirtualBox", "Virtual Machine Manager" }, tag = "7:virt", },
-    -- Minimized clients
-    { match = { "grab_screen.sh" }, float = true, minimized = true },
-    -- Slave clients
-    { match = { "~" }, slave = true },
-    -- Floating clients
-    { match = { "alsamixer", "bash", "Empathy", "Eog", "htop", "ImageMagick", "keepassx", "mc", "MPlayer", "mpv", "mutt", "Nautilus", "ncmpcpp", "Pcmanfm", "ristretto", "sensors", "Sonata", "Thunar", "Transmission", "uGet", "Update Manager", "watch", "wyrd" }, float = true },
-    -- client manipulation
-    { match = { "" },
-        honorsizehints = false
-    }
 }
 
 -- shifty: defaults
@@ -973,9 +963,21 @@ awful.rules.rules = {
                      focus = true,
                      keys = clientkeys,
                      buttons = clientbuttons,
+                     -- Remove gaps between windows
+                     size_hints_honor = false,
                      -- Avoid maximized windows
                      maximized_vertical   = false,
                      maximized_horizontal = false } },
+    -- Minimized clients
+    { rule = { name = "grab_screen.sh" },
+      properties = { floating = true,
+                     minimized = true } },
+    -- Slave clients
+    { rule = { class = "URxvt", name = "~" },
+      callback = awful.client.setslave },
+    -- Floating clients
+    { rule_any = { class = { "Display", "Empathy", "Eog", "Keepassx", "mplayer2", "mpv", "Nautilus", "Pcmanfm", "Ristretto", "Sonata", "Thunar", "Transmission-gtk", "Uget-gtk", "Update Manager" }, name = { "alsamixer", "htop", "ImageMagick", "mc", "mutt", "ncmpcpp", "sensors", "watch" } },
+      properties = { floating = true } },
     -- Float and center dialogs
     -- https://bbs.archlinux.org/viewtopic.php?id=160265
     { rule = { type = "dialog" },
