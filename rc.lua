@@ -976,9 +976,13 @@ awful.rules.rules = {
                      -- Avoid maximized windows
                      maximized_vertical   = false,
                      maximized_horizontal = false } },
-    -- Float dialogs
+    -- Float and center dialogs
+    -- https://bbs.archlinux.org/viewtopic.php?id=160265
     { rule = { type = "dialog" },
-      properties = { floating = true } },
+      properties = { floating = true },
+      callback = function (c)
+          awful.placement.centered(c,nil)
+      end },
     -- Set Flash to float
     { rule = { instance = "plugin-container" },
       properties = { floating = true } },
