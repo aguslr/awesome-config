@@ -904,15 +904,17 @@ clientbuttons = awful.util.table.join(
     -- https://stackoverflow.com/a/22970288
     awful.button({ altkey }, 1,
         function (c)
-            c.maximized_horizontal = false
-            c.maximized_vertical   = false
+            c.maximized            = false
+            c.fullscreen           = false
             awful.mouse.client.move(c)
+            leaved.mouse.move(c)
         end),
     awful.button({ altkey }, 3,
         function (c)
-            c.maximized_horizontal = false
-            c.maximized_vertical   = false
+            c.maximized            = false
+            c.fullscreen           = false
             awful.mouse.client.resize(c)
+            leaved.mouse.resize(c)
     end))
 
 -- Bind all key numbers to tags.
