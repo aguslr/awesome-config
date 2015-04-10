@@ -851,8 +851,8 @@ globalkeys = awful.util.table.join(
 
     -- Modules
     -- awesome-leaved
-    awful.key({ modkey            }, "s",       leaved.keys.splitH),        -- split next horizontal
-    awful.key({ modkey            }, "v",       leaved.keys.splitV),        -- split next vertical
+    awful.key({ modkey            }, "v",       leaved.keys.splitH),        -- split next horizontal
+    awful.key({ modkey            }, "s",       leaved.keys.splitV),        -- split next vertical
     awful.key({ modkey, "Shift"   }, "o",       leaved.keys.splitOpp),      -- split in opposing direction
     awful.key({ modkey, "Shift"   }, "t",       leaved.keys.shiftStyle),    -- switch: notabs-tabs-stack
 
