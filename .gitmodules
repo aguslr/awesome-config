@@ -4,9 +4,9 @@
 [submodule ".config/awesome/lain"]
 	path = .config/awesome/lain
 	url = https://github.com/copycat-killer/lain.git
-[submodule ".config/awesome/shifty"]
-	path = .config/awesome/shifty
-	url = https://github.com/cdump/awesome-shifty.git
 [submodule ".config/awesome/vicious"]
 	path = .config/awesome/vicious
 	url = http://git.sysphere.org/vicious
+[submodule ".config/awesome/awesome-shifty"]
+	path = .config/awesome/awesome-shifty
+	url = https://github.com/cdump/awesome-shifty.git

@@ -15,7 +15,7 @@ local menubar = require("menubar")
 require("debian.menu")
 
 -- Shifty library
-local shifty = require("shifty")
+local shifty = require("awesome-shifty")
 
 -- Widget libraries
 local vicious = require("vicious")
