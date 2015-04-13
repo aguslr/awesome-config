@@ -1,12 +1,12 @@
-[submodule "shifty"]
-	path = shifty
-	url = https://github.com/cdump/awesome-shifty.git
-[submodule "lain"]
-	path = lain
-	url = https://github.com/copycat-killer/lain.git
-[submodule "awesome-leaved"]
-	path = awesome-leaved
+[submodule ".config/awesome/awesome-leaved"]
+	path = .config/awesome/awesome-leaved
 	url = https://github.com/michaelbeaumont/awesome-leaved.git
-[submodule "vicious"]
-	path = vicious
+[submodule ".config/awesome/lain"]
+	path = .config/awesome/lain
+	url = https://github.com/copycat-killer/lain.git
+[submodule ".config/awesome/shifty"]
+	path = .config/awesome/shifty
+	url = https://github.com/cdump/awesome-shifty.git
+[submodule ".config/awesome/vicious"]
+	path = .config/awesome/vicious
 	url = http://git.sysphere.org/vicious
