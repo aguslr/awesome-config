@@ -46,8 +46,18 @@ Unix environment available:
 wget https://github.com/aguslr/awesome-config/tarball/master -O - | tar -xzv --strip-components 1 --exclude={README.md,demo.gif}
 ```
 
+### Installing with Stow
+
+To easily create and manage links to the files we can use [GNU Stow][stow] as
+follows:
+
+```sh
+stow -vt ~/.config -S .config
+```
+
 ## Demo
 
 ![Demo GIF](demo.gif "Demo")
 
 [awesome]: http://awesome.naquadah.org/
+[stow]:  https://www.gnu.org/software/stow/
