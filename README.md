@@ -2,8 +2,8 @@
 
 ## About
 
-This repository stores my configuration of [Awesome WM][awesome], which is *a
-highly configurable, next generation framework window manager for X*.
+This repository stores my configuration of [Awesome WM][awesome], *a highly
+configurable, next generation framework window manager for X*.
 
 ## Getting the files
 
@@ -52,12 +52,12 @@ To easily create and manage links to the files we can use [GNU Stow][stow] as
 follows:
 
 ```sh
-stow -vt ~/.config -S .config
+stow -vt ~ -S .
 ```
 
 ## Demo
 
 ![Demo GIF](demo.gif "Demo")
 
-[awesome]: http://awesome.naquadah.org/
+[awesome]: https://awesomewm.org/
 [stow]:  https://www.gnu.org/software/stow/
