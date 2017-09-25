@@ -15,13 +15,13 @@ repository.
 For Git version 1.6.5 or later:
 
 ```sh
-git clone --recursive git://github.com/aguslr/awesome-config.git
+git clone --recursive https://github.com/aguslr/awesome-config
 ```
 
 For older versions:
 
 ```sh
-git clone git://github.com/aguslr/awesome-config.git && cd awesome-config && git submodule init && git submodule update
+git clone https://github.com/aguslr/awesome-config && cd awesome-config && git submodule init && git submodule update
 ```
 
 After this, every time we want to update the files we do:
