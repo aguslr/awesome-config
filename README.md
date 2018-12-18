@@ -57,7 +57,7 @@ stow -vt ~ -S .
 
 ## Demo
 
-![Demo GIF](demo.gif "Demo")
+![Demo GIF](https://gitlab.com/aguslr/awesome-config/raw/master/demo.gif "Demo")
 
 [awesome]: https://awesomewm.org/
 [stow]:  https://www.gnu.org/software/stow/
