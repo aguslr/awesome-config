@@ -15,13 +15,13 @@ repository.
 For Git version 1.6.5 or later:
 
 ```sh
-git clone --recursive https://github.com/aguslr/awesome-config
+git clone --recursive https://gitlab.com/aguslr/awesome-config
 ```
 
 For older versions:
 
 ```sh
-git clone https://github.com/aguslr/awesome-config && cd awesome-config && git submodule init && git submodule update
+git clone https://gitlab.com/aguslr/awesome-config && cd awesome-config && git submodule init && git submodule update
 ```
 
 After this, every time we want to update the files we do:
@@ -43,7 +43,7 @@ If Git is not installed, we can still get the files as long as we have a basic
 Unix environment available:
 
 ```sh
-wget https://github.com/aguslr/awesome-config/tarball/master -O - | tar -xzv --strip-components 1 --exclude={README.md,demo.gif}
+wget https://gitlab.com/aguslr/awesome-config/-/archive/master/awesome-config-master.tar.gz -O - | tar -xzv --strip-components 1 --exclude={README.md,demo.gif}
 ```
 
 ### Installing with Stow
