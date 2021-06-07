@@ -43,7 +43,7 @@ If Git is not installed, we can still get the files as long as we have a basic
 Unix environment available:
 
 ```sh
-wget https://gitlab.com/aguslr/awesome-config/-/archive/master/awesome-config-master.tar.gz -O - | tar -xzv --strip-components 1 --exclude={README.md,demo.gif}
+wget https://gitlab.com/aguslr/awesome-config/-/archive/main/awesome-config-main.tar.gz -O - | tar -xzv --strip-components 1 --exclude={README.md,demo.gif}
 ```
 
 ## Installing with Stow
@@ -57,7 +57,7 @@ stow -vt ~ -S .
 
 ## Demo
 
-![Demo GIF](https://gitlab.com/aguslr/awesome-config/raw/master/demo.gif "Demo")
+![Demo GIF](https://gitlab.com/aguslr/awesome-config/raw/main/demo.gif "Demo")
 
 [awesome]: https://awesomewm.org/
 [stow]:  https://www.gnu.org/software/stow/
